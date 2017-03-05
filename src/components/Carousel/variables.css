@@ -1,0 +1,149 @@
+:root{
+/* font-size: calc( 10 / 16) ;*/
+/*  font-size: 20px ;*/
+  font-size: 3vw;
+  color: azure;
+}
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+/*  width: var(--largeur);*/
+  width: 10em;
+  font-size: 1rem;
+  font-size: var(--largeur);
+  background-color: red;
+}
+
+.titre{
+  font-size: 1.6em;
+  
+}
+
+#conteneur-carousel{
+  width: 100%;
+  height: 50vh;
+  background-color: #dbf2f5;
+  background-image: linear-gradient(to top, rgba(6, 153, 252, 0.5), rgba(211, 250, 250, 0.05));
+  border: 1px solid blue ;
+}
+
+.losange-volant{
+  fill:#2fc5e8;
+  opacity: 1;
+}
+
+.losange-volant-transition{
+  transition: opacity 0.95s;
+}
+.losange-volant-enter{
+  opacity: 1;
+}
+.losange-volant-leave{
+  opacity: 0;
+}
+
+.losange{
+  position: absolute;
+/*   top: calc(50% - 200px);*/
+  top: 120px;
+  left: calc(50% - 200px);
+  height: 390px;
+  width: 390px;
+  overflow: hidden;
+  background-color: #53addd;
+  transform: rotateZ(-37deg) skewX(16deg);
+}
+
+.contents-losange{
+  position: absolute;
+  height: 390px;
+  width: 390px;
+  background-color: red;
+  overflow: hidden;
+}
+
+.conteneur-img{
+  transform: skewX(-16deg) rotateZ(37deg) scale(1.41);
+  will-change: transform, opacity;
+}
+
+.demix{
+/*  width: 145%;*/
+  transform: scale(1.45);
+}
+
+.conteneur-img img{
+  width: 100%;
+}
+
+
+div.contents-losange.current-slide{
+  opacity: 1;
+/*  // transition: transform 4s linear ;*/
+}
+
+
+div.contents-losange:nth-child(odd).current-slide{
+
+/* 
+.contents-losange.odd.current-slide{
+*/
+  background-color: yellow;
+  
+/*   transform: translateX(100%); */
+  animation: tran-l-to-r 4s ease-out 1;
+}
+
+.contents-losange:nth-child(odd){
+/*
+.contents-losange.odd{
+*/
+  transform: translateX(-100%);
+  opacity: 0; 
+}
+
+@keyframes tran-l-to-r {
+  from { 
+    transform: translateX(100%); 
+    opacity: 0; 
+  }
+  
+  20% {opacity: 1;}
+  60% {opacity: 1;}
+
+  to { 
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+
+div.contents-losange:nth-child(even).current-slide{
+
+/*
+  div.contents-losange.even.current-slide{
+  */
+/*   transform: translateY(100%); */
+  background-color: coral;
+  animation: tran-r-to-l 4s ease-out 1;
+}
+
+.contents-losange:nth-child(even){
+/* 
+.contents-losange.even{
+*/
+  background-color: magenta;
+  transform: translateY(-100%); 
+  opacity: 0;  
+}
+
+@keyframes tran-r-to-l {
+    from { transform: translateY(100%);opacity: 0; }
+  
+  20% {opacity: 1;}
+  60% {opacity: 1;}
+    to { transform: translateY(-100%); opacity: 0;}
+}

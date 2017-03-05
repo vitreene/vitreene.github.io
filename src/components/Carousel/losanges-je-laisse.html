@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <link rel="stylesheet" href="variables.css">
+  <meta charset="UTF-8">
+  <title>css- variables</title>
+</head>
+<body>
+
+<blink>tututu</blink>
+
+<div id="conteneur-carousel">
+<div class="carousel losange">
+ 
+  <div class="contents-losange">
+      <div class="demix">
+          <div class="conteneur-img">
+      <img src="./osciller/DSC_0041.JPG" alt=""/>
+    </div>
+    </div>
+  </div>
+  
+  <div class="contents-losange">
+   <div class="conteneur-img">
+      <div class="demix">
+           <img src="./osciller/e356utrtghdfbcfvnvb.jpg" alt=""/>
+    </div>
+    </div>
+  </div>
+  
+  <div class="contents-losange">
+    <div class="conteneur-img">
+     <div class="demix">
+          <img src="./osciller/IMG_0565-2.jpg" alt=""/>
+      </div>
+      </div>
+  </div>
+  
+  <div class="contents-losange">
+     <div class="conteneur-img">
+     <div class="demix">
+      <img src="./home-huwans-vgn.jpg" alt=""/>
+     </div>
+      </div>
+  </div>
+  
+</div>
+  
+  <svg id="motif-losange" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" >
+  
+  <defs>
+    <pattern id="motif-losange" patternUnits="userSpaceOnUse" x="0" y="0" width="40" height="30">
+    <g stroke="#2fc5e8" fill="none" stroke-width="1">
+      <line x1="0" y1="0" x2="40" y2="30"/>
+      <line x1="40" y1="0" x2="0" y2="30"/>
+    </g>
+    </pattern>
+  <path id="losange" d="M0,0 l20,-15 l20,15 l-20,15 z"/>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#motif-losange)" />
+
+  </svg>
+</div>
+
+<script type="text/javascript">
+  
+  (function cinqLosanges(){
+    
+
+    var _SVG = 'http://www.w3.org/2000/svg' ;
+    var _XLINK = "http://www.w3.org/1999/xlink";
+    var _W = 40; // largeur du motif
+    var _H = 30; // hauteur du motif
+
+    var motif = document.getElementById('motif-losange') ;
+    var dims = motif.getBoundingClientRect() ;
+    var use = [];
+
+    for (var i=0; i<5 ; i++){
+      use[i] = document.createElementNS(_SVG, 'use') ;
+      use[i].setAttributeNS(_XLINK, 'href', '#losange') ;
+      use[i].setAttribute('class', 'losange-volant losange-volant-transition') ;
+      use[i].setAttribute('id', 'lose0' + (i+1) ) ;
+      use[i].setAttribute('style', 'transition-delay:'+i*200+'ms') ;
+      motif.appendChild(use[i]) ;
+    };
+
+
+    setInterval( movePosition, 5000) ;
+    movePosition();
+
+    function movePosition(){  
+      use.reduce( function(prec,losange){
+        pos = position(losange, prec ) ;
+        var los = nearPosition(pos) ;
+      //  console.log('losange :', los) ;
+        return los ;
+        }, randomPosition(dims) )
+    }
+
+    function position(forme, position) {
+      forme.style.opacity=0;
+
+      setTimeout(newPosition,1000) ;
+
+      function newPosition(){
+        forme.style.opacity='';
+        forme.setAttribute('x', position.x) ;
+        forme.setAttribute('y', position.y) ; 
+      }
+
+      return {x:position.x, y:position.y} ;
+    }
+
+
+    function randomPosition(dimensions) {
+      return {
+      x: Math.round(Math.random() * dimensions.width/_W)*_W,
+      y: Math.round(Math.random() * dimensions.height/_H)*_H
+      }
+    }
+
+    function nearPosition(position) {
+      var variation = {x:4,y:3} ;
+      return {
+        x: Math.round((Math.random()-0.5) * variation.x)*_W + position.x,
+        y: Math.round((Math.random()-0.5) * variation.y)*_H + position.y,
+      }
+    }
+  })();
+  
+  
+  (function carouselPlayer(){
+    var slides = document.querySelectorAll('.carousel .contents-losange');
+    var duree = 2;
+    var current = 0;
+    var qte = slides.length;
+    
+    // for (var i=0; i< qte ; i++){ addTransitionEvent(slides[i]); }
+    for (var i=0; i< qte ; i++){ 
+      addAnimEvent(slides[i]); 
+//      slides[i].classList.add( (i%2 ) ? 'even' : 'odd') ;
+    }
+    
+    passeVue();
+
+    function passeVue(){
+      // console.log('current', current);
+      slides[current].classList.add('current-slide');
+      current = (current+1) % qte;
+      
+      var pass = setTimeout(passeVue, duree*1000);
+    };
+    
+    function addTransitionEvent(slide) {
+      slide.addEventListener('transitionend', removeClasseOnEnd);
+      };
+    
+    function addAnimEvent(slide) {
+      slide.addEventListener('animationend', removeClasseOnEnd);
+      };
+    
+    function removeClasseOnEnd(slide) {
+      this.classList.remove('current-slide');
+    }
+    
+  })();
+  </script>
+</body>
+</html>

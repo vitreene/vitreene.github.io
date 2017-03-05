@@ -1,0 +1,111 @@
+.conteneurCarousel{
+  width: 100%;
+  height: 50vh;
+  background-color: #dbf2f5;
+  background-image: linear-gradient(to top, rgba(6, 153, 252, 0.5), rgba(211, 250, 250, 0.05));
+  border: 1px solid blue ;
+}
+
+.losange{
+  position: absolute;
+  top: 120px;
+  left: calc(50% - 200px);
+  height: 390px;
+  width: 390px;
+  overflow: hidden;
+  background-color: #53addd;
+  transform: rotateZ(-37deg) skewX(16deg);
+}
+
+.contentsLosange{
+  position: absolute;
+  height: 390px;
+  width: 390px;
+  background-color: red;
+  overflow: hidden;
+  /*outline: 6px solid blue;*/
+}
+
+/*
+la diagonale du losange est mesurée avec cette formule
+coté : 390px
+angle : 90+16 degrés
+diagonale : 390 * ( Math.sin( 106 * Math.PI / 180)) * 2
+resultat arrondi :750px
+*/
+
+.conteneurImg{
+    /*
+transform-origin: center;
+opacity: 0.8;
+  transform: skewX(-16deg) rotateZ(37deg);
+  will-change: transform, opacity;
+  min-width: 750px;
+  height: auto;
+  */
+}
+
+img{
+  width: 100%;
+}
+
+.demix{
+      will-change: transform, opacity;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 750px;
+      min-height: 750px;
+      transform-origin: center center;
+      transform: skewX(-16deg) rotateZ(37deg) translate(-40%,-0%);
+}
+
+.currentSlide{
+  opacity: 1;
+}
+
+.currentSlideOdd{
+  opacity: 1;
+  background-color: yellow;
+  animation: tran-l-to-r 4s ease-out 1;
+}
+
+.contentsLosangeOdd{
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.currentSlideEven{
+  opacity: 1;
+  background-color: coral;
+  animation: tran-r-to-l 4s ease-out 1;
+}
+
+.contentsLosangeEven{
+  background-color: magenta;
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+@keyframes tran-r-to-l {
+    from { transform: translateY(100%);opacity: 0; }
+
+  20% {opacity: 1;}
+  60% {opacity: 1;}
+    to { transform: translateY(-100%); opacity: 0;}
+}
+
+@keyframes tran-l-to-r {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  20% {opacity: 1;}
+  60% {opacity: 1;}
+
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,26 @@
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans:300,500,700,300italic);
+@import url(https://fonts.googleapis.com/css?family=Abril+Fatface);
+
+// variables
+$white: white;
+$couleur-fond-logo : #1AC2E6 ;
+$couleur-logo : #004080 ;
+$couleur-icon-text : rgb(128, 160, 193) ;
+$couleur-fond-post : rgba(235,245,255,0.4)  ;
+$couleur-fond-post-opaque : rgb(247, 251, 255)  ;
+$couleur-fond-body : $white ;
+$max-width : 1000px;
+
+
+//imports
+@import "prism";
+@import "custom";
+@import "vitreene";
+@import "home";
+@import "posts";
+//@import "portfolio";
+//@import "portfolio-react";
+@import "menu";
+// @import "footer";
+@import "contact";
+@import "icones";

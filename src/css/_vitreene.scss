@@ -1,0 +1,178 @@
+
+
+.font-heading {
+  font-family: "Abril Fatface", serif;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  line-height: 120%;
+  color: $couleur-fond-logo  ;
+}
+
+h1{
+  @extend .font-heading ;
+  font-size: 2.6em ;
+
+  @media (max-width: 700px){
+    font-size: 2em ;
+  }
+  @media (min-width: 1000px){
+    font-size: 3.4em ;
+  }
+
+}
+h1 small{
+  font-size: 71%;
+}
+
+h2{
+  @extend .font-heading ;
+  margin: 1.5em 0 0.5em;
+  text-align: left ;
+  font-size: 1.8em ;
+  @media (max-width: 700px){
+    font-size: 1.4em ;
+  }
+  @media (min-width: 1000px){
+    font-size: 2em ;
+  }
+
+}
+h3,
+h4 {
+  //font-family: "Fira Sans", sans-serif;
+  font-weight: 700;
+  margin: 1em 0 0 ;
+}
+h5{
+  margin: 0.5em 0 0 ;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: $couleur-logo ;
+
+}
+ul{
+  padding: 0 ;
+}
+li{
+  list-style-type: none ;
+}
+
+a{
+  text-decoration: none;
+  color:inherit;
+  &:hover{
+    color: $couleur-logo ;
+    transition: color 0.5s ;
+  }
+}
+p{
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 100;
+  text-align: justify;
+}
+img + p {
+  margin-top: 1em;
+}
+
+/* LAYOUT
+///////////////////////////////////////// */
+
+body {
+  @extend .background-body ;
+  margin : 0;
+  padding: 0;
+  font-family: "Fira Sans", sans-serif;
+  line-height: 1.6;
+}
+
+#phenomic,
+.conteneur{
+  //width: 100%;
+  margin: 0 auto;
+  padding-top: 30px ;
+  max-width: $max-width ;
+  border-left: 1px solid $couleur-logo ;
+  border-right: 1px solid $couleur-logo ;
+  // outline: 1px green solid;
+
+}
+
+// LIENS VISIBLES
+.propos a {
+  color: $couleur-logo;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.propos a:hover{
+    color: $couleur-fond-logo ;
+    text-decoration: underline;
+    text-decoration-color: currentColor ;
+  }
+
+
+// BOUTONS
+  svg{
+    .s0{
+      fill:$couleur-logo;
+      fill-opacity : 0.5;
+    }
+    .s1{
+      fill: $couleur-fond-body ;
+      stroke-width: 3 ;
+      stroke: $couleur-logo ;
+    }
+    &:hover .s1{
+    //  fill:red;
+    }
+    .s2{
+      fill: none ;
+      stroke-width: 4 ;
+      stroke : $couleur-logo ;
+    }
+    .next:hover .s1,
+    .prec:hover .s1,
+    .close:hover .s1{
+      fill:$couleur-fond-logo;
+    }
+  }
+
+  button:hover  .s1{
+    fill:$couleur-fond-logo;
+  }
+
+
+/* EXTENDS
+///////////////////////////////////////// */
+.logo-content{
+  border-radius: 50%;
+  background-color: $couleur-fond-logo  ;
+  // background-image: url(icones/vitreene-logo.svg);
+  background-repeat: no-repeat;
+  background-position: center 60%;
+}
+
+.background-body{
+  background-color: $couleur-fond-body ;
+  // background-image: url(icones/trame-fond-01.png);
+  background-attachment: fixed;
+  background-origin: border-box;
+}
+
+/* ANIMATIONS
+///////////////////////////////////////// */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  } to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.fade-in {
+  animation: fadeIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+}
