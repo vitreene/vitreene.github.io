@@ -1,3 +1,4 @@
+import "babel-polyfill" // compatibilité iphone ios 7.1
 // Hot loading HRM Patch
 import "react-hot-loader/patch"
 // fetch polyfill

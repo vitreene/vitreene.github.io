@@ -11,12 +11,13 @@ import Menu from "./components/Menu"
 import Content from "./components/Content"
 import Footer from "./components/Footer"
 
+const isClient = typeof window !== "undefined";
+
 const AppContainer = (props) => {
-    const {menu, toggle} = props;
     return (
       <Container>
           <DefaultHeadMeta />
-          <Menu menu={menu} toggle={toggle}/>
+          <Menu/>
           <Content>
               { props.children }
           </Content>
@@ -31,16 +32,20 @@ AppContainer.propTypes = {
   toggle: PropTypes.func,
 }
 
+/*
+media queries avec React :
+https://github.com/d6u/react-container-query
+*/
 
 function stateMenu(Comp){
     class StateMenu extends Component{
-        /*
-        static propTypes = {
-            isOpen: PropTypes.bool,
-            isVisible: PropTypes.bool,
-            isAside: PropTypes.bool
-        };
-        */
+        // static displayName = `StateMenu(${Comp.displayName})`;
+
+        static childContextTypes = {
+            menu: PropTypes.object,
+            toggle: PropTypes.func,
+        }
+
         constructor(props) {
             super(props);
             this.toggle = this.toggle.bind(this);
@@ -48,19 +53,28 @@ function stateMenu(Comp){
             this.state = {
                 isOpen: true,
                 isVisible: true,
-                isAside: false
+                isAside: false,
+                hasHover: false,
             };
         }
+
+        getChildContext() {
+            const {toggle, state} = this;
+            return { menu: {...state}, toggle };
+        }
+
         componentWillMount() {
-            window.addEventListener("scroll" , this.scrollAtTop );
+            isClient && window.addEventListener("scroll" , this.scrollAtTop );
         }
         componentWillUnmount() {
-            window.removeEventListener("scroll" , this.scrollAtTop );
+            isClient && window.removeEventListener("scroll" , this.scrollAtTop );
         }
 
         scrollAtTop(){
-            (window.pageYOffset < 30) && console.log('-->TOP');
-            this.setState({isOpen: (window.pageYOffset < 30) });
+            if (isClient){
+                const isOpen = (window.pageYOffset < 30);
+                (this.state.isOpen !== isOpen) && this.setState({isOpen});
+            }
         }
 
         toggle(action, forcer){
@@ -71,16 +85,9 @@ function stateMenu(Comp){
         }
 
         render() {
-            return (
-                <Comp
-                    {...this.props}
-                    menu={this.state}
-                    toggle={this.toggle}
-                />
-            );
+            return ( <Comp {...this.props}/> );
         }
     }
-    StateMenu.displayName = `StateMenu(${Comp.displayName})`;
     return StateMenu;
 }
 

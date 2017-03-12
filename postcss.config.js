@@ -1,7 +1,7 @@
 module.exports = (config) => [
     require("stylelint")(),
     require("postcss-cssnext")({
-      browsers: "last 2 versions",
+      browsers: ["last 2 versions", "iOS 7"],
       features: {
         customProperties: {
           variables: {

@@ -1,12 +1,13 @@
 .menuHeader{
     position: fixed;
+    top: 20px;
     display: flex;
     justify-content: flex-start;
     /*padding-top: 30px;*/
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 0 0 2rem;
 
 }
 
@@ -15,7 +16,7 @@
 }
 
 .headerCache{
-
+    display: none;
 }
 
 .menuLinks:before{
@@ -24,36 +25,38 @@
   z-index: -1;
   width: 150vw;
   height: 60px;
-  top: -30px;
+  top: -20px;
   left: -50%;
   background-color: aliceblue ;
 }
+
 .menuLinks{
-  position: relative;
+  /*position: relative;*/
   display: flex;
-  flex-flow: row;
+  flex-flow: row wrap;
   flex-grow: 1;
-  justify-content:space-between ;
-  align-items: center;
-  padding: 0 2rem 0 1rem ;
+  justify-content:flex-end;
+
+  padding: 0 1rem 0 0.5rem ;
   transition: all 0.6s;
+  /*outline: 1px solid red;*/
 }
 
-.menuLinks li {
+.menuLinks a {
+    margin-left: 2rem;
     text-transform: uppercase;
     color: var(--textMenu);
+    font-weight: 300;
+    text-align: left;
 }
 
-@media (max-width: 500px) {
-    .menuLinks {
-        padding: 0 1rem 0 0 ;
+@media (max-width: 600px) {
+    .menuLinks{
+        align-content: center;
+        height: 4rem;
     }
-    .menuLinks.icoItem {
-        font-size: 0;
-    }
-    .icoItem span {
-        width: 3.2rem;
-        height: 2.1rem;
+    .menuLinks::before {
+        height: 6rem;
     }
 }
 
@@ -67,29 +70,57 @@
 }
 
 .logoMenu{
-    display: inline-block;
     flex-shrink: 0;
-    width: 84px;
-    height: 84px;
-    padding: 12px;
-    padding-top: 16px;
-    /*background-size: 55px;*/
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    width: 110px;
+    height: 110px;
+    padding: 20px;
+    padding-top: 25px;
     border-radius: 50%;
     background-color: #1AC2E6;
-    background-repeat: no-repeat;
-    background-position: center 60%;
     z-index: 1;
     transition: all 0.3s;
     box-shadow: none;
     border:none;
 }
+
+.logoAddHover:after{
+    content: "";
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center 60%;
+    background-image: linear-gradient(to top, #D42BA2, #46E0FF) ;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.logoAddHover:hover:after{
+    opacity: 1;
+}
+
+.logoWrap{
+    pointer-events: none;
+}
+
 .logoMenu:focus{
     outline:none;
 }
 
 @media (max-width:700px){
     .logoMenu{
-        transform: translateX(-46px) rotateZ(90deg);
+        position: relative;
+        transform: translateX(-96px) rotateZ(90deg);
+        margin-right: -96px;
     }
 }
 
@@ -97,9 +128,17 @@
 }
 
 .logoFerme{
+    transform: translate(-32px, -16px) scale(0.71);
 }
 
 .logoAside{
+}
+
+.itemMenuAccueil{
+    animation: accueilmenu 1.5s ease-out;
+}
+.menuSpacer{
+    flex: 1 0;
 }
 
 @keyframes accueilmenu{

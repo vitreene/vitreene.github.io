@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "autosite",
-  "homepage": "http://vitreene.com",
+  "homepage": "http://localhost:8888/autosite/",
   "twitter": "",
   "repository": "",
   "scripts": {

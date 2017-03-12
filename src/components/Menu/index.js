@@ -4,78 +4,93 @@ import Svg from "react-svg-inline"
 
 import styles from "./index.css"
 import vitreene from '../icones/vitreene-logo.svg'
-import contact from '../icones/ico-contact.svg'
-import apropos from '../icones/ico-apropos.svg'
+// import contact from '../icones/ico-contact.svg'
+// import apropos from '../icones/ico-apropos.svg'
 
 export default class Menu extends React.Component {
-
-    static propTypes = {
+    //
+    // static propTypes = {
+    //     menu: PropTypes.object,
+    //     toggle: PropTypes.func,
+    // };
+    //
+    static contextTypes = {
         menu: PropTypes.object,
         toggle: PropTypes.func,
-        // isOpen: PropTypes.bool,
-        // isVisible: PropTypes.bool,
-        // isAside: PropTypes.bool
     };
 
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
         this.toggleMenu = this.toggleMenu.bind(this);
-        // this.closeMenu = this.closeMenu.bind(this);
+        this.canTouch = this.canTouch.bind(this);
         this.state = {};
+        this.isTouch = false;
     }
 
-    toggleMenu() { this.props.toggle('isOpen'); }
-    // closeMenu() { this.props.toggle('isOpen', false); }
-    render() {
-        const {isOpen, isVisible, isAside} = this.props.menu;
+    toggleMenu() { this.context.toggle('isOpen'); }
+    canTouch() {this.isTouch = true ;}
 
-        // const {toggle} = this.props;
+    render() {
+        const {isOpen, isVisible, isAside} = this.context.menu;
+        const {isTouch} = this;
+
         const headerVisible = [
             styles.menuHeader,
             isVisible ? styles.headerVisible : styles.headerCache
-        ];
+        ].join(' ');
+
         const menuOpen = [
             styles.menuLinks,
             isOpen ? styles.menuOpen : styles.menuFerme
-        ];
+        ].join(' ');
+
         const logo = [
             styles.logoMenu,
             isOpen ? styles.logoOpen : styles.logoFerme,
-            isAside ? styles.logoAside : ''
-        ];
+            isAside ? styles.logoAside : '',
+            isTouch ? '' : styles.logoAddHover,
+        ].join(' ');
 
-        // console.log('TOGGLE isOpen ', isOpen, menuOpen);
+        const accueilMenu = [
+            isOpen ? styles.itemMenuAccueil : '',
+            styles.icoItem
+        ].join(' ');
 
         return (
-            <header className={headerVisible.join(' ')}>
+            <header className={headerVisible}>
 
-                <button className={logo.join(' ')} onClick={this.toggleMenu}>
-                    <Svg svg={vitreene} cleanup/>
+                <button className={logo}
+                    onClick={this.toggleMenu}
+                    onTouchStart={this.canTouch}>
+                    <Svg svg={vitreene} className={styles.logoWrap} cleanup/>
                 </button>
 
-                <nav id="menu" className={menuOpen.join(' ')}>
+                <nav id="menu" className={menuOpen}>
 
-                    <ul id='menu-links' className={styles.menuLinks}>
-                        <li id="menu-accueil" className={styles.icoItem}>
-                            <Link  to={"/"}>
-                                Accueil
-                            </Link>
-                        </li>
+                    <Link  to={"/"} className={accueilMenu}>
+                        Accueil
+                    </Link>
 
-                        <li>
-                            <Link to={"/about"}>
-                                {/* <Svg svg={apropos} cleanup/> */}
-                                A propos
-                            </Link>
-                        </li>
+                    <div className={styles.menuSpacer}></div>
 
-                        <li>
-                            <a href="#contact-modal">
-                                {/* <Svg svg={contact} cleanup/> */}
-                                Contact
-                            </a>
-                        </li>
-                    </ul>
+                    <div className={styles.menuGroup1}>
+                        <Link  to={"/articles"}>
+                            Articles
+                        </Link>
+                        <Link  to={"/portfolio"}>
+                            Portfolio
+                        </Link>
+                    </div>
+                    <div className={styles.menuGroup2}>
+                        <Link to={"/about"}>
+                            {/* <Svg svg={apropos} cleanup/> */}
+                            A propos
+                        </Link>
+                        <a href="#contact-modal">
+                            {/* <Svg svg={contact} cleanup/> className={styles.icoItem}*/}
+                            Contact
+                        </a>
+                    </div>
                 </nav>
 
             </header>
@@ -115,6 +130,47 @@ etats du menu : - ouvert au clic sur le logo; - ouvert lorsque on est en top pag
                 Contact</a>
         </li>
 
+    </ul>
+</nav>
+
+*/
+
+
+/*
+<nav id="menu" className={menuOpen.join(' ')}>
+
+    <ul id='menu-links' className={styles.menuLinks}>
+        <li id="menu-accueil" className={accueilMenu.join(' ')}>
+            <Link  to={"/"}>
+                Accueil
+            </Link>
+        </li>
+
+        <li className={styles.icoItem}>
+            <Link  to={"/portfolio"}>
+                Portfolio
+            </Link>
+        </li>
+
+        <li className={styles.icoItem}>
+            <Link  to={"/articles"}>
+                Articles
+            </Link>
+        </li>
+
+        <li>
+            <Link to={"/about"}>
+                <Svg svg={apropos} cleanup/>
+                A propos
+            </Link>
+        </li>
+
+        <li>
+            <a href="#contact-modal">
+                <Svg svg={contact} cleanup/>
+                Contact
+            </a>
+        </li>
     </ul>
 </nav>
 */
