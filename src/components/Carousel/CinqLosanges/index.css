@@ -1,0 +1,26 @@
+.losangeVolant{
+    fill:#2fc5e8;
+    /*opacity: 1;*/
+}
+
+.losangeVolantTransition{
+    animation: fadeIn infinite;
+    /*transition: opacity 0.95s;*/
+}
+
+.fondMotifLosange{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0;}
+    20% { opacity: 0.3;}
+    70% { opacity: 0.4}
+    80% { opacity: 1}
+    100% { opacity: 0}
+}

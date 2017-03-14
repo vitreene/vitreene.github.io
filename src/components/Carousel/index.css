@@ -1,214 +1,25 @@
-.conteneurCarousel
-{
+.title{
+    position: absolute;
+    bottom: 1rem;
     width: 100%;
-    height: 50vh;
+    font-size: 2.0rem;
+    font-family: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
+    text-transform: uppercase;
 
-    border: 1px solid blue ;
-    background-color: #dbf2f5;
-    background-image: linear-gradient(to top, rgba(6, 153, 252, .5), rgba(211, 250, 250, .05));
 }
-
-.losange
+.fondCarousel
 {
-    position: absolute;
-    top: 120px;
-    left: calc(50% - 200px);
-
-    overflow: hidden;
-
-    /*
-    width: 390px;
-    height: 390px
-    ;*/
-
-    transform: rotateZ(-37deg) skewX(16deg);
-    /*transform: rotateZ(-37deg) skewX(16deg)  translate3d(0,0,0);*/
-
-    background-color: #53addd;
-
-    /*backface-visibility: hidden;
-    transform-style: preserve-3d;*/
-}
-
-.contentsLosange
-{
-    position: absolute;
-
-    overflow: hidden;
-
-    /*width: 390px;
-    height: 390px;*/
-
-    background-color: red;
-
-    /*backface-visibility: hidden;
-    transform: translate3d(0,0,0);
-    transform-style: preserve-3d;*/
-    /*outline: 6px solid blue;*/
-}
-
-/*
-la diagonale du losange est mesurée avec cette formule
-coté : 390px
-angle : 90+16 degrés
-diagonale : 390 * ( Math.sin( 106 * Math.PI / 180)) * 2
-resultat arrondi :750px
-*/
-
-.conteneurImg
-{
-    /*
-transform-origin: center;
-opacity: 0.8;
-  transform: skewX(-16deg) rotateZ(37deg);
-  will-change: transform, opacity;
-  min-width: 750px;
-  height: auto;
-  */
-}
-
-img
-{
+    position: relative;
     width: 100%;
-}
+    height: 75vh;
+    max-height: 550px;
+    overflow: hidden;
+    text-align: center;
 
-.demix
-{
-    display: flex;
-
-    /*min-width: 750px;
-    min-height: 750px;*/
-
-    transform: skewX(-16deg) rotateZ(37deg) translate(-21%,9.5%);
-    /*transform: skewX(-16deg) rotateZ(37deg) translate(-40%,-0%) translateZ(0) ;*/
-    transform-origin: center center;
-
-    will-change: transform, opacity;
-    justify-content: center;
-    align-items: center;
-
-    /*backface-visibility: hidden;*/
-}
-
-/*
-force le compositing du layer : l'image disparait sinon sur les smartphones
-*/
-.losangeImg{
-    background-position: center;
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-
-.losangeOverlay{
-    position: absolute;
-    top: 0;
-    z-index: 99;
-    width: 750px;
-    height: 750px;
-    background-color: rgba(255, 0, 0, 0.05);
-    /*background-color: red;*/
-}
-.Xdemix:after{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 99;
-    width: 750px;
-    height: 750px;
-    background-color: rgba(255, 0, 0, 0.5);
-    /*background-color: red;*/
-}
-
-.currentSlide
-{
-    opacity: 1;
-}
-
-.currentSlideOdd
-{
-    animation-name: tran-l-to-r ;
-    /*animation-duration: 4s ;*/
-    animation-timing-function: ease-out ;
-    /*animation-delay: 1s;*/
-
-    opacity: 1;
-    background-color: yellow;
-}
-
-.contentsLosangeOdd
-{
-    transform: translateX(-100%) translateZ(0);
-
-    opacity: 0;
-}
-
-.currentSlideEven
-{
-    animation-name: tran-r-to-l ;
-    /*animation-duration: 4s ;*/
-    animation-timing-function: ease-out ;
-    /*animation-delay: 1s;*/
-    opacity: 1;
-    background-color: coral;
-}
-
-.contentsLosangeEven
-{
-    transform: translateY(-100%) translateZ(0);
-
-    opacity: 0;
-    background-color: magenta;
-}
-
-@keyframes tran-r-to-l
-{
-    0%
-    {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-
-    20%
-    {
-        opacity: 1;
-    }
-    60%
-    {
-        opacity: 1;
-    }
-    100%
-    {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-}
-
-@keyframes tran-l-to-r
-{
-    0%
-    {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-
-    20%
-    {
-        opacity: 1;
-    }
-    60%
-    {
-        opacity: 1;
-    }
-
-    100%
-    {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
+    background-color: #004080;
+    /*#dbf2f5;*/
+    background-repeat: repeat;
+    background-position-x: calc(50% - 200px);
+    /*background-image: linear-gradient(to top, rgba(0, 20, 80, .5), rgba(211, 250, 250, .05)),url(./trame-fond-03.png);*/
+    background-image: linear-gradient(to top, rgba(0, 20, 80, .5), rgba(211, 250, 250, .05));
 }

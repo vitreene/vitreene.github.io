@@ -1,44 +1,21 @@
 ---
-title: Phenomic base theme
+title: Front-end* Designer**
 layout: Homepage
-hero: https://farm4.staticflickr.com/3949/15589950511_3675b15e59_k.jpg
-# hero credit: https://www.flickr.com/photos/pslee999/15589950511/
-cta:
-  label: About this theme
-  link: "about"
----
-
-Hi there. Before having fun with Phenomic, be sure to read the documentation :
-
-* [How to setup a new project with Phenomic](https://phenomic.io/docs/setup/)
-* [Getting Started with Phenomic](https://phenomic.io/docs/getting-started/)
-* [Usage & APIs](https://phenomic.io/docs/usage/)
-* [FAQ](https://phenomic.io/docs/faq/)
-
-Also take a look at
-[existing websites that use Phenomic](https://phenomic.io/showcase/),
-some projects share their source code!
-
-<!-- demo to show you that you can use "assets" folder -->
-<small>
-  Built with
-  <a href="https://facebook.github.io/react/">
-    <img alt="" src="assets/react.svg" width="16" height="16" />
-    React
-  </a>.
-</small>
+diapos:
+    - 'DSC_0111-EARPHONES.jpg'
+    - 'DSC_0324.jpg'
+    - 'DSC_0329.jpg'
+    - 'nuit-react.jpg'
+    - 'axio-logo-linares.jpg'
+    - 'cg-la.jpg'
 
 ---
 
-You may want to take a look at the [404.html](/404.html) and tweak the render.
+Un site Web est un investissement qui procure plus de visibilité pour votre entreprise, et permet d’améliorer la relation à vos clients.
+Il doit être rapide à charger, être bien référencé, facile à utiliser et  disponible sur tout type d’appareil.
+C’est ce que je vous propose de réaliser ensemble.
 
-If you need to make adjustments, you can directly alter page layouts in
-``src/layouts/``;
-small things like the header, footer, buttons and so on can be changed in
-``src/components/``;
-and for colors and common CSS variables, you can modify ``postcss.config.js``.
-
-_You feel like the base theme is not enough or you just saw something wrong?_
-[Please help us make Phenomic better!](https://phenomic.io/contributing/)
+Je suis actuellement disponible pour de nouveaux projets.
+Rencontrons-nous !
 
 ---

@@ -11,8 +11,8 @@ const Post = (props) => {
 
   return (
     <Page
-      { ...props }
-      header={
+        { ...props }
+        header={
         <div>
           <header className={ styles.header }>
             {

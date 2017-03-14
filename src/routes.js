@@ -10,18 +10,18 @@ import Post from "./layouts/Post"
 
 const PageContainer = (props) => (
   <PhenomicPageContainer
-    { ...props }
-    layouts={{
-      Page,
-      PageError,
-      Homepage,
-      Post,
-    }}
+      { ...props }
+      layouts={{
+          Page,
+          PageError,
+          Homepage,
+          Post,
+      }}
   />
 )
 
 export default (
   <Route component={ AppContainer }>
-    <Route path="*" component={ PageContainer } />
+      <Route path="*" component={ PageContainer } />
   </Route>
 )

@@ -1,14 +1,9 @@
 .menuHeader{
     position: fixed;
-    top: 20px;
-    display: flex;
-    justify-content: flex-start;
-    /*padding-top: 30px;*/
+    padding-top: 20px;
+    /*top: 30px;*/
     width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 0 0 2rem;
-
+    z-index: 100;
 }
 
 .headerVisible{
@@ -18,15 +13,22 @@
 .headerCache{
     display: none;
 }
+.headerPosition{
+    display: flex;
+    justify-content: flex-start;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 0 0 2rem;
+}
 
 .menuLinks:before{
   content: '';
   position: absolute;
   z-index: -1;
-  width: 150vw;
+  width: 200vw;
   height: 60px;
   top: -20px;
-  left: -50%;
+  left: -100%;
   background-color: aliceblue ;
 }
 
@@ -132,6 +134,7 @@
 }
 
 .logoAside{
+    transform: rotate(90deg);
 }
 
 .itemMenuAccueil{

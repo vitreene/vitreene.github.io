@@ -58,42 +58,42 @@ export default class Menu extends React.Component {
 
         return (
             <header className={headerVisible}>
+                <div className={styles.headerPosition}>
+                    <button className={logo}
+                        onClick={this.toggleMenu}
+                        onTouchStart={this.canTouch}>
+                        <Svg svg={vitreene} className={styles.logoWrap} cleanup/>
+                    </button>
 
-                <button className={logo}
-                    onClick={this.toggleMenu}
-                    onTouchStart={this.canTouch}>
-                    <Svg svg={vitreene} className={styles.logoWrap} cleanup/>
-                </button>
+                    <nav id="menu" className={menuOpen}>
 
-                <nav id="menu" className={menuOpen}>
-
-                    <Link  to={"/"} className={accueilMenu}>
-                        Accueil
-                    </Link>
-
-                    <div className={styles.menuSpacer}></div>
-
-                    <div className={styles.menuGroup1}>
-                        <Link  to={"/articles"}>
-                            Articles
+                        <Link  to={"/"} className={accueilMenu}>
+                            Accueil
                         </Link>
-                        <Link  to={"/portfolio"}>
-                            Portfolio
-                        </Link>
+
+                        <div className={styles.menuSpacer}></div>
+
+                        <div className={styles.menuGroup1}>
+                            <Link  to={"/articles"}>
+                                Articles
+                            </Link>
+                            <Link  to={"/portfolio"}>
+                                Portfolio
+                            </Link>
+                        </div>
+                        <div className={styles.menuGroup2}>
+                            <Link to={"/about"}>
+                                {/* <Svg svg={apropos} cleanup/> */}
+                                A propos
+                            </Link>
+                            <a href="#contact-modal">
+                                {/* <Svg svg={contact} cleanup/> className={styles.icoItem}*/}
+                                Contact
+                            </a>
+                        </div>
+                    </nav>
                     </div>
-                    <div className={styles.menuGroup2}>
-                        <Link to={"/about"}>
-                            {/* <Svg svg={apropos} cleanup/> */}
-                            A propos
-                        </Link>
-                        <a href="#contact-modal">
-                            {/* <Svg svg={contact} cleanup/> className={styles.icoItem}*/}
-                            Contact
-                        </a>
-                    </div>
-                </nav>
-
-            </header>
+                </header>
         );
     }
 }
