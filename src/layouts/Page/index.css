@@ -1,6 +1,8 @@
 .page {
   display: flex;
   flex-direction: column;
+  align-items: center;
+    margin-top: 9rem;
 }
 
 .wrapper {
@@ -9,7 +11,8 @@
   align-self: center;
   width: 100%;
   max-width: var(--maxWidth);
-  padding: 1rem 0.75rem;
+  /*padding: 1rem 4.5rem;*/
+  /*padding: 1rem 0.75rem;*/
 }
 
 .hero {
@@ -25,18 +28,22 @@
 }
 
 .header {
+    width: 100%;
+    max-width: var(--maxWidth);
   display: flex;
   flex-direction: column;
-  padding: 5rem 0;
-  padding: 10vh 0;
+  /*padding: 5rem 0;*/
+  /*padding: 10vh 0;*/
   text-align: center;
+/*
   background: linear-gradient(
     to bottom,
     var(--colorPrimaryDark),
     color(var(--colorPrimary) a(0.2))
   );
+  */
 }
-
+/*
 .heading {
   color: var(--colorNeutralLight);
   text-shadow:
@@ -46,7 +53,7 @@
   ;
   letter-spacing: 1px;
 }
-
+*/
 .cta {
   margin-top: 2rem;
 }
@@ -56,6 +63,10 @@
 }
 
 .body {
+    width: 100%;
+    max-width: var(--maxWidth);
+    padding: 1rem 9rem;
+
   & a {
     color: var(--colorPrimary);
     transition: all 0.2s;
@@ -64,7 +75,8 @@
 
     &:hover {
       opacity: 1;
-      color: color(var(--colorPrimary) l(- 5%));
+      /*color: color(var(--colorPrimary) l(- 5%));*/
+      color: red;
       border-bottom-color: var(--colorPrimary);
     }
   }

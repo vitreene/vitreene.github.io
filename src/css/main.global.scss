@@ -13,7 +13,7 @@ $max-width : 1000px;
 
 
 //imports
-@import "prism";
+// @import "prism";
 @import "custom";
 @import "vitreene";
 @import "home";
@@ -24,3 +24,4 @@ $max-width : 1000px;
 // @import "footer";
 @import "contact";
 @import "icones";
+@import "roue-fortune"; // optimiser avec Helmet

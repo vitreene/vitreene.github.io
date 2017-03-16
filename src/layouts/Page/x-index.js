@@ -8,7 +8,6 @@ import Loading from "../../components/Loading"
 
 import styles from "./index.css"
 
-const URL = process.env.PHENOMIC_USER_URL;
 const Page = (
   {
     isLoading,
@@ -49,24 +48,36 @@ const Page = (
     { name: "twitter:description", content: head.description },
     { name: "twitter:image", content: socialImage },
     { name: "description", content: head.description },
-];
-const script = (head.js) &&
-    head.js
-    .map( j => require('../../js/' + j+'.js') )
-    .map( s => s.default() );
-
-  // console.log('head', head);
-  // console.log('script', head.js, script);
+  ]
+  console.log('head', head);
   return (
     <div className={ styles.page }>
         <Helmet
             title={ metaTitle }
             meta={ meta }
         />
-        <div className={ styles.header }>
-            <h1 className={ styles.heading }>{ head.title }</h1>
-        </div>
-
+        {
+            <div
+                className={ styles.hero }
+                style={ head.hero && {
+            background: `#111 url(${ head.hero }) 50% 50% / cover`,
+                } }
+            >
+                <div className={ styles.header }>
+                    <div className={ styles.wrapper }>
+                        <h1 className={ styles.heading }>{ head.title }</h1>
+                        {
+                            head.cta &&
+                                <Link to={ head.cta.link }>
+                                    <Button className={ styles.cta } light { ...head.cta.props }>
+                                        { head.cta.label }
+                                    </Button>
+                                </Link>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
         <div className={ styles.wrapper + " " + styles.pageContent }>
             { header }
             <div className={ styles.body }>
@@ -78,7 +89,6 @@ const script = (head.js) &&
             </div>
             { children }
             { footer }
-            { script }
         </div>
     </div>
   )

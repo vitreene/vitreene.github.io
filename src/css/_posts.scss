@@ -5,40 +5,14 @@
 .post-articles{
   margin: 0 auto ;
   padding: 5% 10% ;
-  @media (min-width: 1000px){
+
+  @media (min-width: 1000px) {
     width: 80%;
     padding: 5% 5% ;
   }
 
   background-color: $couleur-fond-post ;
 }
-
-/*
-#post-intro-wrapper{
-  left:10%;
-  right:10%;
-  @media (min-width: 1000px){
-    left: calc( (100vw - 1000px) / 2 + 100px) ;
-    right: calc( (100vw - 1000px) / 2 + 100px) ;
-  }
-  padding: 5% 10% ;
-  @extend .background-body ;
-  background-color: $couleur-fond-post-opaque  ;
-
-  &::before{
-    position: absolute;
-    z-index: -1;
-    content: "";
-    top:0;
-    bottom:0;
-    left:calc( -10% * 1.24 ) ;
-    right: calc( -10% * 1.24 );
-    @extend .background-body ;
-    background-color: $couleur-fond-body ;
-
-  }
-}
-*/
 
 .post-titre{
 @extend .font-heading ;
@@ -50,7 +24,15 @@
   color: $couleur-logo ;
   text-align: justify;
   font-weight: 500;
+
+  max-width: 60rem;
+  padding: 0 6rem;
+
+  img{
+      margin-top: 2rem;
+  }
 }
+
 .post-articles li {
   list-style-type: circle;
   font-weight: 100;
@@ -74,6 +56,7 @@
 }
 
 .post-hero-video-wrapper{
+    cursor: pointer;
   position: relative;
   width: 126% ;
   margin: 1rem -13% ;
@@ -107,6 +90,7 @@ video.post-hero-video-pause + .gradient-filter{
   display: flex;
   margin: 2rem auto ;
   svg{
+      flex:1;
     margin-left: 2.5rem;
   }
   svg:first-of-type{

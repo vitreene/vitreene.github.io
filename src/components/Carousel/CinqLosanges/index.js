@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from "react"
+import React, { Component } from "react"
 
 import styles from "./index.css"
 
@@ -19,12 +19,13 @@ const losangeClasses = [
     styles.losangeVolantTransition
 ].join(' ');
 
+const _W = 40; // largeur du motif
+const _H = 30; // hauteur du motif
+// let dims = {x: 200, y: 200};
+const duree = 5;
+const quantite = 5;
 
-    const _W = 40; // largeur du motif
-    const _H = 30; // hauteur du motif
-    // let dims = {x: 200, y: 200};
-    const duree = 5;
-    const quantite = 5
+
 
 class Cinq extends Component {
     constructor(){
@@ -48,7 +49,7 @@ class Cinq extends Component {
     }
 
     componentDidMount() {
-        this.tmout = this.timer();
+        this.timer();
     }
 
     componentWillUnmount() {
@@ -56,8 +57,6 @@ class Cinq extends Component {
     }
 
     componentWillUpdate(undefined, {initialPosition}) {
-        // requestAnimationFrame( () => this.fives = {} );
-        // requestAnimationFrame( () => this.fives = this.gimiFive(initialPosition) );
         this.fives = this.gimiFive(initialPosition);
     }
 
@@ -80,12 +79,25 @@ class Cinq extends Component {
         }
     }
 
-    nearPosition(position) {
-      const variation = {x:4,y:3} ;
-      return {
-        x: Math.round((Math.random() - 0.5) * variation.x) * _W + position.x,
-        y: Math.round((Math.random() - 0.5) * variation.y) * _H + position.y,
-      }
+    nearPosition(positions, index) {
+        const position = positions[index];
+        const variation = {x: 4, y: 3};
+        let res = true;
+        let newPosition = position;
+        do {
+            newPosition = {
+                x: Math.round((Math.random() - 0.5) * variation.x) * _W + position.x,
+                y: Math.round((Math.random() - 0.5) * variation.y) * _H + position.y,
+            };
+            // false si aucune position ne se superpose
+            res = positions.reduce( (reduc, position) => {
+                const t = (position.x === newPosition.x) && (position.y === newPosition.y);
+                return reduc || t;
+            }, false);
+        } while (res);
+
+        // console.log('newPosition', newPosition);
+        return newPosition;
     }
 
     randomPosition( {x, y} ) {
@@ -93,7 +105,6 @@ class Cinq extends Component {
           x: Math.round(Math.random() * x / _W) * _W,
           y: Math.round(Math.random() * y / _H) * _H
       };
-      //   console.log('randomPosition', x, y, res);
       return res;
     }
 
@@ -114,8 +125,7 @@ class Cinq extends Component {
     }
 
     timer(){
-        setTimeout(this.timer, duree * 1000);
-
+        this.tmout = setTimeout(this.timer, duree * 1000);
         const {dims} = this.state;
         const initialPosition = this.randomPosition(dims);
         this.setState( {initialPosition} );
@@ -125,7 +135,7 @@ class Cinq extends Component {
         return Array(quantite-1).fill( {x:0} )
         // tableau des positions aléatoires autour d'un point
         .reduce( (positions, c, index) => {
-            const pos = this.nearPosition(positions[index]);
+            const pos = this.nearPosition(positions,index);
             return [...positions, pos]
         }, [initialPosition] )
         // appliquer aux losanges
@@ -147,9 +157,5 @@ class Cinq extends Component {
         )
     }
 }
-
-// Cinq.propTypes = {
-//   children: PropTypes.node,
-// }
 
 export default Cinq

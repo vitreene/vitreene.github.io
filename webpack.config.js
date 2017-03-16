@@ -1,3 +1,6 @@
+/* Desactiver le lien sur le heading : 40 node_modules/phenomic/lib/loader-plugin-markdown-transform-body-property-to-html/index.js
+*/
+
 import path from "path"
 
 import webpack from "webpack"
@@ -26,6 +29,14 @@ export default (config = {}) => {
     ...config.dev && {
       devtool: "#cheap-module-eval-source-map",
     },
+    // webpack 1 // voir https://github.com/MoOx/phenomic/issues/871
+    phenomic: {
+      plugins: [
+        ...require("phenomic/lib/loader-preset-markdown").default
+        // ...require("phenomic/lib/loader-preset-default").default
+      ]
+    },
+    //
     module: {
       noParse: /\.min\.js/,
       // webpack 1

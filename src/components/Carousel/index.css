@@ -20,6 +20,6 @@
     /*#dbf2f5;*/
     background-repeat: repeat;
     background-position-x: calc(50% - 200px);
-    /*background-image: linear-gradient(to top, rgba(0, 20, 80, .5), rgba(211, 250, 250, .05)),url(./trame-fond-03.png);*/
+    /*background-image: linear-gradie nt(to top, rgba(0, 20, 80, .5), rgba(211, 250, 250, .05)),url(./trame-fond-03.png);*/
     background-image: linear-gradient(to top, rgba(0, 20, 80, .5), rgba(211, 250, 250, .05));
 }

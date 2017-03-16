@@ -1,0 +1,342 @@
+//@import url(https://fonts.googleapis.com/css?family=Bowlby+One|Oswald);
+@import url(https://fonts.googleapis.com/css?family=Alfa+Slab+One);
+//@import url(https://fonts.googleapis.com/css?family=Alfa+Slab+One|Corben:700|Black+Ops+One|Coda:800|Bowlby+One|Bowlby+One+SC);
+//@import url(https://fonts.googleapis.com/css?family=Oswald);
+
+$echelle: 80% ;
+$couleur-ombre: black ;
+
+/*
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: cornflowerblue ;
+}
+h1{
+  font-family: 'Bowlby One', 'Arial Black', sans-serif;
+  letter-spacing: 0.1em;
+
+}
+*/
+
+
+
+#cible2,
+#cible1{
+  display: inline-block;
+  position: relative;
+  width: $echelle ;
+  padding-bottom: 1.5rem;
+  margin: 1em 10%;
+  vertical-align: middle;
+  overflow: hidden;
+//  background: darkcyan ;
+//  outline: 1px solid red;
+
+  .conteneur-roue{
+
+  }
+
+  .declenche{
+    //position: absolute;
+    //bottom: 10px;
+    display: inline-block ;
+    margin: 0 0 0 10%;
+    width: $echelle ;
+    height: 1.5rem;
+    //outline : 1px solid green;
+  }
+ }
+
+.roue-fortune {
+  user-select: none;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  //outline: 1px solid green;
+}
+.masque-conteneur-roue{
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+.portion-label{
+
+  font-family: 'Alfa Slab One', 'Arial Black', Arial, sans-serif;
+
+  font-weight: 900 ;
+  text-anchor: start ;
+  //font-size: 0.6em;
+  text-transform: uppercase ;
+  line-height: 0.4em;
+  stroke: black ;
+  stroke-width: 0.25;
+  fill: white;
+
+  writing-mode: tb-rl;
+  glyph-orientation-vertical: 0;
+  text-orientation: upright ;
+
+  -ms-writing-mode: tb ;
+  // kerning: -2;
+   letter-spacing:  -0.35em;
+
+
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+     letter-spacing:  0.55em;
+}
+  @supports (-ms-accelerator:true){
+     letter-spacing:  0.55em;
+
+
+  }
+}
+
+tspan{
+  display: block ;
+  }
+
+
+.wheel {
+  // margin-bottom: 1.5rem;
+  padding-bottom: 100%;
+  //outline: 1px solid green ;
+  //background-color: aquamarine ;
+  backface-visibility: hidden;
+  perspective: 1000;
+//  height : 400px ;
+  transform-origin: center center;
+  // on va dire : la propriété number one
+  transition: transform 4s cubic-bezier(.36, -0.09, .23, .99)  ;
+  animation-fill-mode: forwards;
+}
+
+svg {
+
+  .roue-bords{
+    fill:orange ;
+  }
+
+  .roue-moyeu{
+    fill: #ffc400;
+    stroke:orange;
+  }
+
+  .portion{
+   // outline: 1px  groove rgba( 255,255,255, 0.3) ;
+    stroke-width: 2px ;
+    stroke: rgba(50,50,50,0.7); // rgba(127,127,127,0.5);
+    background-image:linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5) ) ;
+  }
+}
+
+  .roue-cliquet{
+    position: absolute ;
+    width: 10%;
+    top: 0 ;
+    left: 50%;
+    margin-left: -5%;
+  }
+
+ @mixin slider-track() {
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border-radius: 1px;
+    border: 1px solid #010101;
+    background: #000058;
+    background-image:
+      linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.3) 75%, transparent 90%),
+      linear-gradient(to right, darkblue 0%, darkblue 50%, transparent 50%, transparent 100%),
+      linear-gradient(to right, yellowgreen,cyan)
+      ;
+    background-size: auto, 2%, auto ;
+}
+
+ @mixin slider-thumb() {
+    box-shadow: 5px 0px 5px rgba(0, 0, 62, 0.3), 0px 0px 5px rgba(0, 0, 88, 0.4);
+    border: 2px solid rgba(0, 82, 139, 0.8);
+    height: 30px;
+    width: 50px;
+    border-radius: 20px;
+    background:  #ffc400 ;
+   //background-attachment: scroll;
+    //background-image: linear-gradient(to right, darkcyan 0%, orangered 600% ),
+     background-image: linear-gradient(to bottom, rgba(255,255,255,0.5) 40% , rgba(0,0,0,0.4) 70% ) ;
+    cursor: pointer;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: -5.15px 0;
+
+  &:focus {
+    outline: none;
+  }
+  &:focus::-webkit-slider-runnable-track,
+  &::-webkit-slider-runnable-track {
+    @include slider-track() ;
+  }
+  &::-webkit-slider-thumb {
+    @include slider-thumb() ;
+
+    -webkit-appearance: none;
+    margin-top: 4.35px;
+  }
+
+  &::-moz-range-track {
+    @include slider-track() ;
+  }
+  &::-moz-range-thumb {
+    @include slider-thumb() ;
+  }
+  &::-ms-track {
+    width: 100%;
+    height: 39.3px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  &::-ms-fill-lower {
+    background: #000025;
+    border: 0.8px solid #010101;
+    border-radius: 0px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  }
+  &::-ms-fill-upper {
+    background: #000058;
+    border: 0.8px solid #010101;
+    border-radius: 0px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  }
+  &::-ms-thumb {
+    @include slider-thumb() ;
+
+  }
+  &:focus::-ms-fill-lower {
+    background: #000058;
+  }
+  &:focus::-ms-fill-upper {
+    background: #00008b;
+  }
+}
+
+
+.tirage{
+  position: absolute ;
+  top: 100%;
+  left: 5% ;
+  z-index: 10;
+  width: 90% ;
+  height: 8rem ;
+  padding : 0.5rem;
+  border-radius: 0.5rem;
+
+  background: orangered ;
+  transform-origin: 58%;
+  // transform: scale(1) translateY(0) ;
+  transition : transform 0.4s  cubic-bezier(.36, -0.09, .23, .99)  ;
+  animation-fill-mode:backwards ;
+}
+
+.tirage-cat{
+  margin-top: 0.2em;
+  font-family: 'Bowlby One', 'Arial', sans-serif;
+  font-size: 0.8em ;
+  text-align: center ;
+  text-transform: uppercase ;
+  letter-spacing: 0.1em;
+  color: yellow;
+}
+
+.tirage-message-fond{
+  margin: 0 auto ;
+  padding: 0.2em;
+  width: 80%;
+  font-family: 'Oswald', 'Arial Black', sans-serif;
+  font-size: 1.2em ;
+  text-align: center ;
+  color: aliceblue ;
+  border: 3px dotted darkorange ;
+
+  &:hover .tirage-message{
+    opacity: 1;
+  }
+}
+
+.tirage-message-down{
+  transform: scale(1) translateY(-100%) ;
+}
+
+.tirage-message{
+  opacity: 0;
+  transition : opacity 0.3s ;
+}
+.tirage-message-alert{
+  opacity: 1;
+  color:azure ;
+}
+
+.tirage-close{
+  position: absolute ;
+  top: 0;
+  right: 2%;
+  font-size: 1.5em;
+  color: black;
+  background: none ;
+  border: none;
+  transition: color 0.3s;
+  cursor: pointer;
+  &:focus{
+    outline: none ;
+  }
+  &:hover{
+    color: white;
+  }
+}
+
+.cible2-annonce{
+  position: absolute;
+  top: 38%;
+  left: 10%;
+  width: 80%;
+  text-align: center;
+  line-height: 1.2;
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+  font-family: 'Alfa Slab One', 'Arial Black', Arial, sans-serif;
+  color: orangered ;
+  text-shadow:
+    5px 5px 5px rgba(128,128,128,.3),
+    /* Simulated effect for Firefox and Opera
+       and nice enhancement for WebKit */
+   -2px -2px 0 $couleur-ombre,
+    2px -2px 0 $couleur-ombre,
+   -2px  2px 0 $couleur-ombre,
+    2px  2px 0 $couleur-ombre ;
+
+  animation: gain 0.7s cubic-bezier(0.28, 1.55, 1, 1) forwards ;
+
+}
+
+@keyframes gain {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  85% {
+    transform: scale(1.6) ;
+    opacity: 1;
+  }
+  100% {
+
+    transform:  scale(1);
+  }
+
+}
+/*
+
+*/

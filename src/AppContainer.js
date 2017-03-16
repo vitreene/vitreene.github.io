@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react"
 
 // import "./index.global.css"
-// import "./highlight.global.css"
+import "./highlight.global.scss"
 import "./css/main.global.scss"
 
 import StateMenu from "./components/StateMenu"
