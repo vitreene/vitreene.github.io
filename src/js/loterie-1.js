@@ -1,6 +1,8 @@
 
 import RoueFortune from './roue-fortune'
 // données sous forme d'objet ou de tableau
+const client =  (typeof document !== "undefined") ;
+
 
 export const lots = [
   {label: "1000€", couleur: "darkblue", gain:1 },
@@ -51,13 +53,13 @@ export const lolots = [
 
 // callBack
 export const annonceGagnant = {
-  annonce: document.createElement('div'),
+  annonce: client && document.createElement('div'),
   idAnnonce : '',
 
   init: function(_id){
     this.idAnnonce = _id + '-annonce' ;
     this.annonce.id = this.idAnnonce ;
-    document.getElementById(_id).appendChild(this.annonce) ;
+    client && document.getElementById(_id).appendChild(this.annonce) ;
     return 'annonce créée' ;
     },
 

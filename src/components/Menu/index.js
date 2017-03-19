@@ -1,4 +1,4 @@
-import React, { PropTypes } from "react"
+import React, { Component, PropTypes } from "react"
 import {Link} from "phenomic"
 import Svg from "react-svg-inline"
 
@@ -7,13 +7,7 @@ import vitreene from '../icones/vitreene-logo.svg'
 // import contact from '../icones/ico-contact.svg'
 // import apropos from '../icones/ico-apropos.svg'
 
-export default class Menu extends React.Component {
-    //
-    // static propTypes = {
-    //     menu: PropTypes.object,
-    //     toggle: PropTypes.func,
-    // };
-    //
+export default class Menu extends Component {
     static contextTypes = {
         menu: PropTypes.object,
         toggle: PropTypes.func,

@@ -1,14 +1,13 @@
 import React, { PropTypes } from "react"
 import Helmet from "react-helmet"
 import warning from "warning"
-import { BodyContainer, joinUri, Link } from "phenomic"
+import { BodyContainer, joinUri /*, Link */} from "phenomic"
 
-import Button from "../../components/Button"
+// import Button from "../../components/Button"
 import Loading from "../../components/Loading"
 
 import styles from "./index.css"
 
-const URL = process.env.PHENOMIC_USER_URL;
 const Page = (
   {
     isLoading,

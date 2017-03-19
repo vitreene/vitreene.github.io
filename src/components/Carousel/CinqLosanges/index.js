@@ -125,7 +125,7 @@ class Cinq extends Component {
     }
 
     timer(){
-        this.tmout = setTimeout(this.timer, duree * 1000);
+        this.tmout = setTimeout(this.timer, quantite * 1000);
         const {dims} = this.state;
         const initialPosition = this.randomPosition(dims);
         this.setState( {initialPosition} );

@@ -11,8 +11,13 @@ const isClient = typeof window !== "undefined";
 export default function(Comp) {
     return class StateMenu extends Component {
         static childContextTypes = {
+            isPortfolio: PropTypes.bool,
             menu: PropTypes.object,
             toggle: PropTypes.func
+        }
+
+        static propTypes = {
+            location:PropTypes.object,
         }
 
         state = {
@@ -29,7 +34,10 @@ export default function(Comp) {
         }
 
         getChildContext() {
+            const {pathname} = this.props.location;
+            const isPortfolio = (pathname === '/portfolio/');
             return {
+                isPortfolio,
                 menu: { ...this.state },
                 toggle: this.toggle
             };

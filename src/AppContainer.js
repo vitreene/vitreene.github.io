@@ -15,7 +15,7 @@ import Footer from "./components/Footer"
 
 const AppContainer = (props) => {
     return (
-        <Container>
+        <Container >
             <DefaultHeadMeta/>
             <Menu/>
             <Content>

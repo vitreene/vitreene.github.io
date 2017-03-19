@@ -1,3 +1,4 @@
+const client =  (typeof document !== "undefined") ;
 
 // FOnction principale
 export default function RoueFortune ( _id, arrayLots, gagnant, callback ){
@@ -10,8 +11,8 @@ export default function RoueFortune ( _id, arrayLots, gagnant, callback ){
   // test des données en entrée
   if ( typeof(gagnant)=="object" ) { callback = gagnant ; gagnant = null; }
   if ( !callback ) { callback = defaultCallback ; }
-  
-console.log('ROUE : ', _id, arrayLots, gagnant, callback);
+
+// console.log('ROUE : ', _id, arrayLots, gagnant, callback);
   // variables communes
   var lots = testLots( arrayLots ),  // tableau : liste des lots
       portions = lots.length,        // total des parties de la roue
@@ -21,7 +22,7 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
       // devraient etre en local storage :
       nbeTirages = 0,              // nombre de fois ou le tirage à été effectué
       maxTirages = null,                // nombre de tirages autorisés
-      rfConteneur = document.getElementById(_id) // conteneur
+      rfConteneur = client  && document.getElementById(_id) // conteneur
   ;
 
   // console.log('LOTS:', lots ) ;
@@ -62,18 +63,18 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
 
     // ititialiser la fonction et créer la roue
     function init(){
-      console.log(' Init : roueSvg') ;
+    //   console.log(' Init : roueSvg') ;
       // lancer la construction de la roue
       roueGenerer(_id) ;
 
       // surveiller la fin de l'animation de transition pour réinitialiser la roue
-      rfConteneurRoue = document.getElementById(_idRoue) ;
+      rfConteneurRoue = client && document.getElementById(_idRoue) ;
     //   rfRoue = document.getElementById(_id + "-roue-fortune") ;
       prefixedEvent(rfConteneurRoue, 'TransitionEnd', resetTransition);
       //rfRoue.addEventListener('mousedown', function(event){  startChange( event ); });
 
       // surveiller l'action sur la targette
-      rfTargette = document.querySelector( "#" + _id + " .declenche") ;
+      rfTargette = client && document.querySelector( "#" + _id + " .declenche") ;
       rfTargette.addEventListener('change', function(event){
         startChange( event );
        });
@@ -92,7 +93,7 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
 
       function masqueConteneurRoue (){
         // '<div id="conteneur-roue"></div>'
-        const rfMasqueConteneurRoue = document.createElement('div') ;
+        const rfMasqueConteneurRoue = client && document.createElement('div') ;
         rfMasqueConteneurRoue.className = 'masque-conteneur-roue' ; // + wheel
         rfMasqueConteneurRoue.id = 'masque' + _idRoue ;
         rfMasqueConteneurRoue.appendChild ( conteneurRoue() );
@@ -102,7 +103,7 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
 
       function conteneurRoue (){
         // '<div id="conteneur-roue"></div>'
-        rfConteneurRoue = document.createElement('div') ;
+        rfConteneurRoue = client && document.createElement('div') ;
         rfConteneurRoue.className = 'conteneur-roue wheel' ; // + wheel
         rfConteneurRoue.id = _idRoue ;
         rfConteneurRoue.appendChild ( rfRoueSVG() );
@@ -112,7 +113,7 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
 
       function targette (){
         // '<input class="declenche" type="range" min="0" max="100">'
-        var targ = document.createElement('input') ;
+        var targ = client && document.createElement('input') ;
         targ.setAttribute('class', 'declenche');
         targ.setAttribute('type', 'range');
         targ.setAttribute('min', 0);
@@ -124,7 +125,7 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
         // generer l'entete du svg
         var boxWidth = 20;
         var boxHeight = 10;
-        var svgElem = document.createElementNS (xmlns, "svg");
+        var svgElem = client && document.createElementNS (xmlns, "svg");
         svgElem.setAttributeNS (null, "viewBox", "0 0 " + boxWidth + " " + boxHeight);
         svgElem.setAttributeNS (null, "x", 0);
         svgElem.setAttributeNS (null, "y", 0);
@@ -133,7 +134,7 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
         svgElem.setAttributeNS (null, "preserveAspectRatio", "xMinYMin meet");
 
         // repère de la portion gagnante
-        var roueCliquet = document.createElementNS (xmlns, "polygon");
+        var roueCliquet = client && document.createElementNS (xmlns, "polygon");
         roueCliquet.setAttributeNS (null, "class", "roue-cliquet-polygon");
         roueCliquet.setAttributeNS (null, "points", "0 0, 20 0, 10 10");
 
@@ -149,7 +150,7 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
         // generer l'entete du svg
         var boxWidth = 200;
         var boxHeight = 200;
-        var svgElem = document.createElementNS (xmlns, "svg");
+        var svgElem = client && document.createElementNS (xmlns, "svg");
         svgElem.setAttributeNS (null, "viewBox", "0 0 " + boxWidth + " " + boxHeight);
         svgElem.setAttributeNS (null, "x", 0);
         svgElem.setAttributeNS (null, "y", 0);
@@ -161,7 +162,7 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
         // var transformObject = svgElem.createSVGTransform();
 
         // anneau cernant la roue
-        var roueBords = document.createElementNS (xmlns, "circle");
+        var roueBords = client && document.createElementNS (xmlns, "circle");
         roueBords.setAttributeNS (null, "class", "roue-bords");
         roueBords.setAttributeNS (null, "cx", 100);
         roueBords.setAttributeNS (null, "cy", 100);
@@ -169,13 +170,13 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
         svgElem.appendChild (roueBords);
 
         // groupe contenant les portions
-        var roue = document.createElementNS (xmlns, "g");
+        var roue = client && document.createElementNS (xmlns, "g");
         roue.setAttributeNS (null, "id", 'roue' + _idRoue );
         roue.setAttributeNS (null, "class", "roue");
         svgElem.appendChild (roue) ;
 
         // moyeu central
-        var roueMoyeu = document.createElementNS (xmlns, "circle");
+        var roueMoyeu = client && document.createElementNS (xmlns, "circle");
         roueMoyeu.setAttributeNS (null, "class", "roue-moyeu");
         roueMoyeu.setAttributeNS (null, "cx", 100);
         roueMoyeu.setAttributeNS (null, "cy", 100);
@@ -193,7 +194,7 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
         var i, angle = 0;
             // creePortions = "" ;
 
-        var svgGradients = document.createElementNS (xmlns, "defs");
+        var svgGradients = client && document.createElementNS (xmlns, "defs");
         svgConteneur.appendChild(svgGradients);
 
         for (i = 0; i < portions ; i++) {
@@ -239,7 +240,7 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
           // obtenir le code svg de l'arc
           // generer les coordonnées
           // generer les attibuts
-          var path = document.createElementNS (xmlns, "path") ;
+          var path = client && document.createElementNS (xmlns, "path") ;
           var id = lot.label + index ;
           var rotation = "rotate(" + (angle)  + "," + cX +"," + cY + ")" ;
 
@@ -265,7 +266,7 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
           }
 
         function addText(i, angle){
-          var texte = document.createElementNS (xmlns, "text");
+          var texte = client && document.createElementNS (xmlns, "text");
           var milieu = deg2rad(angle);
           var angleIE = ( is('Edge') ) ? angle  + 4  : angle ;
           var rotation = "rotate(" + (angleIE)  + "," + milieu.x +"," + milieu.y + ")" ;
@@ -288,7 +289,7 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
           }
 
         function spanMot(mot) {
-          var motNode = document.createTextNode(mot) ;
+          var motNode = client && document.createTextNode(mot) ;
           return motNode ;
           }
 
@@ -304,11 +305,11 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
 
           var couleurInterieur = modifieCouleur ( couleurToRgb( couleur ) , -100 ), //"blue",
               couleurExterieur = modifieCouleur ( couleurToRgb( couleur ) , -60 ), //"red",
-              degrade = document.createElementNS (xmlns, "linearGradient"),
-              stop1 = document.createElementNS (xmlns, "stop"),
-              stop2 = document.createElementNS (xmlns, "stop"),
-              stop3 = document.createElementNS (xmlns, "stop"),
-              stop4 = document.createElementNS (xmlns, "stop") ;
+              degrade = client && document.createElementNS (xmlns, "linearGradient"),
+              stop1 = client && document.createElementNS (xmlns, "stop"),
+              stop2 = client && document.createElementNS (xmlns, "stop"),
+              stop3 = client && document.createElementNS (xmlns, "stop"),
+              stop4 = client && document.createElementNS (xmlns, "stop") ;
 
           degrade.setAttributeNS (null, "id", "d-" + id ) ;
           degrade.setAttributeNS (null, "x1", "100%" ) ;
@@ -474,7 +475,7 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
     function tirerAuSort( ){
 
       var _tirageAuSort = choisirLot ( maxTours, lotGagnant ) ;
-      console.log( 'Tirage', _tirageAuSort ) ;
+    //   console.log( 'Tirage', _tirageAuSort ) ;
       fRoueAnimer( _tirageAuSort ) ;
       return _tirageAuSort ;
     }
@@ -518,7 +519,7 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
         if ( i === tirage ) return ;
 
         var temps = easeInCubic( i, tirage, 42, 50 ) ;
-        console.log ( index, i, tirage, temps  ) ;
+        // console.log ( index, i, tirage, temps  ) ;
         highlight( temps  ) ;
       }
 
@@ -538,7 +539,7 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
     }
     // coordonnées  et references de la roue
     function refPosition() {
-      var pos = document.getElementById( _id ).getBoundingClientRect(),
+      var pos = client && document.getElementById( _id ).getBoundingClientRect(),
           rayon = ( pos.width <= pos.height ) ?
                  ( pos.width / 2  ) :
                  ( pos.height / 2 ) ,
@@ -569,7 +570,7 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
     }
     // creer le déclencheur
     function creerBouton(){
-      var _bouton = document.createElement('button') ;
+      var _bouton = client && document.createElement('button') ;
       _bouton.textContent = "Jouer" ;
       _bouton.setAttribute("class", "jouez") ;
 
@@ -583,15 +584,15 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
     // creer la roue
     function fRoueGenerer( _id ){
       var bouton = creerBouton() ;
-      var roue = document.createDocumentFragment();
+      var roue = client && document.createDocumentFragment();
     //  console.log ('arrayLots', arrayLots ) ;
 
       for ( var index = 0 ; index < portions ; index++ ) {
        roue.appendChild( creerBadge( lots[ index ] , index ) ) ;
         }
 
-      document.getElementById( _id ).appendChild( roue ) ;
-      document.getElementById( _id ).appendChild( bouton ) ;
+      client && document.getElementById( _id ).appendChild( roue ) ;
+      client && document.getElementById( _id ).appendChild( bouton ) ;
 
 
       //    return roue ;
@@ -603,10 +604,10 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
 
       var position = placerBadge( index ) ;
       //console.log ('position : ', position ) ;
-      var badge = document.createDocumentFragment();
+      var badge = client && document.createDocumentFragment();
 
     //////////////
-      var itemBadge = document.createElement('div') ,
+      var itemBadge = client && document.createElement('div') ,
           cssItemBadge ;
       itemBadge.setAttribute( 'class' , 'badge badge--' + index  ) ;
 
@@ -616,7 +617,7 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
       cssItemBadge += 'height: ' + corde + 'px ; ' ;
       itemBadge.style.cssText = cssItemBadge ;
     //////////////
-      var fondBadge = document.createElement('span'),
+      var fondBadge = client && document.createElement('span'),
           cssFondBadge ;
       fondBadge.setAttribute('class', 'badge--fond') ;
 
@@ -632,7 +633,7 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
       itemBadge.appendChild( fondBadge ) ;
       badges[index] = fondBadge ;
     //////////////
-      var valeurBadge = document.createElement('span') ;
+      var valeurBadge = client && document.createElement('span') ;
       valeurBadge.setAttribute('class', 'badge--label') ;
       valeurBadge.textContent = el.label ;
 
@@ -732,7 +733,9 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
    }
 
   function defaultCallback(lot){
-    console.log ('LOT: vous avez gagné %s', lot.label, lot) ;
+      var p = client && document.createElement("p");
+      p.textContent = lot;
+      rfConteneur.appendChild(p);
     }
 
 
@@ -767,12 +770,12 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
   // convertir une expression couleur en notation 'rgb(nr,ng,nb)'
   function couleurToRgb(couleur){
 
-      var cool = document.createElement ("div");
+      var cool = client && document.createElement ("div");
       cool.style.color = couleur ;
-      document.body.appendChild(cool) ;
+      client && document.body.appendChild(cool) ;
 
-      var cooleur =  window.getComputedStyle(cool).color ;
-      document.body.removeChild(cool) ;
+      var cooleur =  client && window.getComputedStyle(cool).color ;
+      client && document.body.removeChild(cool) ;
 
       return cooleur ;
     }
@@ -851,17 +854,17 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
     // https://gist.github.com/lanqy/8514345
     var browser = {
       // Opera 8.0+
-      Opera : !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0 ,
+      Opera : (client && !!window.opera) || navigator.userAgent.indexOf(' OPR/') >= 0 ,
       // Firefox 1.0+
       Firefox : typeof InstallTrigger !== 'undefined' ,
       // At least Safari 3+: "[object HTMLElementConstructor]"
-      Safari : Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0 ,
+      Safari : Object.prototype.toString.call(client && window.HTMLElement).indexOf('Constructor') > 0 ,
       // Internet Explorer 6-11
-      IE : /*@cc_on!@*/false || !!document.documentMode ,
+      IE : /*@cc_on!@*/false || !!client && document.documentMode ,
       // Edge 20+
       Edge : '', //!this.IE && !!window.StyleMedia ,
       // Chrome 1+
-      Chrome : !!window.chrome && !!window.chrome.webstore  ,
+      Chrome : (client && !!window.chrome) && (client && !!window.chrome.webstore)  ,
       // Blink engine detection
     //   Blink : (this.Chrome || this.Opera) && !!window.CSS
     };
@@ -877,8 +880,8 @@ console.log('ROUE : ', _id, arrayLots, gagnant, callback);
 */
   // test support du SVG
   function supportsSvg() {
-    return !! document.createElementNS &&
-           !! document.createElementNS (
+    return !! client && document.createElementNS &&
+           !! client && document.createElementNS (
                 'http://www.w3.org/2000/svg',"svg"
               ).createSVGRect ;
   }
