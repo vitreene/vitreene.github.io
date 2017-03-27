@@ -1,3 +1,4 @@
+// Menu
 import React, { Component, PropTypes } from "react"
 import {Link} from "phenomic"
 import Svg from "react-svg-inline"
@@ -9,6 +10,7 @@ import vitreene from '../icones/vitreene-logo.svg'
 
 export default class Menu extends Component {
     static contextTypes = {
+        isPortfolio: PropTypes.bool,
         menu: PropTypes.object,
         toggle: PropTypes.func,
     };

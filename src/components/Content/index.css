@@ -5,3 +5,8 @@
   align-items: stretch;
   flex-direction: column;*/
 }
+
+/* ajouter des media-queries */
+.portfolio {
+    margin: 0 8rem;
+}

@@ -1,10 +1,16 @@
 import React, {Component, PropTypes} from 'react'
 import PanelBox from './panel-box'
 
-
+// faire suivre le layout / css !
 const itemsInRow = 3 ;
 
 class ControlListeSujetBox extends Component {
+    static contextTypes = {
+        isPortfolio: PropTypes.bool,
+        menu: PropTypes.object,
+        toggle: PropTypes.func,
+    };
+
     static propTypes = {
         details: PropTypes.array,
         sujet: PropTypes.object
@@ -15,8 +21,8 @@ class ControlListeSujetBox extends Component {
         panelId: null
     };
 
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
         this.preloadFirst = this.preloadFirst.bind(this);
         this.setTogglePanel = this.setTogglePanel.bind(this);
         this.firstImgs = [];
@@ -26,6 +32,9 @@ class ControlListeSujetBox extends Component {
         // pre-charger les premieres images des sujets
         const imgs = this.props.details.map((img) => require('../../../content/portfolio/portfolio2/' + img.files[0].file));
         this.firstImgs = this.preloadFirst(imgs);
+
+        // reduire le menu
+        this.context.toggle('isOpen', false);
     }
 
     preloadFirst(imgs) {
@@ -53,6 +62,9 @@ class ControlListeSujetBox extends Component {
             togglePanel: togglePanel[etat],
             panelId: sujet[etat]
         });
+
+        // masquer le menu quand le panneau est ouvert
+        this.context.toggle('isVisible', !togglePanel.toggle);
     }
 
     render() {

@@ -105,12 +105,6 @@ function scrollTo(element, to, duration) {
             scrollTo(element, to, duration - 10);
             }
     )
-//
-//     setTimeout( () => {
-//         element.scrollTop = element.scrollTop + perTick;
-//         if (element.scrollTop === to) return;
-//         scrollTo(element, to, duration - 10);
-//         }, 10);
 }
 
 

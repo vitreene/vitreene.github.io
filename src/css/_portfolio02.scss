@@ -147,8 +147,10 @@ p,img{
 
 .panel{
   position: relative;
-  width: 100%;
-  height: 95vh;
+  width: 98vw;
+  height: 98vh;
+  // adapter aux media-queries
+  margin: 0 -8rem;
 
   h2{
     font-size: 2rem;
@@ -180,7 +182,8 @@ p,img{
     flex-flow: column;
     align-content: flex-start;
     padding: 2rem;
-    background-color: cornflowerblue;
+    background-color: $couleur-portfolio;
+    // background-color: $couleur-logo;
     overflow: scroll;
 }
 

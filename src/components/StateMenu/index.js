@@ -36,6 +36,15 @@ export default function(Comp) {
         getChildContext() {
             const {pathname} = this.props.location;
             const isPortfolio = (pathname === '/portfolio/');
+            /*
+            const menu = (isPortfolio)
+            ? {
+                isOpen: false,
+                isVisible: true,
+                isAside: true,
+            }
+            : { ...this.state };
+            */
             return {
                 isPortfolio,
                 menu: { ...this.state },
