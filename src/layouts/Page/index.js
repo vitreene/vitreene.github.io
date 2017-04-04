@@ -3,6 +3,8 @@ import Helmet from "react-helmet"
 import warning from "warning"
 import { BodyContainer, joinUri /*, Link */} from "phenomic"
 
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+
 // import Button from "../../components/Button"
 import Loading from "../../components/Loading"
 
@@ -54,32 +56,44 @@ const script = (head.js) &&
     .map( j => require('../../js/' + j+'.js') )
     .map( s => s.default() );
 
+    const transitionsOptions = {
+      transitionName: 'fad2',
+      transitionAppear: true,
+      transitionAppearTimeout: 500,
+      transitionEnterTimeout: 500,
+      transitionLeaveTimeout: 300
+    };
   // console.log('head', head);
   // console.log('script', head.js, script);
   return (
-    <div className={ styles.page }>
-        <Helmet
-            title={ metaTitle }
-            meta={ meta }
-        />
-        <div className={ styles.header }>
-            <h1 className={ styles.heading }>{ head.title }</h1>
-        </div>
+      <ReactCSSTransitionGroup
+          {...transitionsOptions}
+          component="div"
+      >
+          <div className={ styles.page } key={head.title} >
+              <Helmet
+                  title={ metaTitle }
+                  meta={ meta }
+              />
+              <div className={ styles.header }>
+                  <h1 className={ styles.heading }>{ head.title }</h1>
+              </div>
 
-        <div className={ styles.wrapper + " " + styles.pageContent }>
-            { header }
-            <div className={ styles.body }>
-                {
-                    isLoading
-                        ? <Loading />
-                    : <BodyContainer>{ body }</BodyContainer>
-                }
-            </div>
-            { children }
-            { footer }
-            { script }
-        </div>
-    </div>
+              <div className={ styles.wrapper + " " + styles.pageContent }>
+                  { header }
+                  <div className={ styles.body }>
+                      {
+                          isLoading
+                              ? <Loading />
+                          : <BodyContainer>{ body }</BodyContainer>
+                      }
+                  </div>
+                  { children }
+                  { footer }
+                  { script }
+              </div>
+          </div>
+      </ReactCSSTransitionGroup>
   )
 }
 

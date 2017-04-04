@@ -10,3 +10,8 @@
 .portfolio {
     margin: 0 8rem;
 }
+@media (max-width: 600px) {
+    .portfolio {
+        margin: 0 0rem;
+    }
+}

@@ -86,3 +86,10 @@
     max-width: 100%;
   }
 }
+
+
+@media (max-width: 600px) {
+    .body {
+        padding: 1rem 1rem;
+    }
+}

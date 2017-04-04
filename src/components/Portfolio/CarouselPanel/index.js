@@ -1,15 +1,8 @@
-/*
-props :
-- la liste des vues
-la duree d'un slide
-*/
-
 import React, {PropTypes, Component} from "react"
 import Marked from 'marked'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import Plots from './plots'
-// import styles from "./index.css"
 
 export default class CarouselPanel extends Component {
     static propTypes = {
@@ -24,45 +17,74 @@ export default class CarouselPanel extends Component {
         duree: 4,
     }
     state = {
-        active: -1,
+        active: 0,
+        pause: 'off'
     }
 
     constructor(props) {
         super(props);
         this.prez = null;
         this.timer = this.timer.bind(this);
+        this.play = this.play.bind(this);
+        this.aller = this.aller.bind(this);
+        this.keypressed = this.keypressed.bind(this);
     }
 
     componentWillMount() {
-        this.timer();
+        this.timer(0);
     }
 
     componentWillUnmount() {
         clearTimeout(this.prez);
     }
 
-    timer() {
+    timer(aller = this.state.active) {
+        const current = aller + (this.state.pause ? 0 : 1);
         const {duree} = this.props;
         const quantite = this.props.diapos.length ;
-        const active = (this.state.active + 1) % quantite;
+        const active = (current) % quantite;
         this.setState({active});
         this.prez = setTimeout(this.timer, duree * 1000);
+    }
+
+    play(event) {
+        const pause = {
+            on: false,
+            off: true,
+            toggle: !this.state.pause
+        };
+        this.setState({ pause: pause[event] });
+    }
+
+    aller(event){
+        clearTimeout(this.prez);
+        const active = Number( event.target.id.split('plots')[1] );
+        this.timer(active);
+    }
+
+    keypressed(event) {
+        const char = {
+          '37' : -1, // fleche gauche
+          '39' : 1 // fleche droite
+        };
+        // console.log('KEY', event.keyCode, char[event.keyCode] );
+        clearTimeout(this.prez);
+        const active = char[event.keyCode] + this.state.active || 0;
+        this.timer(active);
     }
 
     render() {
         const {children, duree, diapos} = this.props;
         const {active} = this.state;
-
-        const props = {
-            ...diapos[active],
-            duree,
-            active
-        };
+        const actions = {aller: this.aller, play: this.play};
+        // const active = 1;
+        const {legende, ...dia} = diapos[active];
+        const props = { ...dia, duree, active };
 
         // console.log('CarouselPanel', props, active);
 
-        const diapo =  (<Diapo key={active} {...props}/>);
-        const current = active;
+        const diapo =  (<Diapo key={'d'+active} {...props}/>);
+        // const current = active;
         const count = diapos.length;
         const transitionsOptions = {
           transitionName: "cross-fade",
@@ -73,32 +95,36 @@ export default class CarouselPanel extends Component {
         };
 
         return (
-                <div id="panel-carrousel"
-                    className={"panel-carrousel"}>
-                    <ReactCSSTransitionGroup {...transitionsOptions}
-                        component="div"
-                        className="panel-carrousel--cadre"
-                    >
-                        {diapo}
-                    </ReactCSSTransitionGroup>
-                    <Plots {...{current, count}}/>
-                    {children}
-                </div>
-                    );
-                }
-            }
+            <div id="panel-carrousel"
+                className={"panel-carrousel"}>
+                <ReactCSSTransitionGroup
+                    {...transitionsOptions}
+                    component="div"
+                    className="panel-carrousel--cadre"
+                >
+                    {diapo}
+                    <Legende
+                        key={'l'+active}
+                        {...{legende}}
+                    />
+                </ReactCSSTransitionGroup>
+                <Plots {...{active, count, ...actions}}/>
+                {children}
+            </div>
+        );
+    }
+}
 
 const Diapo = ( props ) => {
-    const {legende, file /*, duree*/, active} = props;
+    const {file, active} = props;
     const src = require('../../../../content/portfolio/portfolio2/' + file);
     const bgImg = {backgroundImage: 'url(' + src + ')'};
     return (
-        <div  key={active}
+        <div key={active}
             id={active}
             className="panel-carrousel--cadre-img"
             style={bgImg}
         >
-            <Legende {...{legende}} />
         </div>
     );
 }
@@ -111,36 +137,10 @@ Diapo.propTypes = {
     file: PropTypes.string,
 }
 
-/*
-const Img = (props) => (
-         <img
-             src={props.src}
-             alt={props.legende}
-             className="panel-cadre-img"
-         />
-   );
-
-Img.propTypes = {
-   src: PropTypes.string,
-   alt: PropTypes.string,
-   // imgClass: PropTypes.string,
-   // start: PropTypes.func,
-   // enter: PropTypes.func,
-   // leave: PropTypes.func,
-};
-
-*/
-
-const Legende = (props) => {
-    const {legende} = props;
-    // console.log('Legende', props);
-    if (!legende) return null;
-    const txt = rawMarkup(legende);
-    return (
+const Legende = ({legende}) => (
     <div className="panel-carrousel--cadre-legende"
-        dangerouslySetInnerHTML={txt} />
+        dangerouslySetInnerHTML={ legende && rawMarkup(legende)} />
     );
-}
 
 Legende.propTypes = {
     legende: PropTypes.string,
@@ -148,6 +148,8 @@ Legende.propTypes = {
 
 
 function rawMarkup(txt) {
-  const markup = (txt) ? Marked(txt.toString(), {sanitize: true}) : '';
+  const markup = (txt)
+      ? Marked(txt.toString(), {sanitize: true})
+      : '';
   return { __html: markup };
 }

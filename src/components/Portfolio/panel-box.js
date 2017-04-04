@@ -31,6 +31,7 @@ const PanelBox = (props) => {
     const transitionsOptions = {
       transitionName: "open-panel",
       transitionAppear: true,
+      transitionLeave: true,
       transitionAppearTimeout: 500,
       transitionEnterTimeout: 500,
       transitionLeaveTimeout: 300
@@ -67,7 +68,7 @@ const PanelBox = (props) => {
                     <CarrouselPanel
                         diapos={details.files}
                         id={details.id}
-                        modele={details.modele} >
+                        modele={details.modele}>
                         <article
                             className="panel-texte--contexte"
                             dangerouslySetInnerHTML={rawMarkup(details.intro)} />

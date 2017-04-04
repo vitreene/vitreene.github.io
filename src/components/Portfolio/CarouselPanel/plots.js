@@ -1,12 +1,15 @@
-import React, { PropTypes } from "react"
+import React, { PropTypes } from 'react'
 
 const Plots = (props) => {
+    const {active, count, aller, play} = props;
+    const enter = () => play('off');
+    const leave = () => play('on');
     // console.log('Plots', props);
-    const plots = Array(props.count).fill('•').map( (fill, index) => (
+    const plots = Array(count).fill('•').map( (fill, index) => (
         <li key={'plots' + index}
             id={'plots' + index}
-            onClick={props.goto}
-            className={ ( props.current === index) ? "plots-current" : ''}
+            onClick={aller}
+            className={ ( active === index) ? "plots-current" : ''}
         >
             {fill}
         </li>
@@ -14,10 +17,10 @@ const Plots = (props) => {
     );
 
     return (
-      <ul
-          onMouseEnter={props.enter}
-          onMouseLeave={props.leave}
-          className="panel-carrousel--cadre-plots">
+      <ul className="panel-carrousel--cadre-plots"
+          onMouseEnter={enter}
+          onMouseLeave={leave}
+      >
           {plots}
       </ul>
       );
@@ -25,8 +28,8 @@ const Plots = (props) => {
 
   Plots.propTypes = {
       count: PropTypes.number,
-      current: PropTypes.number,
-      goto: PropTypes.func,
+      active: PropTypes.number,
+      aller: PropTypes.func,
       enter: PropTypes.func,
       leave: PropTypes.func,
   };

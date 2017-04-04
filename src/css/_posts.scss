@@ -33,6 +33,12 @@
   }
 }
 
+@media (max-width: 600px) {
+   .post-intro{
+     padding: 0 1rem;
+   }
+}
+
 .post-articles li {
   list-style-type: circle;
   font-weight: 100;

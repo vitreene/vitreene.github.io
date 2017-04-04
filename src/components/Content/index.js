@@ -1,14 +1,16 @@
 import React, { PropTypes } from "react"
 
+
 import styles from "./index.css"
 
 const Content = (props, context) => {
     const portfolio = (context.isPortfolio) ? styles.portfolio : '';
     return (
-      <div className={ styles.content, portfolio }>
-          { props.children }
-      </div>
+        <div className={ styles.content + ' ' + portfolio } >
+            {props.children}
+        </div>
     )
+
 }
 
 Content.propTypes = {

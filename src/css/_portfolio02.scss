@@ -146,12 +146,6 @@ p,img{
 }
 
 .panel{
-  position: relative;
-  width: 98vw;
-  height: 98vh;
-  // adapter aux media-queries
-  margin: 0 -8rem;
-
   h2{
     font-size: 2rem;
     color: white;
@@ -172,60 +166,41 @@ p,img{
   }
 }
 
+.panel-titre{
+  font-family: 'Fira Sans' ;
+  margin: 0 0 2rem;
+}
+
+.panel{
+  position: relative;
+  width: 98vw;
+}
+
 .panel-inner {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
     display: flex;
     flex-flow: column;
     align-content: flex-start;
-    padding: 2rem;
+    padding: 0.5rem;
     background-color: $couleur-portfolio;
-    // background-color: $couleur-logo;
-    overflow: scroll;
-}
-
-.panel-titre{
-  // flex: 1 1 100%;
-  //padding-left : 5rem ;
-  font-family: 'Fira Sans' ;
-  margin: 0 0 2rem;
 }
 
 .panel-content{
     flex: 1;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
+    justify-content: center;
 }
 
-.panel-carrousel{
-    position: relative;
-  // flex: 1 1 60%;
-  // width: 60% ;
-  padding: 0.5rem;
-  display: flex;
-  flex-flow: column nowrap;
-}
+
 .panel-carrousel--cadre{
     position: relative;
-    flex-grow: 1;
     width: 100%;
+    height: 50vh;
     overflow: hidden;
-    /*
-    position: relative;
-  display: flex;
-  flex-flow: column nowrap;
-  //margin-bottom: 1rem;
-  flex: 1 ;
-  justify-content: space-between;
-  */
-  cursor: nwse-resize ;
-  //height: 50vh;
-  //  height: calc(70vw * 9 / 16);
-  //   outline: 1px solid green;
+    cursor: nwse-resize;
+    display: block;
 }
+
 
 .panel-carrousel--cadre-vues{
   flex: 1;
@@ -234,25 +209,15 @@ p,img{
 }
 
 .panel-carrousel--cadre-img{
-    /*
-    position: relative;
-    width: 100%;
-    height: 100%;
-    */
   position: absolute;
   top:0;
-  bottom:1.2rem;
+  bottom:2rem;
   left:0;
   right:0;
   text-align: center;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  /*
-  width: 50vw;
-  height: 40vh;
-  */
-  // overflow: hidden;
 }
 
 .panel-cadre-img{
@@ -263,18 +228,19 @@ p,img{
 }
 
 .panel-carrousel--cadre-legende{
-//  margin-top : auto;
-//  background-color: red;
-//  outline: 1px solid cyan;
-  display: none;
+  // display: none;
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 1rem ;
+  height: 1.5rem ;
   margin-top: auto;
-  text-align: center;
   font-weight: 300;
   font-style: italic;
+  p{
+      text-align: center;
+      vertical-align: baseline;
+      font-size: 0.85rem;
+  }
 }
 
 .panel-carrousel--cadre-plots{
@@ -303,13 +269,12 @@ p,img{
     }
 }
 
-.panel-texte-commentaire{
-  flex: 1 1 30%;
-  width: 30%;
-  margin-left: 6rem;
-  padding-left: 0;
-  padding-right: 2rem;
 
+  .lightbox .panel-texte-commentaire{
+      display: none;
+  }
+
+  .panel-texte-commentaire{
   li {
     list-style : square inside ;
     margin-left: 0;
@@ -400,6 +365,56 @@ p,img{
 }
 
 
+
+@media only screen and (min-width: 768px) {
+
+    .panel{
+    //   position: relative;
+    //   width: 98vw;
+      height: 98vh;
+      // adapter aux media-queries
+      margin: 0 -8rem;
+    }
+
+    .panel-inner {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: scroll;
+        padding: 2rem;
+    }
+
+    .panel-content{
+        flex-flow: row nowrap;
+    }
+
+    .panel-texte-commentaire{
+      flex-grow: 1;
+      flex-shrink: 0;
+      flex-basis: 30%;
+      width: 30%;
+      margin-left: 6rem;
+      padding-left: 0;
+      padding-right: 2rem;
+    }
+
+    .panel-carrousel{
+        position: relative;
+        padding: 0.5rem;
+        display: flex;
+        flex-flow: column nowrap;
+          flex-grow: 1;
+    }
+
+    .panel-carrousel--cadre{
+        flex-grow: 1;
+        height: inherit;
+    }
+
+}
+
 //////////////////////////
 // ETATS REACT TRANSITIONS
 //////////////////////////
@@ -469,7 +484,7 @@ p,img{
 }
 // MOBILE
 
-@media only screen and (max-width: 768px) {
+    /*
   .panel{
     padding: 0.5rem;
     flex-flow: column nowrap;
@@ -508,4 +523,4 @@ p,img{
     line-height: 1.2;
   }
 }
-}
+*/
