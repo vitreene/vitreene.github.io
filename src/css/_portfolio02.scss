@@ -416,54 +416,6 @@ p,img{
 }
 
 //////////////////////////
-// ETATS REACT TRANSITIONS
-//////////////////////////
-
-// OUVERTURE DU PANNEAU
-.open-panel-enter {
-  opacity: 0.01;
-}
-.open-panel-enter.open-panel-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-.open-panel-leave {
-  opacity: 1;
-}
-.open-panel-leave.open-panel-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
-}
-.open-panel-appear {
-  opacity: 0.01;
-}
-.open-panel-appear.open-panel-appear-active {
-  opacity: 1;
-  transition: opacity .5s ease-in;
-}
-
-// FONDU ENCHAINE
-.cross-fade-leave {
-  opacity: 1;
-}
-.cross-fade-leave.cross-fade-leave-active {
-  opacity: 0;
-  transition: opacity 1s ease-in;
-}
-.cross-fade-enter {
-  opacity: 0;
-}
-.cross-fade-enter.cross-fade-enter-active {
-  opacity: 1;
-  transition: opacity 1s ease-in;
-}
-
-.cross-fade-height {
- transition: height .5s ease-in-out;
-}
-
-
-//////////////////////////
 
 #my-scroll {
   position: absolute;

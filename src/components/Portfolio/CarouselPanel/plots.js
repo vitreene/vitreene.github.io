@@ -30,8 +30,7 @@ const Plots = (props) => {
       count: PropTypes.number,
       active: PropTypes.number,
       aller: PropTypes.func,
-      enter: PropTypes.func,
-      leave: PropTypes.func,
+      play: PropTypes.func,
   };
 
   export default Plots

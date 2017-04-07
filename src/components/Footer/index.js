@@ -9,6 +9,7 @@ import facebook from '../icones/ico-facebook.svg'
 import linkedin from '../icones/ico-linkedin.svg'
 import contact from '../icones/ico-contact.svg'
 import apropos from '../icones/ico-apropos.svg'
+import {Contact}  from '../Contact'
 
 const Footer = () => (
     <footer className={null}>
@@ -49,15 +50,16 @@ const Footer = () => (
                     </a>
                 </p>
             </div>
-            </section>
-            <p>
-                <a href={process.env.PHENOMIC_HOMEPAGE} className={styles.phenomicReference}>
-                    {"Website generated with "}
-                    <span className={styles.phenomicReferenceName}>
-                        {`<${process.env.PHENOMIC_NAME} />`}
-                    </span>
-                </a>
-            </p>
+        </section>
+        <Contact/>
+        <p>
+            <a href={process.env.PHENOMIC_HOMEPAGE} className={styles.phenomicReference}>
+                {"Website generated with "}
+                <span className={styles.phenomicReferenceName}>
+                    {`<${process.env.PHENOMIC_NAME} />`}
+                </span>
+            </a>
+        </p>
     </footer>
 )
 

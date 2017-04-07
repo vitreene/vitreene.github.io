@@ -1,0 +1,92 @@
+
+/* ANIMATIONS
+///////////////////////////////////////// */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  } to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.fade-in {
+  animation: fadeIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+}
+
+.fad2-enter {
+  opacity: 0.01;
+}
+
+.fad2-enter.fad2-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.fad2-leave {
+  opacity: 1;
+}
+
+.fad2-leave.fad2-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+.fad2-appear {
+  opacity: 0.01;
+}
+
+.fad2-appear.fad2-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+//////////////////////////
+// ETATS REACT TRANSITIONS
+//////////////////////////
+
+// OUVERTURE DU PANNEAU
+.open-panel-enter {
+  opacity: 0.01;
+}
+.open-panel-enter.open-panel-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.open-panel-leave {
+  opacity: 1;
+}
+.open-panel-leave.open-panel-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+.open-panel-appear {
+  opacity: 0.01;
+}
+.open-panel-appear.open-panel-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+// FONDU ENCHAINE
+.cross-fade-leave {
+  opacity: 1;
+}
+.cross-fade-leave.cross-fade-leave-active {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+.cross-fade-enter {
+  opacity: 0;
+}
+.cross-fade-enter.cross-fade-enter-active {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+
+.cross-fade-height {
+ transition: height .5s ease-in-out;
+}

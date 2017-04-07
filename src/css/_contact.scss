@@ -1,5 +1,14 @@
+.edit-overlay{
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+}
 .contact-modal {
-  z-index: 100;
+  z-index: 1000;
   transform-origin: center;
   transform: translate( 0%, 100%);
 
@@ -12,11 +21,14 @@
     text-align: center;
     color: $white;
   }
+  fieldset{
+      border: none;
+  }
 }
 
 
 .contact-modal.modal{
-  position:absolute;
+  // position:absolute;
   position:fixed;
   top:50%;
   left:50%;
@@ -48,6 +60,14 @@ width: 40px;
   display: flex;
   flex-flow: column nowrap;
 
+  label{
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 300;
+      margin-top: 1rem;
+      text-transform: uppercase;
+  }
+
   input[type="text"],
   input[type="password"],
   input[type="datetime"],
@@ -68,11 +88,12 @@ width: 40px;
   height: 5vh;
   width: 90vw;
   max-width: 40rem;
-  margin-bottom: 2vh;
   font-size: 1.3rem;
+  padding: 0.5rem;
   }
   textarea{
     height: 30vh;
+    padding: 0.5rem;
   }
   input[type='submit']{
     display: block;
@@ -91,7 +112,17 @@ width: 40px;
       color: $white;
     }
   }
-  input[name="_gotcha"]{
-    display: none;
+
+  .has-error input,
+  .has-error textarea {
+      border: 3px solid #d800ff;
   }
+  .error-block{
+      color: #d800ff;
+      margin-top: 0;
+      font-weight: bold;
+  }
+  // input[name="_gotcha"]{
+  //   display: none;
+  // }
 }

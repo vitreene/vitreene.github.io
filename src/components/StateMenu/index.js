@@ -12,8 +12,9 @@ export default function(Comp) {
     return class StateMenu extends Component {
         static childContextTypes = {
             isPortfolio: PropTypes.bool,
+            toggle: PropTypes.func,
             menu: PropTypes.object,
-            toggle: PropTypes.func
+            modal: PropTypes.object,
         }
 
         static propTypes = {
@@ -21,34 +22,36 @@ export default function(Comp) {
         }
 
         state = {
-            isOpen: true,
-            isVisible: true,
-            isAside: false,
-            // hasHover: false
+            menu: {
+                isOpen: true,
+                isVisible: true,
+                isAside: false,
+                // hasHover: false
+                },
+                modal: {
+                    contactOpen: false
+                }
         }
 
         constructor(props) {
             super(props);
             this.toggle = this.toggle.bind(this);
+            this.toggleContactModal = this.toggleContactModal.bind(this);
             this.scrollAtTop = this.scrollAtTop.bind(this);
         }
 
         getChildContext() {
             const {pathname} = this.props.location;
             const isPortfolio = (pathname === '/portfolio/');
-            /*
-            const menu = (isPortfolio)
-            ? {
-                isOpen: false,
-                isVisible: true,
-                isAside: true,
-            }
-            : { ...this.state };
-            */
             return {
                 isPortfolio,
-                menu: { ...this.state },
-                toggle: this.toggle
+                menu: { ...this.state.menu },
+                toggle: this.toggle,
+                modal: {
+                    toggleContactModal: this.toggleContactModal,
+                    contactOpen: this.state.modal.contactOpen,
+                    pathname
+                }
             };
         }
 
@@ -68,9 +71,17 @@ export default function(Comp) {
 
         toggle(action, forcer) {
             const togg = (forcer === undefined)
-                ? !this.state[action]
+                ? !this.state.menu[action]
                 : forcer;
-            this.setState({[action]: togg});
+            this.setState({menu:{...this.state.menu, [action]: togg}});
+        }
+
+        toggleContactModal(action){
+            
+            const contactOpen = (action === undefined)
+                ? !this.state.modal.contactOpen
+                : !!action;
+            this.setState({modal:{...this.state.modal, contactOpen}});
         }
 
         render() {

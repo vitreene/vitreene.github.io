@@ -3,7 +3,7 @@ import React, {PropTypes} from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import Marked from 'marked'
 //import ReactCSSTransitionReplace from 'react-css-transition-replace';
-import CloseBox from './close-box'
+import CloseBox from '../CloseBox'
 import CarrouselPanel from './CarouselPanel'
 // import CarrouselPanel from './carousel-panel'
 // import ActiverMenu from './activer-menu'
