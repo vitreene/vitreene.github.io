@@ -3,9 +3,9 @@ import Helmet from "react-helmet"
 
 const DefaultHeadMeta = (props, { metadata: { pkg } }) => (
   <div hidden>
-    <Helmet
-      meta={ [
-        {
+      <Helmet
+          meta={ [
+              {
           name: "generator", content: `${
           process.env.PHENOMIC_NAME } ${ process.env.PHENOMIC_VERSION }`,
         },

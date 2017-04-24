@@ -11,7 +11,7 @@ import vitreene from '../icones/vitreene-logo.svg'
 export default class Menu extends Component {
     static contextTypes = {
         isPortfolio: PropTypes.bool,
-        modal: PropTypes.object,
+        // modal: PropTypes.object,
         menu: PropTypes.object,
         toggle: PropTypes.func,
     };
@@ -30,8 +30,8 @@ export default class Menu extends Component {
 
     render() {
         const {isOpen, isVisible, isAside} = this.context.menu;
-        const {isTouch, canTouch, toggleMenu, openContact} = this;
-        const modal = ()=>this.context.modal.toggleContactModal();
+        const {isTouch, canTouch, toggleMenu/*, openContact*/} = this;
+        // const modal = ()=>this.context.modal.toggleContactModal();
 
 
         const headerVisible = [
@@ -86,10 +86,10 @@ export default class Menu extends Component {
                                 {/* <Svg svg={apropos} cleanup/> */}
                                 A propos
                             </Link>
-                            <a href='#' onClick={modal}>
+                            <Link to={"/contact"}>
                                 {/* <Svg svg={contact} cleanup/> className={styles.icoItem}*/}
                                 Contact
-                            </a>
+                            </Link>
                         </div>
                     </nav>
                     </div>

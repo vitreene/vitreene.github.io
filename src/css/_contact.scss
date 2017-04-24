@@ -1,3 +1,12 @@
+.contact-header{
+  margin: 0 auto;
+  h2{
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+}
+
 .edit-overlay{
     z-index: 999;
     position: fixed;
@@ -26,6 +35,10 @@
   }
 }
 
+.contact-form-conteneur fieldset {
+      border: none;
+      margin: 0 auto;
+}
 
 .contact-modal.modal{
   // position:absolute;
@@ -117,10 +130,23 @@ width: 40px;
   .has-error textarea {
       border: 3px solid #d800ff;
   }
+
+  .alert-success{
+    color: #1AC2E6;
+  }
+
+  .contact-alert{
+    width: 90vw;
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+
+  .alert-danger,
   .error-block{
       color: #d800ff;
       margin-top: 0;
-      font-weight: bold;
+      // font-weight: bold;
+      display: block;
   }
   // input[name="_gotcha"]{
   //   display: none;

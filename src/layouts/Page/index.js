@@ -1,6 +1,6 @@
 import React, { PropTypes } from "react"
 import Helmet from "react-helmet"
-import warning from "warning"
+// import warning from "warning"
 import { BodyContainer, joinUri /*, Link */} from "phenomic"
 
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
@@ -25,10 +25,10 @@ const Page = (
     metadata: { pkg },
   }
 ) => {
-  warning(
-    typeof head.title === "string",
-    `Your page '${ __filename }' needs a title`
-  )
+  // warning(
+  //   typeof head.title === "string",
+  //   `Your page '${ __filename }' needs a title`
+  // )
 
   const metaTitle = head.metaTitle ? head.metaTitle : head.title
 
@@ -75,10 +75,11 @@ const script = (head.js) &&
                   title={ metaTitle }
                   meta={ meta }
               />
-              <div className={ styles.header }>
-                  <h1 className={ styles.heading }>{ head.title }</h1>
-              </div>
-
+              { head.title && (
+                  <div className={ styles.header }>
+                     <h1 className={ styles.heading }>{ head.title }</h1>
+                  </div>
+              )}
               <div className={ styles.wrapper + " " + styles.pageContent }>
                   { header }
                   <div className={ styles.body }>

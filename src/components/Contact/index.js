@@ -1,16 +1,14 @@
-import React, { Component, PropTypes } from "react"
+import React, {Component, PropTypes} from "react"
 import t from 'tcomb-form';
 import axios from 'axios'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import {browserHistory} from "phenomic/lib/client"
 
-import CloseBox from '../CloseBox'
-import styles from "./index.css"
 
 const isClient = typeof window !== "undefined";
 const {Form} = t.form;
 
-// const _replyto = t.String;
-// _replyto.getValidationErrorMessage = () => 'tu déconnes là';
+// const _replyto = t.String; _replyto.getValidationErrorMessage = () => 'tu
+// déconnes là';
 
 const Lot = t.struct({
     name: t.String,
@@ -18,20 +16,19 @@ const Lot = t.struct({
     message: t.String,
     _gotcha: t.maybe(t.String),
     _subject: t.String,
-    _next: t.String,
+    _next: t.String
 });
-
 
 const options = {
     fields: {
         name: {
             label: 'Votre nom',
-            error: <i>Veuillez entrer votre nom.</i>,
+            error: <i>Veuillez entrer votre nom.</i>
         },
         _replyto: {
             label: 'Votre e-mail',
             type: 'email',
-            error: <i>Votre e-mail n'est pas valide</i>,
+            error: <i>Votre e-mail n'est pas valide</i>
         },
         _gotcha: {
             type: 'hidden'
@@ -45,100 +42,82 @@ const options = {
         message: {
             label: 'Votre message',
             type: 'textarea',
-            error: <i>Vous n'avez pas laissé de message/</i>,
+            error: <i>Vous n'avez pas laissé de message :-/</i>
         }
     }
 };
 
-
-
-export const Contact = (props, context) => {
-    return (context.modal.contactOpen)
-        ? (<ContactForm {...props} {...context} />)
-        : null;
-};
-Contact.contextTypes = {
-    modal: PropTypes.object,
-};
-
-
-export class ContactForm extends Component {
+export default class Contact extends Component {
     static contextTypes = {
-        modal: PropTypes.object,
+        location: PropTypes.object
     }
 
     state = {
         value: {
             _next: (isClient) && window.location.href,
             _subject: 'un message venant du site !'
-        }
-     }
+        },
+      alert: {
+        show: false,
+        type: '',
+        text: ''
+      }        
+    }
 
     constructor(props, context) {
         super(props, context);
-        // console.log('CONTACT', props, context);
+        console.log('CONTACT', props, context);
         this.onChange = this.onChange.bind(this);
-        this.onCancel = this.onCancel.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.sendFormData = this.sendFormData.bind(this);
+        this.sendByAxios = this.sendByAxios.bind(this);
         this.form = null;
     }
 
-    componentDidMount() {
-      document.addEventListener('keydown', this.handleKeyPress);
-    }
-
-    componentWillUnmount() {
-      document.removeEventListener('keydown', this.handleKeyPress);
-    }
-
-
     handleClick(evt) {
-      evt.nativeEvent.stopImmediatePropagation();
+        evt.nativeEvent.stopImmediatePropagation();
     }
 
+    handleKeyPress(evt) {
+        // console.log(evt.keyCode);
+        if (evt.keyCode === 13) {
+            this.onSubmit(evt);
+        }
+    }
 
     onChange(value) {
         this.setState({value});
     }
 
-    onCancel(evt) {
-        if (evt)  evt.preventDefault();
-        this.context.modal.toggleContactModal();
-    }
 
-    handleKeyPress(evt) {
-        // console.log(evt.keyCode);
-        if (evt.keyCode === 27) {this.context.modal.toggleContactModal();}
-        if (evt.keyCode === 13) {this.onSubmit(evt);}
-    }
 
     onSubmit(evt) {
-        if (evt)  evt.preventDefault();
-
-        // console.log('this.form', this.form);
+        if (evt) 
+            evt.preventDefault();
         console.log(this.form.validate());
-
         const value = this.form.getValue();
-        console.log(value);
-        if (value) {
 
-            /*
-            const r = new XMLHttpRequest();
-            r.open('POST', 'https://formspree.io/contact@vitreene.com', true);
-            r.setRequestHeader('Content-Type', 'application/json');
-            // r.withCredentials = true;
-            r.onreadystatechange =  () => {
-              if (r.readyState != 4 || r.status != 200) return;
-            //   console.log("Success: " + r.responseText);
-              console.log("Success: " + r);
-              this.onCancel();
-            };
-            r.send(value);
+        if (value) 
+            // this.sendFormData({...value});
+            this.setState({
+                alert: { 
+                    show: true, 
+                    type: 'info', 
+                    text: 'Envoi...'
+                },
+                submitted: true
+                }, 
+                this.sendByAxios(value)
+            );
+  
+    }
 
-            */
-            // Send a POST request
+    sendByAxios(value) {
+
+        const comeback = () =>  window.setTimeout( () => browserHistory.goBack() , 1000 );
+                    // Send a POST request
             axios({
                 url: 'https://formspree.io/contact@vitreene.com',
                 method: 'post',
@@ -149,77 +128,102 @@ export class ContactForm extends Component {
                 if (res.status===200) {
                     console.log('message envoyé avec succes.');
                     console.log(res);
-                    this.onCancel();
+                     this.setState({
+                        alert: {
+                            show: true,
+                            type: 'success',
+                            text: 'Votre message a bien été envoyé. Merci !'
+                        },
+                        value:{},
+                    },
+                   comeback
+                    );
+                } else {
+                    this.setState({
+                        alert: {
+                            show: true,
+                            type: 'danger',
+                            text: 'Désolé, une erreur s’est produite ; veuillez envoyer votre message directement à l’adresse suivante : '  
+                            + 'contact@vitreen' 
+                            + 'e.com'
+                        }
+                    });
                 }
             });
-        }
+    }
+
+    sendFormData(json) {
+        console.log('send : ', typeof json, json )
+        // Send the form data.
+        const xmlhttp = new XMLHttpRequest();
+        xmlhttp.open('POST', 'https://formspree.io/contact@vitreene.com', true);
+        xmlhttp.setRequestHeader('Accept', 'application/json');
+        xmlhttp.setRequestHeader('Content-Type', 'application/json');
+
+        xmlhttp.send(json);
+
+        xmlhttp.onreadystatechange =  ()=> {
+            // <4 =  waiting on response from server
+            if (xmlhttp.readyState < 4) 
+                this.setState({
+                    alert: {
+                        show: true,
+                        type: 'info',
+                        text: 'Loading...'
+                    }
+                })
+                // 4 = Response from server has been completely loaded.
+            else if (xmlhttp.readyState === 4) {
+                // 200 - 299 = successful
+                if (xmlhttp.status === 200 && xmlhttp.status < 300) {
+                    this.setState({
+                        alert: {
+                            show: true,
+                            type: 'success',
+                            text: 'Votre message a bien été envoyé. Merci !'
+                        },
+                        value:{}
+                    });
+                } else {
+                    this.setState({
+                        alert: {
+                            show: true,
+                            type: 'danger',
+                            text: 'Désolé, une erreur s’est produite ; veuillez envoyer votre message directement à l’adresse suivante : '  
+                            + 'contact@vitreen' 
+                            + 'e.com'
+                        }
+                    });
+                }
+            }
+        };
     }
 
     render() {
         const {value} = this.state;
-        // const {contactOpen} = this.context.modal;
-        const transitionsOptions = {
-          transitionName: 'fad2',
-          transitionAppear: true,
-          transitionLeave: true,
-          transitionAppearTimeout: 500,
-          transitionEnterTimeout: 500,
-          transitionLeaveTimeout: 300
-        };
+        return (
+            <div className="contact-form-conteneur">
 
 
-        return  (
-            <ReactCSSTransitionGroup
-                {...transitionsOptions}
-                component="div"
-            >
-                <div className="contact-form-conteneur">
-                    <ClicOutside cancel={this.onCancel}/>
+                <form id="form-contact" className="form-contact" onSubmit={this.onSubmit}>
 
-                    <div className="contact-modal modal "
-                        onClick={this.handleClick}
-                    >
-                        <CloseBox onClick={this.onCancel} />
+            { this.state.alert.show &&
+              <div className={ 'contact-alert'  + ' alert-' + this.state.alert.type }>
+                { this.state.alert.text }
+              </div>
+            }
+                    <Form
+                        ref={form => (this.form = form)}
+                        type={Lot}
+                        options={options}
+                        value={value}
+                        onChange={this.onChange}/>
 
-                        <h2> Contactez Vitreene.com </h2>
-
-                        <form
-                            id="form-contact"
-                            className="form-contact"
-                            onSubmit={this.onSubmit}
-                        >
-
-                            <Form
-                                ref={ form => (this.form = form) }
-                                type={Lot}
-                                options={options}
-                                value={value}
-                                onChange={this.onChange}
-                            />
-
-                            <div className="form-actions">
-                                <input
-                                    className="form-ajouter-validation"
-                                    type="submit"
-                                    value="Envoyer"
-                                />
-                            </div>
-                        </form>
+                    <div className="form-actions">
+                        <input className="form-ajouter-validation" type="submit" value="Envoyer"/>
                     </div>
-                </div>
-            </ReactCSSTransitionGroup>
+                </form>
+            </div>
         );
     }
 }
-
- //
-
-const ClicOutside = ({cancel, children}) => (
-    <div id="overlay" className="edit-overlay" onClick={cancel}>
-        {children}
-    </div>
-);
-ClicOutside.propTypes = {
-    cancel: PropTypes.func,
-    children: PropTypes.node
-};

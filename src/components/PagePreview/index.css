@@ -1,15 +1,32 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  max-width: 40rem;
-  margin: 1rem auto;
-  padding: 1rem 0;
+  justify-content: flex-start;
+  min-height: 100%;
+  /*max-width: 40rem;*/
+  /*margin: 1rem auto;*/
+  padding: 0 0 2rem ;
 }
 
+.paveImg{
+    width: 100%;
+    height: 0;
+    padding-top: 100%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 1rem;
+    transition: opacity 0.3s;
+}
+
+.paveImg:hover{
+    opacity: 0.5;
+}
 .title {
-  align-self: center;
-  font-size: 1.2rem;
+  /*align-self: center;*/
+  font-size: 1.1rem;
   font-weight: 900;
+  line-height: 1.5;
+  color: var(--colorPrimaryDark);
 }
 
 .meta {
@@ -22,12 +39,20 @@
 }
 
 .readMore {
-  /* align-self: center; */
+  margin-top: auto;
+  padding-top: 1rem;
   display: inline-flex;
-  margin-top: 1rem;
+  /*margin-top: 1rem;*/
   border-radius: 3px;
-  font-size: 0.8rem;
-  text-align: center;
-  border-bottom: 0 !important;
+  font-size: 0.71rem;
+  color: var(--colorPrimaryDark);
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  /*text-align: center;*/
+  border-bottom: thin solid ;
   text-decoration: none !important;
+}
+
+.readMore:hover{
+
 }

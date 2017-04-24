@@ -8,7 +8,7 @@ draft: false
 soundCloud: 119194573
 siteDescription: "Conception du site de l'Arradv"
 excerpt:
-  text: "Comment adapter un site aux contraintes de la basse vision ?"
+  text: "Comment adapter un site aux contraintes de la basse vision?"
   photo: img/DSC_0111-EARPHONES.jpg
   photoAlt: "homme souriant aux yeux fermés portant des écouteurs"
 ---

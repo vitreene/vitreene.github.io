@@ -15,13 +15,12 @@ const LatestPosts = (props, { collection }) => {
   })
   .slice(0, props.numberOfPosts || defaultNumberOfPosts)
 
-console.log('PROCESS', process.env);
   return (
     <div>
-        <h2 className={ styles.latestPosts }>
-            { "Articles" }
-        </h2>
-        <PagesList pages={ latestPosts } />
+      <h2 className={ styles.latestPosts }>
+        { "Latest Posts" }
+      </h2>
+      <PagesList pages={ latestPosts } />
     </div>
   )
 }
