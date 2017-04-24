@@ -65,7 +65,11 @@ export default function(Comp) {
         scrollAtTop() {
             if (isClient) {
                 const isOpen = (window.pageYOffset < 30);
-                (this.state.isOpen !== isOpen) && this.setState({isOpen});
+                const {menu} = this.state;
+                if (menu.isOpen !== isOpen) {
+                     menu.isOpen = isOpen;
+                     this.setState({menu});
+                    }
             }
         }
 
