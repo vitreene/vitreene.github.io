@@ -39,7 +39,7 @@ export default class CarouselPanel extends Component {
     }
 
     timer(aller = this.state.active) {
-        const current = aller + (this.state.pause ? 0 : 1);
+        const current = aller + ((this.state.pause==='off') ? 1 : 0);
         const {duree} = this.props;
         const quantite = this.props.diapos.length ;
         const active = (current) % quantite;

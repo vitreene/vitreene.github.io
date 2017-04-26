@@ -91,8 +91,6 @@ export default class Contact extends Component {
         this.setState({value});
     }
 
-
-
     onSubmit(evt) {
         if (evt) 
             evt.preventDefault();
@@ -115,8 +113,7 @@ export default class Contact extends Component {
     }
 
     sendByAxios(value) {
-
-        const comeback = () =>  window.setTimeout( () => browserHistory.goBack() , 1000 );
+        const comeback = () =>  setTimeout( () => browserHistory.goBack() , 1000 );
                     // Send a POST request
             axios({
                 url: 'https://formspree.io/contact@vitreene.com',
@@ -203,15 +200,12 @@ export default class Contact extends Component {
         const {value} = this.state;
         return (
             <div className="contact-form-conteneur">
-
-
                 <form id="form-contact" className="form-contact" onSubmit={this.onSubmit}>
-
-            { this.state.alert.show &&
-              <div className={ 'contact-alert'  + ' alert-' + this.state.alert.type }>
-                { this.state.alert.text }
-              </div>
-            }
+                { this.state.alert.show &&
+                <div className={ 'contact-alert'  + ' alert-' + this.state.alert.type }>
+                    { this.state.alert.text }
+                </div>
+                }
                     <Form
                         ref={form => (this.form = form)}
                         type={Lot}

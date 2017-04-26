@@ -1,63 +1,59 @@
 import React, {PropTypes, Component} from "react"
 
 import styles from "./index.css"
-
-
-// const defaultLos = {width: 390, height: 390};
-// // const defaultLos = {width: 390*.71, height: 390*.71}
-// // const defaultLos = {width: 390*1.21, height: 390*1.21};
-// const defaultDuree = 4;
-
-
-/*
-rendre le carousel responsive, avec une taille de base.
-Les dimensions rect et losange sont calculées en conséquence
-le seul parametre à donner serait width ou haight, le reste est calculé.
-+ on resize recalcule l'ensemble.
-*/
-
-const echelle = 0.71;
+const isClient = typeof window !== "undefined";
 
 export default class Slider extends Component {
     static propTypes = {
         diapos: PropTypes.array, // les diapos
-        rect: PropTypes.object, //  dimensions du conteneur
+        rect: PropTypes.object, //  dimensions initiales du conteneur
         duree: PropTypes.number //  durée d'une diapo, en secondes
     }
     static defaultProps = {
         diapos: [],
         duree: 4,
-        rect: {width: 398 * echelle, height: 384 * echelle}
+        rect: {width: 298, height: 288}
     }
     state = {
-        active: -1,
+        active: -1, // slider
         cycle: Array(this.props.diapos.length).fill(false),
-        losange: {width: 0, height: 0} // dimensions après deformation
+        echSlider: 1, // rendre le slider responsive
     }
+    losange = {
+        width: 0, 
+        height: 0
+    }
+    conteneur = null
+    prez = null
 
     constructor(props) {
         super(props);
-        this.prez = null;
         this.timer = this.timer.bind(this);
         this.onTheEnd = this.onTheEnd.bind(this);
         this.rectLosange = this.rectLosange.bind(this);
+        this.scaleSlider = this.scaleSlider.bind(this);
     }
 
     componentDidMount() {
         this.timer();
-        // Cinq();
+        this.scaleSlider();
+        isClient && window.addEventListener('resize', this.scaleSlider);
+
     }
 
     componentWillUnmount() {
         clearTimeout(this.prez);
+        isClient && window.removeEventListener('resize', this.scaleSlider);
     }
 
     timer() {
         const {duree} = this.props;
+        const {cycle, active} = this.state;
         const quantite = this.props.diapos.length;
-        const timer = (this.state.active + 1) % quantite;
-        const {cycle} = this.state;
+
+        const timer = (active + 1) % quantite;
         cycle[timer] = true;
+
         this.setState({active: timer, cycle});
         this.prez = setTimeout(this.timer, duree * 1000);
     }
@@ -70,47 +66,72 @@ export default class Slider extends Component {
     }
 
     rectLosange(ref){
-        if (ref){
-            const {width, height} = ref.getBoundingClientRect();
-            this.setState({
-                losange: {
-                    width: Math.round(width),
-                    height: Math.round(height)
-                }
-            });
+        if (!ref) return;
+
+        const {width, height} = ref.getBoundingClientRect();
+        this.losange = {
+            width: Math.round(width),
+            height: Math.round(height)
         }
     }
 
+    scaleSlider() {
+        if (!this.conteneur) return ;
+
+        const {width, height} = this.conteneur.getBoundingClientRect();
+        const widthLosange = Math.round(width * 0.60);
+        const heightLosange = Math.round(height * 0.80);
+        const maxHeight = this.props.rect.height;
+        const minSide = Math.min(widthLosange, heightLosange, maxHeight);
+
+        this.setState({echSlider: minSide/maxHeight});
+    }
+
     render() {
-        const {onTheEnd} = this;
+        const {onTheEnd, losange} = this;
         const {rect, duree} = this.props;
-        const {losange} = this.state;
+        const {echSlider} = this.state;
+        
+        const conteneurRect = {
+            width:  rect.width * echSlider,
+            height: rect.height * echSlider,
+        };
+        const conteneurLosange = {
+            width:  losange.width * echSlider,
+            height: losange.height * echSlider,
+        };
 
         const diapos = this.props.diapos.map( (diapo, index) => {
-            const active = this.state.cycle[index];
-            const odd = !!(index % 2);
+            // const active = this.state.cycle[index];
+            // const odd = !!(index % 2);
             const props = {
                 diapo,
-                losange,
-                rect,
+                losange: conteneurLosange,
+                rect: conteneurRect,
                 duree,
-                active,
-                odd,
+                active: this.state.cycle[index],
+                odd: !!(index % 2),
                 index,
                 onTheEnd
             };
             return (<Diapo key={index} {...{...props}}/>)
         });
+
+
         return (
-                <div id="conteneur-carousel"
-                    className={styles.conteneurCarousel}>
+            <div id="conteneur-carousel"
+                ref={ (r)=> this.conteneur = r  }
+                className={styles.conteneurCarousel} >
+
+                <div  className={styles.conteneurSlider}>
                     <div
                         ref={this.rectLosange}
                         className={styles.losange}
-                        style={rect}>
+                        style={conteneurRect}>
                         {diapos}
-                    </div>
+                    </div> 
                 </div>
+            </div>        
         );
     }
 }
@@ -120,7 +141,7 @@ export default class Slider extends Component {
 // "./osciller/DSC_0041.JPG"
 
 const Diapo = ( {diapo, losange, rect, duree, active, odd, index, onTheEnd} ) => {
-
+    // console.log('losange : ', losange);
     const imgRef = (ref) => {
         ref && ref.addEventListener('animationend', onTheEnd);
     };
@@ -145,7 +166,7 @@ const Diapo = ( {diapo, losange, rect, duree, active, odd, index, onTheEnd} ) =>
 
     return (
         <div ref={imgRef} id={index} className={currentSlide}
-            style={ {animationDuration: duree * 2 + 's', ...rect } }>
+            style={ {animationDuration: duree * 1.15 + 's', ...rect } }>
             <div className={styles.demix}
                 style={{...losange}}>
 

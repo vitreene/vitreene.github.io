@@ -4,17 +4,15 @@ import Slider from './Slider/'
 import Cinq from './CinqLosanges/'
 import styles from "./index.css"
 
-const Carousel = (props) => {
-
-    return (
-        <div className={styles.fondCarousel}>
+const Carousel = (props) => (
+        <div 
+        id='hero-fond'
+        className={styles.fondCarousel}>
             <Cinq/>
-            <Slider {...props}/>
+            <Slider {...props} />
             <h1 className={styles.title}>{props.children}</h1>
         </div>
     );
-
-}
 
 Carousel.propTypes = {
   children: PropTypes.node,
