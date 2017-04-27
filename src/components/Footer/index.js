@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "phenomic"
+// import { Link } from "phenomic"
 import Svg from "react-svg-inline"
 
 import styles from "./index.css"
@@ -7,8 +7,8 @@ import styles from "./index.css"
 import twitter from '../icones/ico-twitter.svg'
 import facebook from '../icones/ico-facebook.svg'
 import linkedin from '../icones/ico-linkedin.svg'
-import contact from '../icones/ico-contact.svg'
-import apropos from '../icones/ico-apropos.svg'
+// import contact from '../icones/ico-contact.svg'
+// import apropos from '../icones/ico-apropos.svg'
 
 const Footer = () => (
     <footer >
@@ -31,9 +31,9 @@ const Footer = () => (
 
       
         </section>
-        <p>
+        <p className={styles.madeByPhenomicMention}>
             <a href={process.env.PHENOMIC_HOMEPAGE} className={styles.phenomicReference}>
-                {"Website generated with "}
+                {"Ce site est généré par "}
                 <span className={styles.phenomicReferenceName}>
                     {`<${process.env.PHENOMIC_NAME} />`}
                 </span>

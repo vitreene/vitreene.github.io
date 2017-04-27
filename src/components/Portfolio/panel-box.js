@@ -1,31 +1,25 @@
 import React, {PropTypes} from 'react'
-// import ReactDOM from 'react-dom'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import Marked from 'marked'
-//import ReactCSSTransitionReplace from 'react-css-transition-replace';
+
 import CloseBox from '../CloseBox'
 import CarrouselPanel from './CarouselPanel'
-// import CarrouselPanel from './carousel-panel'
-// import ActiverMenu from './activer-menu'
 
 
 const PanelBox = (props) => {
     const {id, details, setTogglePanel} = props;
 
-  function closePanel(){
-    setTogglePanel('close');
-    // reactiver aussi le menu
-  }
+    function closePanel(){
+        setTogglePanel('close');
+    }
 
-  function scroll(e) {
-    if (!e) return;
-    const element = document.getElementById("my-scroll");
-    const to =  e.offsetTop -16;
-    const duration = 300;
-    // console.log('SCROLLTO', e, to);
-
-    scrollTo(element, to, duration) ;
-  }
+    function scroll(e) {
+        if (!e) return;
+        const element = document.getElementById("my-scroll");
+        const to =  e.offsetTop -16;
+        const duration = 300;
+        scrollTo(element, to, duration) ;
+    }
 
     const classPanel = 'panel-inner ' + details.modele ;
     const transitionsOptions = {
@@ -37,14 +31,6 @@ const PanelBox = (props) => {
       transitionLeaveTimeout: 300
     };
 
-/*
-<CarrouselPanel
-    data={details.files}
-    id={details.id}
-    modele={details.modele}
-    getLegende={rawMarkup}
-/>
-*/
     return (
         <div
             id="panel"
@@ -84,7 +70,6 @@ const PanelBox = (props) => {
         </div>
             );
 }
-
 
 PanelBox.propTypes = {
     id: PropTypes.string,

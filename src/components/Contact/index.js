@@ -7,9 +7,6 @@ import {browserHistory} from "phenomic/lib/client"
 const isClient = typeof window !== "undefined";
 const {Form} = t.form;
 
-// const _replyto = t.String; _replyto.getValidationErrorMessage = () => 'tu
-// déconnes là';
-
 const Lot = t.struct({
     name: t.String,
     _replyto: t.String,
@@ -63,17 +60,16 @@ export default class Contact extends Component {
         text: ''
       }        
     }
+    form = null
 
     constructor(props, context) {
         super(props, context);
-        console.log('CONTACT', props, context);
         this.onChange = this.onChange.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.sendFormData = this.sendFormData.bind(this);
         this.sendByAxios = this.sendByAxios.bind(this);
-        this.form = null;
     }
 
     handleClick(evt) {
@@ -81,7 +77,6 @@ export default class Contact extends Component {
     }
 
     handleKeyPress(evt) {
-        // console.log(evt.keyCode);
         if (evt.keyCode === 13) {
             this.onSubmit(evt);
         }
@@ -94,11 +89,9 @@ export default class Contact extends Component {
     onSubmit(evt) {
         if (evt) 
             evt.preventDefault();
-        console.log(this.form.validate());
         const value = this.form.getValue();
 
         if (value) 
-            // this.sendFormData({...value});
             this.setState({
                 alert: { 
                     show: true, 
@@ -113,7 +106,7 @@ export default class Contact extends Component {
     }
 
     sendByAxios(value) {
-        const comeback = () =>  setTimeout( () => browserHistory.goBack() , 1000 );
+        const comeback = () => setTimeout( () => browserHistory.goBack(), 1000);
                     // Send a POST request
             axios({
                 url: 'https://formspree.io/contact@vitreene.com',
@@ -123,8 +116,7 @@ export default class Contact extends Component {
             })
             .then( (res)=>{
                 if (res.status===200) {
-                    console.log('message envoyé avec succes.');
-                    console.log(res);
+                    // console.log('message envoyé avec succes.');
                      this.setState({
                         alert: {
                             show: true,
@@ -150,7 +142,7 @@ export default class Contact extends Component {
     }
 
     sendFormData(json) {
-        console.log('send : ', typeof json, json )
+        // ne fonctionne pas. 
         // Send the form data.
         const xmlhttp = new XMLHttpRequest();
         xmlhttp.open('POST', 'https://formspree.io/contact@vitreene.com', true);

@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Fira+Sans:300,500,700,300italic);
 @import url(https://fonts.googleapis.com/css?family=Abril+Fatface);
 
-
+/*
 body{
   font-family: 'Fira Sans';
   font-size: 1rem;
@@ -10,6 +10,7 @@ p,img{
       margin: 0;
     padding: 0;
 }
+*/
 
 .sujets{
   display: flex;
@@ -147,7 +148,7 @@ p,img{
 
 .panel{
   h2{
-    font-size: 2rem;
+    // font-size: 2rem;
     color: white;
   }
   h3{
@@ -167,6 +168,7 @@ p,img{
 }
 
 .panel-titre{
+  font-size: calc( 1.4rem + (24 - 16) * (100vw - 400px) / (800 - 400) );
   font-family: 'Fira Sans' ;
   margin: 0 0 2rem;
 }
@@ -180,7 +182,7 @@ p,img{
     display: flex;
     flex-flow: column;
     align-content: flex-start;
-    padding: 0.5rem;
+    padding: 1rem;
     background-color: $couleur-portfolio;
 }
 
@@ -275,6 +277,7 @@ p,img{
   }
 
   .panel-texte-commentaire{
+    margin-top: 2rem;
   li {
     list-style : square inside ;
     margin-left: 0;
@@ -286,6 +289,7 @@ p,img{
 }
 
 .panel-texte--contexte{
+  margin-top: 0;
   color: aliceblue;
   p{
     margin: 0;
@@ -366,7 +370,13 @@ p,img{
 
 
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 650px) and (orientation:landscape) {
+  .panel-carrousel--cadre{
+    height:100vh;
+  }
+}
+
+@media only screen and (min-width: 650px) {
 
     .panel{
     //   position: relative;
@@ -388,14 +398,16 @@ p,img{
 
     .panel-content{
         flex-flow: row nowrap;
+          padding: 0;
     }
 
     .panel-texte-commentaire{
       flex-grow: 1;
       flex-shrink: 0;
-      flex-basis: 30%;
-      width: 30%;
-      margin-left: 6rem;
+      flex-basis: 40%;
+      // width: 30%;
+      margin-top: 0;
+      margin-left: 4rem;
       padding-left: 0;
       padding-right: 2rem;
     }
@@ -411,6 +423,10 @@ p,img{
     .panel-carrousel--cadre{
         flex-grow: 1;
         height: inherit;
+    }
+
+    .panel-texte--contexte{
+      margin-top: 2rem;
     }
 
 }

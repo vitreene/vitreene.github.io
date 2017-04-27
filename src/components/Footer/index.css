@@ -3,9 +3,13 @@
   text-align: center;
 }
 */
+.madeByPhenomicMention{
+  margin-top: 0.71rem;
+  text-align: center;
+}
 
 .phenomicReference {
-  font-size: 0.75rem;
+  font-size: 0.71rem;
   opacity: 0.6;
   color: inherit;
   text-decoration: none;

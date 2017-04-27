@@ -98,10 +98,7 @@ const ListeSujetBox = (props) => {
     // - sur quelle ligne se trouve le sujet cliqué,
     // - quel est le dernier sujet sur cette ligne
     // le panneau est placé juste après.
-/*
-    let isOnRow = 0;
-    let isFinDeLigne = 0;
-*/
+
     const details = (panelId)
         ? getDetail(panelId, props.details)
         : null;
@@ -121,44 +118,7 @@ const ListeSujetBox = (props) => {
     const sujets = sujetsList
     .slice(0, indexId+1)
     .concat(panelBox, sujetsList.slice(indexId+1) );
-/*
-    for(let i = 0; i < props.sujets.length; i++) {
-      const sujet = props.sujets[i];
 
-      if (props.sujet) {
-       isOnRow += ( sujet.id === props.sujet );
-      }
-
-      isFinDeLigne = !( (i+1) % itemsInRow ) ||
-         ( i === props.sujets.length -1 );
-
-      sujets.push (
-       <SujetBox
-           sujet={sujet}
-           key={sujet.id}
-           isFinDeLigne={isFinDeLigne}
-           setTogglePanel={props.setTogglePanel}
-       /> )  ;
-
-    //    console.log('isOnRow %s, isFinDeLigne %s, isOpenPanel %s', isOnRow, isFinDeLigne, isOpenPanel);
-
-        // détails sera this.props.detail
-      if (isOnRow && isFinDeLigne && isOpenPanel) {
-
-          console.log('FinDeLigne', indexId, sujet.id);
-
-        sujets.push (
-          <PanelBox
-              details={details}
-              key={'panel' + sujet.id}
-              id={'panel' + sujet.id}
-              setTogglePanel={props.setTogglePanel}
-          /> ) ;
-        isOnRow = 0 ; // eviter les doublons
-      }
-
-   }
-*/
    function insertPanelAfter(obj, id, itemsInRow) {
        // if ( (!obj || !id || !itemsInRow) ) return;
        const liste = obj.map( el => el.id );

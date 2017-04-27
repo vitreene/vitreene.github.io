@@ -3,10 +3,9 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import Page from "../Page"
 import Contact from '../../components/Contact'
-import styles from "./index.css"
+// import styles from "./index.css"
 
 const ContactPage = (props) => {
-    // console.log('PROPS Contact', props);
 
     const transitionsOptions = {
         transitionName: 'fad2',
