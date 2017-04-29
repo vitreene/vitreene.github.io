@@ -64,8 +64,9 @@
 
 .body {
     width: 100%;
-    max-width: var(--maxWidth);
-    padding: 1rem 9rem;
+    max-width: var(--articlesMaxWidth);
+    padding: 1rem 1rem;
+    margin: 0 auto;
 
   & a {
     color: var(--colorPrimary);

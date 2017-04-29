@@ -16,6 +16,7 @@
 }
 .headerPosition{
     display: flex;
+    display: -webkit-flex;
     justify-content: flex-start;
     max-width: 1000px;
     margin: 0 auto;
@@ -58,12 +59,19 @@
 
 @media (max-width: 600px) {
     .menuLinks{
-        align-content: center;
+        justify-content:space-between;
+        align-items: center;
         height: 4rem;
     }
     .menuLinks::before {
         height: 6rem;
     }
+    .menuLinks a {
+        display: block;
+    }
+    .menuSpacer{
+    display: none;
+}
 }
 
 .menuOpen{
@@ -123,12 +131,16 @@
     outline:none;
 }
 
-@media (max-width:700px){
+@media (max-width:600px){
     .logoMenu{
         position: relative;
         transform: translateX(-96px) rotateZ(90deg);
         margin-right: -96px;
     }
+    .logoMenu.logoFerme{
+        transform: translateX(-84px) rotateZ(90deg) scale(0.55);
+    }
+
 }
 
 .logoOpen{

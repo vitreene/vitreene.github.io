@@ -1,16 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Fira+Sans:300,500,700,300italic);
-@import url(https://fonts.googleapis.com/css?family=Abril+Fatface);
-
-/*
-body{
-  font-family: 'Fira Sans';
-  font-size: 1rem;
-}
-p,img{
-      margin: 0;
-    padding: 0;
-}
-*/
 
 .sujets{
   display: flex;
@@ -67,14 +54,15 @@ p,img{
     opacity: 0;
     transition: all 0.3s ease-out;
     background-color: rgba(13, 161, 240, 0.8);
+    background-color: rgba(36, 65, 111, 0.75);
   }
   &:hover:after,
   &:active:after{
-    transform: translateX(-10%) translateY(100%)  scale(2) rotateZ(-37deg) ;
+    transform: translateX(-10%) translateY(100%) scale(2) rotateZ(-37deg) ;
     opacity: 1;
   }
   img{
-  width: 100%;
+    width: 100%;
   }
 
   .legende-wrapper{
@@ -87,17 +75,18 @@ p,img{
     right: 10%;
     max-width:40%;
     max-height:2rem;
+    font-family: $Raleway-font;
+    // font-size: 0.8rem;
+    font-size: calc( 0.4rem + (4) * (100vw - 400px) / (800 - 400) );
+
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
     font-weight: bold;
     color: ghostwhite;
     opacity: 0;
     transition: opacity 0.3s;
     span{
-      //position: relative;
-      //display: inline-block;
-     // left:0;
-      // outline: 1px solid red;
       text-overflow:ellipsis
-
     }
   }
   &:hover .legende-wrapper{
@@ -109,8 +98,8 @@ p,img{
   height: 280px;
   width: 260px;
   text-align: center;
-
-  border: 1px solid red; /* Afin de bien voir que c'est centré dans la boîboîte */
+  /* Afin de bien voir que c'est centré dans la boîboîte */
+  // border: 1px solid red; 
 }
 
 .container:before {
@@ -147,6 +136,9 @@ p,img{
 }
 
 .panel{
+  position: relative;
+  width: 98vw;
+
   h2{
     // font-size: 2rem;
     color: white;
@@ -169,21 +161,19 @@ p,img{
 
 .panel-titre{
   font-size: calc( 1.4rem + (24 - 16) * (100vw - 400px) / (800 - 400) );
-  font-family: 'Fira Sans' ;
+  font-family: $Raleway-font; // 'Fira Sans' ;
   margin: 0 0 2rem;
 }
 
-.panel{
-  position: relative;
-  width: 98vw;
-}
 
 .panel-inner {
     display: flex;
     flex-flow: column;
     align-content: flex-start;
     padding: 1rem;
-    background-color: $couleur-portfolio;
+    // background-color: $couleur-portfolio;
+    background-color: #738fbf;
+    // background-color: #819dca;
 }
 
 .panel-content{
@@ -199,7 +189,7 @@ p,img{
     width: 100%;
     height: 50vh;
     overflow: hidden;
-    cursor: nwse-resize;
+    // cursor: nwse-resize;
     display: block;
 }
 
@@ -219,18 +209,17 @@ p,img{
   text-align: center;
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position:  center;
+  background-color:  #96abcf;
+  border: 1rem solid  #96abcf;
+  border-radius: 0.4rem;
 }
 
 .panel-cadre-img{
-  // min-width: 100%;
-  // max-width: 100%;
-  // display: inline-block;
   object-fit: scale-down;
 }
 
 .panel-carrousel--cadre-legende{
-  // display: none;
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -291,11 +280,15 @@ p,img{
 .panel-texte--contexte{
   margin-top: 0;
   color: aliceblue;
+  h3 {
+    font-family: $Raleway-font;
+  }
   p{
+    font-family: $Raleway-font;
     margin: 0;
-    font-size: 0.71rem;
+    font-size: 0.65rem;
     text-transform: uppercase;
-    letter-spacing: 0.05rem;
+    letter-spacing: 0.1rem;
   }
 //  outline: 1px solid red ;
 }

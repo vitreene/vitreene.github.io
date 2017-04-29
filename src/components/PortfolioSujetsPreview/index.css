@@ -56,29 +56,3 @@
 .readMore:hover{
 
 }
-
-@media (max-width: 600px) {
-  .wrapper  a:first-child{
-    display: flex;
-    flex-direction: row nowrap;
-    justify-content: flex-start;
-    padding: 0;
-  }
-  .texte{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    margin-left: 1rem;
-  }
-
-  .paveImg{
-    flex-basis: 30%;
-    width: 30%;
-    padding-top: 30%;
-  }
-    .wrapper a + a{
-      padding-top: 0;
-      display: inline-block;
-      text-align: right;
-    }
-}

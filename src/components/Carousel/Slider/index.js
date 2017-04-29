@@ -161,7 +161,6 @@ const Diapo = ( {diapo, losange, rect, duree, active, odd, index, onTheEnd} ) =>
     ].join(' ');
 
     const src = 'url(assets/img/' + diapo + ')';
-    // const srcImg = 'assets/img/' + diapo;
     const losangeImgStyle = {backgroundImage: src};
 
     return (

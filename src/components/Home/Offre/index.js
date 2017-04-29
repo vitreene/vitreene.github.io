@@ -1,7 +1,10 @@
 import React, { PropTypes } from "react"
+import Svg from "react-svg-inline"
 
 import styles from "./index.css"
 
+// import accolades from '../../icones/accolades.svg'
+import thermometre from '../../icones/thermometre.svg'
 
 const Text =  ()=> (
     <div className={ styles.textOffre }>
@@ -15,7 +18,7 @@ const Cta = ()=> (
     <div className={ styles.blocCta }>
 
         <div className={ styles.blocCtaJauge }>
-            Jauge
+            <Svg svg={thermometre} cleanup/>
         </div>
         <div className={ styles.blocCtaTexte }>
             Je suis actuellement disponible pour de nouveaux projets.

@@ -1,5 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Fira+Sans:300,500,700,300italic);
 @import url(http://fonts.googleapis.com/css?family=Abril+Fatface);
+@import url(https://fonts.googleapis.com/css?family=Raleway:300);
+
 
 // variables
 $white: white;
@@ -11,7 +13,7 @@ $couleur-fond-post : rgba(235,245,255,0.4)  ;
 $couleur-fond-post-opaque : rgb(247, 251, 255)  ;
 $couleur-fond-body : $white ;
 $max-width : 1000px;
-
+$Raleway-font : Raleway, "Fira Sans", 'Helvetica Neue', Arial, sans-serif;
 
 //imports
 // @import "prism";

@@ -3,7 +3,7 @@
     {
       "id": "sujet001",
       "vignette": "home-huwans-vgn.jpg",
-      "vignetteTitre": "E-commerce : accueil",
+      "vignetteTitre": "E\u2011commerce\u2008: accueil",
       "categorie": "site",
       "type": "web",
       "marque": "huwans clubaventure"
@@ -11,7 +11,7 @@
     {
       "id": "sujet002",
       "vignette": "catal-club-vgn.jpg",
-      "vignetteTitre": "Treks et randonnées : catalogue",
+      "vignetteTitre": "Treks et randonnées\u00A0: catalogue",
       "categorie": "catalogue",
       "type": "print",
       "marque": "clubaventure"
@@ -19,7 +19,7 @@
     {
       "id": "sujet003",
       "vignette": "avprem-vgn.jpg",
-      "vignetteTitre": "Action commerciale : ventes privées",
+      "vignetteTitre": "Action commerciale\u00A0: ventes privées",
       "categorie": "ope-co",
       "type": "web",
       "marque": "huwans clubaventure"

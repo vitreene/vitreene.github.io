@@ -26,25 +26,3 @@
     max-width: 30%;
     /*outline: 1px solid cyan;*/
 }
-
-@media (max-width: 600px) {
-    .list {
-        margin: 1rem;
-        flex-direction: column;
-        /*flex-direction: row;*/
-    }
-
-    .list:after {
-        content: "";
-        flex-basis: 100%;
-    }
-
-    .item{
-        flex-basis: 100%;
-        flex-shrink: 0;
-        flex-grow: 1;
-        max-width: 100%;
-        /*outline: 1px solid cyan;*/
-    }
-
-}

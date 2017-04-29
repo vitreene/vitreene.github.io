@@ -1,6 +1,7 @@
 import React , { PropTypes } from "react"
 
-import Portfolio from '../../components/Portfolio'
+// import Portfolio from '../../components/Portfolio'
+import PortfolioSujets from '../../components/PortfolioSujets'
 
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
@@ -20,7 +21,8 @@ const PortfolioPage = (props) => {
             {...transitionsOptions}
             component="div"
         >
-            <Portfolio { ...props } key={props.head.title} />
+            {/*<Portfolio { ...props } key={props.head.title} />*/}
+            <PortfolioSujets  { ...props } key={props.head.title} />
         </ReactCSSTransitionGroup>
 ) ;}
 

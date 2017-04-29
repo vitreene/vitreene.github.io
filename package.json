@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "autosite",
-  "homepage": "http://localhost:8888/autosite/",
+  "homepage": "http://192.168.0.11:3333/autosite/",
   "twitter": "",
   "repository": "",
   "scripts": {
