@@ -9,7 +9,7 @@ const defaultNumberOfPosts = 6
 
 const LatestPosts = (props, { collection }) => {
   const latestPosts = enhanceCollection(collection, {
-    filter: { layout: "Post" },
+    filter: { collection: 'articles' },
     sort: "date",
     reverse: true,
   })

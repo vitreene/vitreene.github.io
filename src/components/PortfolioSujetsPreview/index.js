@@ -7,7 +7,6 @@ import styles from "./index.css"
 
 const PortfolioSujetsPreview = (page, {metadata: {pkg}}) => {
     const {__url, vignette, vignetteTitre} = page;
-
     const url = 'url(' + pkg.homepage + 'assets/portfolio2/' + vignette + ')';
     const bgImg = {backgroundImage: url };
 

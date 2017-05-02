@@ -72,13 +72,17 @@
   }
 
   .paveImg{
-    flex-basis: 30%;
-    width: 30%;
-    padding-top: 30%;
+    flex-basis: 25vw;
+    width: 25vw;
+    padding-top: 25vw;
+    margin-bottom: 0;
   }
-    .wrapper a + a{
-      padding-top: 0;
-      display: inline-block;
-      text-align: right;
-    }
+  .wrapper a + a{
+    padding-top: 0;
+    display: inline-block;
+    text-align: right;
+  }
+  .readMore {
+      margin-bottom: 2rem;
+  }
 }

@@ -9,17 +9,14 @@ import Page from "../Page"
 const Articles = (props) => {
   // it's up to you to choose what to do with this layout ;)
   // const pageDate = props.head.date ? new Date(props.head.date) : null;
-  const {body, ...reste} = props;
-  const [intro, texte] = (body) ? props.body.split('<!--intro-->') : '';
+  // const {body, ...reste} = props;
+  // const [intro, texte] = (body) ? props.body.split('<!--intro-->') : '';
 
   return (
-    <Page
-        { ...reste } body={texte}
-        header={ <Intro intro={intro}/> }
-    >
+    <Page { ...props} >
       <hr />
       <LatestPosts />
-    </Page>
+      </Page>
   )
 }
 
@@ -27,19 +24,4 @@ Articles.propTypes = {
   head: PropTypes.object.isRequired,
   body: PropTypes.string,
 }
-
 export default Articles
-
-const Intro = (props) => {
-    return (
-        <div
-            id="post-intro"
-            className="post-intro"
-            dangerouslySetInnerHTML={{__html: props.intro}}
-        />
-    )
-}
-
-Intro.propTypes = {
-  intro: PropTypes.string,
-}

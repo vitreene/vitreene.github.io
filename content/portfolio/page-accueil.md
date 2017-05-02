@@ -1,10 +1,9 @@
 ---
 id: sujet001
 modele: defaut
-titre: "Page d’accueil"
+title: "Page d’accueil"
 collection: portfolio
-layout: Portfolio
-intro: "### La marque \n Huwans est un tour-opérateur spécialisé dans le voyage-randonnée en groupes constitués, dans le monde entier. \n\nCette approche singulière du voyage – le slow travel – nécessite d’en expliquer le concept, tout en gardant la priorité sur l’approche commerciale de la vente."
+layout: Portfolios
 files:
 - file: home-huwans-01.jpg
   legende: page d'accueil du site
@@ -21,8 +20,8 @@ files:
 vignette: "home-huwans-vgn.jpg"
 vignetteTitre: "E\u2011commerce\u2008: accueil"
 categorie: "site"
-type: "web"
-marque: "huwans clubaventure"
+production: web
+marque: "Huwans"
 ---
 
 

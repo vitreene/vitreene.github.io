@@ -7,21 +7,62 @@
 }
 
 .textOffre{
-
+  flex: 1;
 }
 
 .blocCta{
-
+  flex-basis: 30%;
+  flex-shrink: 1;
+  display: flex;
+  flex-flow: row;
+  margin-left: 2rem;
 }
 
 .blocCtaJauge{
+  position: relative;
+  flex:1;
+}
 
+.blocCtaThermometre{
+  width: 3rem;
+  margin-right: 3rem;
+}
+.blocCtaThermIndicateur{
+  position: absolute;
+  top: 40%;
+  right: 1.5rem;
+  width: 2.5rem;
+  transform-origin: top right;
+  animation: osciller 1s ease-in-out infinite;
 }
 
 .blocCtaTexte{
-
 }
 
 .boutonCta{
-    
+    display: block;
+    background-color: var(--colorPrimaryDark);
+    color: white;
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+  .offre{
+    flex-flow: column;
+  }
+
+
+}
+
+
+@keyframes osciller {
+  0% {
+    transform: translateY(0%) rotate(0) ;
+  }
+  50% {
+    transform: translateY(18%) rotate(2deg) ;
+  }
+  100% {
+    transform: translateY(0%) rotate(0deg) ;
+  }
 }

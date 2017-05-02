@@ -3,7 +3,7 @@ id: sujet007
 modele: lightbox
 titre: Sélection d'affiches
 collection: portfolio
-layout: Portfolio
+layout: Portfolios
 intro: ''
 files:
 - file: affiche-verdon.jpg
@@ -30,6 +30,6 @@ files:
 vignette: affiche-vgn.jpg
 vignetteTitre: Sélection d'affiches
 categorie: affiche
-type: print
+production: print
 marque: ''
 ---

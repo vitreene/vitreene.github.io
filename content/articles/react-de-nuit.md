@@ -2,8 +2,7 @@
 title: 'React, de nuit'
 published: 2016-10-15T00:00:00.000Z
 date: 2016-10-15T00:00:00.000Z
-parentDir: articles
-collection: posts
+collection: articles
 layout: Post
 draft: false
 soundCloud: 33200703

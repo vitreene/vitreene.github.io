@@ -1,8 +1,7 @@
 ---
 title: "Linarès : mise en ligne"
 published: 2016-10-15
-parentDir: articles
-collection: posts
+collection: articles
 layout: Post
 draft: false
 soundCloud: 151622085

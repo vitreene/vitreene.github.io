@@ -1,8 +1,7 @@
 ---
 title: "Un catalogue (papier) est un site (web) comme un autre"
 date: 2016-01-15
-parentDir: articles
-collection: posts
+collection: articles
 layout: Post
 draft: false
 js:

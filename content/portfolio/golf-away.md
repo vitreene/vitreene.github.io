@@ -1,10 +1,9 @@
 ---
 id: sujet004
 modele: defaut
-titre: de Sport-Away golf à Golf-Away
+title: de Sport-Away golf à Golf-Away
 collection: portfolio
-layout: Portfolio
-intro: "### La marque \n Golf-Away est un tour opérateur proposant une sélection de voyages associant un séjour à la pratique du golf sur les plus beaux parcours du monde."
+layout: Portfolios
 files:
 - file: SP-golf-brochure.jpg
   legende: plaquette Sport-Avay golf
@@ -18,8 +17,8 @@ files:
 vignette: golf-away-vgn.jpg
 vignetteTitre: Changement de marque
 categorie: identite
-type: print
-marque: Golf-away
+production: print
+marque: Golf-Away
 ---
 
 Le golf est l’une des spécialités de Sport-away voyages, tour opérateur du voyage sportif.

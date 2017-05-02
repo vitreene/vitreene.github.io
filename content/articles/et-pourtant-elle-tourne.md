@@ -1,8 +1,7 @@
 ---
 title: "Et pourtant elle tourne\_! (ma\_roue\_en\_SVG)"
 published: 2016-02-01
-parentDir: articles
-collection: posts
+collection: articles
 layout: Post
 draft: false
 js:

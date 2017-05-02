@@ -1,10 +1,14 @@
 import React, {PropTypes} from "react"
 import Marked from 'marked'
 
-export const Diapo = ( props ) => {
+export const Diapo = ( props,{metadata: {pkg}} ) => {
     const {file, active} = props;
-    const src = require('../../../../content/portfolio/portfolio2/' + file);
-    const bgImg = {backgroundImage: 'url(' + src + ')'};
+    
+    const url = 'url(' + pkg.homepage + 'assets/portfolio2/' + file + ')';
+    const bgImg = {backgroundImage: url };
+
+    // const src = require('../../../../content/portfolio/portfolio2/' + file);
+    // const bgImg = {backgroundImage: 'url(' + src + ')'};
     return (
         <div key={active}
             id={active}
@@ -21,6 +25,9 @@ Diapo.propTypes = {
     active: PropTypes.number,
     legende: PropTypes.string,
     file: PropTypes.string,
+}
+Diapo.contextTypes = {
+  metadata: PropTypes.object.isRequired,
 }
 
 export const Legende = ({legende}) => (
@@ -39,4 +46,3 @@ function rawMarkup(txt) {
       : '';
   return { __html: markup };
 }
-

@@ -11,7 +11,7 @@ const Post = (props) => {
   // const pageDate = props.head.date ? new Date(props.head.date) : null;
   const {body, ...reste} = props;
   const [intro, texte] = (body) ? props.body.split('<!--intro-->') : '';
-
+  // console.log('POST', intro, texte);
   return (
     <Page
         { ...reste } body={texte}

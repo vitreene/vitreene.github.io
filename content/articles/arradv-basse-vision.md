@@ -1,8 +1,7 @@
 ---
 title: "Arradv, un site consacré à la basse vision"
 published: 2016-10-15
-parentDir: articles
-collection: posts
+collection: articles
 layout: Post
 draft: false
 soundCloud: 119194573

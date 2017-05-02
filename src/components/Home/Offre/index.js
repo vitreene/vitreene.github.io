@@ -5,6 +5,7 @@ import styles from "./index.css"
 
 // import accolades from '../../icones/accolades.svg'
 import thermometre from '../../icones/thermometre.svg'
+import thermometreIndicateur from '../../icones/thermometre-indicateur.svg'
 
 const Text =  ()=> (
     <div className={ styles.textOffre }>
@@ -18,14 +19,21 @@ const Cta = ()=> (
     <div className={ styles.blocCta }>
 
         <div className={ styles.blocCtaJauge }>
-            <Svg svg={thermometre} cleanup/>
+            <Svg svg={thermometre} 
+                className={ styles.blocCtaThermometre } 
+                component="div" 
+                cleanup/>
+            <Svg svg={thermometreIndicateur} 
+                className={ styles.blocCtaThermIndicateur } 
+                component="div" 
+                cleanup/>
         </div>
         <div className={ styles.blocCtaTexte }>
             Je suis actuellement disponible pour de nouveaux projets.
             Rencontrons-nous !
-        </div>
-        <div className={ styles.boutonCta }>
-            CTA
+            <button className={ styles.boutonCta }>
+                CTA
+            </button>
         </div>
     </div>
 );

@@ -1,10 +1,9 @@
 ---
 id: sujet006
 modele: lightbox
-titre: Femmes du Monde
+title: Femmes du Monde
 collection: portfolio
-layout: Portfolio
-intro: "### La marque \n Femmes du Monde propose des voyages en petit groupe exclusivement féminins, pour un rythme de voyage et un choix d'activités sur mesure."
+layout: Portfolios
 files:
 - file: femmes-dumonde02.jpg
   legende: Création de l'identité visuelle
@@ -18,6 +17,6 @@ files:
 vignette: femmes-du-monde-vgn.jpg
 vignetteTitre: Identité visuelle
 categorie: identite
-type: print
-marque: femmes du monde
+production: print
+marque: Femmes du Monde
 ---

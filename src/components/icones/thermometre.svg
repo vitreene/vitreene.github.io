@@ -1,14 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" stroke-miterlimit="1.41" viewBox="0 0 74 216" clip-rule="evenodd" stroke-linejoin="round">
-  <path fill="none" stroke="#1AC2E6" stroke-width="2.66" d="M2697.25 1327.75c0-8.27-3.24-14.98-7.24-14.98s-7.22 6.7-7.22 14.98v65.84c0 8.25 3.24 14.96 7.24 14.96s7.25-6.7 7.25-14.98v-65.85z" transform="matrix(4.46104 0 0 2.156 -11963.284 -2825.66)"/>
-  <path fill="none" d="M50.94 36.27H57V174.7h-6.06z"/>
-  <path fill="none" stroke="#1AC2E6" stroke-width="9.57" d="M5504 694v93" stroke-linecap="round" transform="matrix(1 0 0 .94886 -5448.636 -606.978)"/>
-  <circle cx="8546" cy="2891" r="15" fill="#1AC2E6" transform="matrix(1.52628 0 0 1.44634 -13009.516 -4006.658)"/>
-  <circle cx="8546" cy="2891" r="15" fill="#fff" transform="matrix(.62244 0 0 .58984 -5289.305 -1537.35)"/>
-  <circle cx="8546" cy="2891" r="15" fill="#1AC2E6" transform="matrix(.62244 0 0 .58984 -5287.305 -1681.79)"/>
-  <circle cx="8546" cy="2891" r="15" fill="#fff" transform="matrix(.21122 0 0 .19492 -1775.202 -543.01)"/>
-  <path fill="#14991D" d="M14.43 130.9H41.4v11.74H14.44z"/>
-  <path fill="#81960D" d="M14.43 110.35H41.4v11.73H14.44z"/>
-  <path fill="#EE9300" d="M14.43 89.8H41.4v11.72H14.44z"/>
-  <path fill="#D96012" d="M14.43 69.23H41.4v11.73H14.44z"/>
-  <path fill="#C2482D" d="M14.43 48.67H41.4V60.4H14.44z"/>
+  <style>
+    .sth0{
+      fill: white;
+      stroke: #1AC2E6;
+      stroke-width: 2.5;
+    }
+    .sth1{
+      fill: white;
+    }
+    .sth2{
+      fill: #1AC2E6;
+    }
+    .grad1{ fill: #14991D; }
+    .grad2{ fill: #81960D; }
+    .grad3{ fill: #EE9300; }
+    .grad4{ fill: #D96012; }
+    .grad5{ fill: #C2482D; }
+  </style>
+
+  <path class="sth0"  d="M2697.25 1327.75c0-8.27-3.24-14.98-7.24-14.98s-7.22 6.7-7.22 14.98v65.84c0 8.25 3.24 14.96 7.24 14.96s7.25-6.7 7.25-14.98v-65.85z" transform="matrix(4.46104 0 0 2.156 -11963.284 -2825.66)"/>
+  <path class="sth2"  d="M50.94 36.27H57V174.7h-6.06z"/>
+
+  <circle cx="8546" cy="2891" r="15" class="sth2" transform="matrix(1.52628 0 0 1.44634 -13009.516 -4006.658)"/>
+  <circle cx="8546" cy="2891" r="15" class="sth1" transform="matrix(.62244 0 0 .58984 -5289.305 -1537.35)"/>
+  <circle cx="8546" cy="2891" r="15" class="sth2" transform="matrix(.62244 0 0 .58984 -5287.305 -1681.79)"/>
+  <circle cx="8546" cy="2891" r="15" class="sth1" transform="matrix(.21122 0 0 .19492 -1775.202 -543.01)"/>
+  <path class="grad1" d="M14.43 130.9H41.4v11.74H14.44z"/>
+  <path class="grad2" d="M14.43 110.35H41.4v11.73H14.44z"/>
+  <path class="grad3" d="M14.43 89.8H41.4v11.72H14.44z"/>
+  <path class="grad4" d="M14.43 69.23H41.4v11.73H14.44z"/>
+  <path class="grad5" d="M14.43 48.67H41.4V60.4H14.44z"/>
 </svg>

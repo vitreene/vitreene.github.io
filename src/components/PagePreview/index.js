@@ -27,10 +27,10 @@ const PagePreview = (page, {metadata: {pkg}}) => {
                     </div>
                 </div>
             </Link>
-                <Link to={__url} className={styles.readMore}>
-                    Lire l'article →
-                </Link>
-            </div>
+            <Link to={__url} className={styles.readMore}>
+                Lire l'article →
+            </Link>
+        </div>
     )
 }
 

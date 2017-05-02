@@ -11,6 +11,8 @@ export default class CarouselPanel extends Component {
         duree: PropTypes.number, //  durée d'une diapo, en secondes
         id: PropTypes.string, //  id du carousel
         modele: PropTypes.string, //  modele d'affichage
+        onStart: PropTypes.func, //  callback au lancement
+        onStop: PropTypes.func, //  callback a la fermeture
     }
     static defaultProps = {
         diapos: [],
@@ -31,11 +33,14 @@ export default class CarouselPanel extends Component {
     }
 
     componentWillMount() {
+        console.log('this.props.onStart', this.props.onStart)
         this.timer(0);
+        this.props.onStart && this.props.onStart();
     }
 
     componentWillUnmount() {
         clearTimeout(this.prez);
+        this.props.onStop && this.props.onStop();
     }
 
     timer(aller = this.state.active) {

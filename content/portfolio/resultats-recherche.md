@@ -1,10 +1,9 @@
 ---
 id: sujet005
 modele: defaut
-titre: Résultats de recherche
+title: Résultats de recherche
 collection: portfolio
-layout: Portfolio
-intro: "### La marque \n Huwans est un tour-opérateur spécialisé dans le voyage-randonnée en groupes constitués, dans le monde entier. \n\nCette approche singulière du voyage – le slow travel – nécessite d’en expliquer le concept, tout en gardant la priorité sur l’approche commerciale de la vente."
+layout: Portfolios
 files:
 - file: recherche-11.jpg
   legende: résultats de recherche
@@ -21,8 +20,8 @@ files:
 vignette: recherch-vgn.jpg
 vignetteTitre: Page de recherche
 categorie: site
-type: web
-marque: huwans clubaventure
+production: web
+marque: Huwans
 ---
 
 ### Améliorer l’existant.

@@ -8,6 +8,7 @@ import PageError from "./layouts/PageError"
 import Homepage from "./layouts/Homepage"
 import Post from "./layouts/Post"
 import PortfolioPage from "./layouts/PortfolioPage"
+import Portfolios from "./layouts/Portfolios"
 import ContactPage from "./layouts/ContactPage"
 import Articles from "./layouts/Articles"
 
@@ -22,6 +23,7 @@ const PageContainer = (props) => (
           PortfolioPage,
           ContactPage,
           Articles,
+          Portfolios,
       }}
   />
 )

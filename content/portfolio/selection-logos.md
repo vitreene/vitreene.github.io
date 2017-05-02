@@ -1,9 +1,9 @@
 ---
 id: sujet008
 modele: lightbox
-titre: Une sélection de logos
+title: Une sélection de logos
 collection: portfolio
-layout: Portfolio
+layout: Portfolios
 intro: ''
 files:
 - file: logo-creedat.png
@@ -33,6 +33,6 @@ files:
 vignette: logo-vgn.jpg
 vignetteTitre: Sélection de logos
 categorie: logos
-type: print
+production: print
 marque: ''
 ---
