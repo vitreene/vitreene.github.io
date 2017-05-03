@@ -4,7 +4,7 @@ import Slider from './Slider/'
 import Cinq from './CinqLosanges/'
 import styles from "./index.css"
 
-const Carousel = (props) => (
+const CarouselLosange = (props) => (
         <div 
         id='hero-fond'
         className={styles.fondCarousel}>
@@ -14,8 +14,8 @@ const Carousel = (props) => (
         </div>
     );
 
-Carousel.propTypes = {
+CarouselLosange.propTypes = {
   children: PropTypes.node,
   };
 
-export default Carousel
+export default CarouselLosange

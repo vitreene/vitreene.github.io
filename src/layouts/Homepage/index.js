@@ -1,6 +1,6 @@
 import React, { PropTypes } from "react"
 
-import Carousel from '../../components/Carousel'
+import CarouselLosange from '../../components/CarouselLosange'
 import LatestPosts from '../../components/LatestPosts'
 import Home from '../../components/Home'
 import Offre from '../../components/Home/Offre'
@@ -23,9 +23,9 @@ const Homepage = (props) => {
   return (
     <Home { ...props }
         header={
-            <Carousel diapos={props.head.diapos}>
+            <CarouselLosange diapos={props.head.diapos}>
                 {props.head.title}
-            </Carousel>
+            </CarouselLosange>
         }>
         <Offre />
         <LatestPosts />

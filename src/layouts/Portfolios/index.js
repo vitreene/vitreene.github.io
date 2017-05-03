@@ -1,73 +1,43 @@
 import React, { PropTypes } from "react"
-import {Link} from "phenomic"
-import enhanceCollection from "phenomic/lib/enhance-collection"
 
 import Page from "../Page"
-import CarrouselPanel from "../../components/Portfolio/CarouselPanel"
+import Slider from "../../components/Slider"
+import SliderMenu from "../../components/SliderMenu"
+import Loading from "../../components/Loading"
+
 import {marques} from "../../../content/portfolio/marques";
 
-// import styles from "./index.css"
-
-const CarrouselMenu = ({url}, { collection }) => {
-    const portfolioList = enhanceCollection(collection, {
-      filter: { collection: 'portfolio' },
-      sort: "id",
-      reverse: false,
-    })
-    .map( page => page.__url);
-
-    const index = portfolioList.findIndex( __url => __url === url );
-
-    const precLink = (index > 0) &&  portfolioList[index-1];
-    const nextLink = (index < portfolioList.length-1) && portfolioList[index+1];
-
-    console.log('precLink, nextLink',portfolioList, url,  index, precLink, nextLink)
-    return (
-      <div className="CarrouselMenu">
-
-          { precLink &&
-            <Link to={precLink}> PRECEDENT </Link>
-            }
-
-          { nextLink &&
-            <Link to={nextLink}> SUIVANT </Link>
-            }
-      </div>
-      )
-};
-
-CarrouselMenu.contextTypes = {
-  collection: PropTypes.array.isRequired,
-}
-
 const Portfolios = (props, {toggle}) => {
-//  toggle('isOpen', false); // <- besoin d'un state
  const {
     isLoading,
-    __filename,
+    // __filename,
     __url,
     head,
-    body,
+    // body,
     // header,
     // footer,
     // children,
   } = props;
 
-// console.log('Portfolio props : ', props);
-// console.log('Portfolio props : footer ', footer);
-// console.log('marques : ', marques);
-
   return (
 <div>
-    <CarrouselPanel
-      diapos={head.files}
-      id={head.id}
-      modele={head.modele}
-      onStart={ () => toggle('isVisible', false) }
-      onStop={ () => toggle('isVisible', true) }>
-      <CarrouselMenu url={__url} />
-  </CarrouselPanel>
-
+  { isLoading 
+    ? <Loading />
+    : (
+        <Slider
+          diapos={head.files}
+          id={head.id}
+          modele={head.modele}
+          onStart={ () => toggle('isVisible', false) }
+          onStop={ () => toggle('isVisible', true) }
+          >
+          <SliderMenu 
+            url={__url} 
+            onClick={ () => toggle('isVisible') }
+          />
+      </Slider>
+      )
+  }
     <Page  { ...props} >
       {
         marques[head.marque] && (
@@ -84,18 +54,16 @@ const Portfolios = (props, {toggle}) => {
 }
 
 Portfolios.propTypes = {
-    props: PropTypes.any,
-  // head: PropTypes.object.isRequired,
-  // body: PropTypes.string,
+    // props: PropTypes.any,
+    isLoading: PropTypes.bool,
+    // __filename: PropTypes.string,
+    __url: PropTypes.string,
+    head: PropTypes.object.isRequired,
+    // body: PropTypes.string,
 }
+
 Portfolios.contextTypes = {
     toggle: PropTypes.func,
 };
-export default Portfolios
 
-/*
-      { 
-        head.intro && 
-        <p> {head.intro}</p>
-      }
-      */
+export default Portfolios
