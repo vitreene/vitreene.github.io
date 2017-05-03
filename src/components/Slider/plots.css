@@ -1,0 +1,27 @@
+.cadrePlots {
+  display: block;
+  padding: 0;
+  margin: 0;
+  height: 1.2rem;
+  font-size: 2rem;
+  text-align: center;
+  letter-spacing: 0.5rem;
+  list-style-image: none;
+  color:#96abcf;
+}
+
+.plotsCurrent {
+  color: #004080;
+}
+
+.plots {
+  margin: 0 .3rem 0 0 ;
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.plots:hover {
+    transform: scale(1.4);
+    color:#1AC2E6;
+}

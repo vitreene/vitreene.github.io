@@ -1,23 +1,31 @@
 import React, { PropTypes } from 'react'
 
+import styles from "./plots.css"
+
 const Plots = (props) => {
-    const {active, count, aller, play} = props;
-    const enter = () => play('off');
-    const leave = () => play('on');
+    const {active, count, aller, pause} = props;
+    const enter = () => pause(true);
+    const leave = () => pause(false);
+
     // console.log('Plots', props);
-    const plots = Array(count).fill('•').map( (fill, index) => (
+    const plots = Array(count).fill('•').map( (fill, index) => {
+        const plotStyle = [
+            styles.plots,
+            ( active === index) && styles.plotsCurrent
+        ].join(' ');
+        return (
         <li key={'plots' + index}
             id={'plots' + index}
             onClick={aller}
-            className={ ( active === index) ? "plots-current" : ''}
+            className={ plotStyle}
         >
             {fill}
         </li>
-        )
+        )}
     );
 
     return (
-      <ul className="panel-carrousel--cadre-plots"
+      <ul className={styles.cadrePlots}
           onMouseEnter={enter}
           onMouseLeave={leave}
       >
@@ -30,7 +38,7 @@ const Plots = (props) => {
       count: PropTypes.number,
       active: PropTypes.number,
       aller: PropTypes.func,
-      play: PropTypes.func,
+      pause: PropTypes.func,
   };
 
   export default Plots

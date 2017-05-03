@@ -4,6 +4,8 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import Plots from './plots'
 import {Diapo, Legende} from './diapo'
 
+const isClient = typeof window !== "undefined";
+
 export default class Slider extends Component {
     static propTypes = {
         children: PropTypes.node,
@@ -20,45 +22,44 @@ export default class Slider extends Component {
     }
     state = {
         active: 0,
-        pause: 'off'
+        pause: false
     }
     prez = null
 
     constructor(props) {
         super(props);
         this.timer = this.timer.bind(this);
-        this.play = this.play.bind(this);
+        this.pause = this.pause.bind(this);
         this.aller = this.aller.bind(this);
         this.keypressed = this.keypressed.bind(this);
     }
 
     componentWillMount() {
-        console.log('this.props.onStart', this.props.onStart)
+        // console.log('this.props.onStart', this.props.onStart)
         this.timer(0);
         this.props.onStart && this.props.onStart();
+        isClient && window.addEventListener('keydown', this.keypressed);
     }
 
     componentWillUnmount() {
         clearTimeout(this.prez);
         this.props.onStop && this.props.onStop();
+        isClient && window.removeEventListener('keydown', this.keypressed);
     }
 
-    timer(aller = this.state.active) {
-        const current = aller + ((this.state.pause === 'off') ? 1 : 0);
+    timer(aller = null) {
+        const current = (aller === null)
+            ? this.state.active + ( (this.state.pause) ? 0 : 1 )
+            : aller;
         const {duree} = this.props;
         const quantite = this.props.diapos.length ;
-        const active = (current) % quantite;
+        const active = (current + quantite) % quantite;
         this.setState({active});
         this.prez = setTimeout(this.timer, duree * 1000);
     }
 
-    play(event) {
-        const pause = {
-            on: false,
-            off: true,
-            toggle: !this.state.pause
-        };
-        this.setState({ pause: pause[event] });
+    pause(event = !this.state.pause ) {
+        this.setState({ pause: event });
     }
 
     aller(event){
@@ -72,24 +73,29 @@ export default class Slider extends Component {
           '37' : -1, // fleche gauche
           '39' : 1 // fleche droite
         };
-        // console.log('KEY', event.keyCode, char[event.keyCode] );
-        clearTimeout(this.prez);
-        const active = char[event.keyCode] + this.state.active || 0;
-        this.timer(active);
+        const active = char[event.keyCode] 
+            ? (char[event.keyCode] + this.state.active)
+            : null;
+        // console.log('KEY', event.keyCode, char[event.keyCode], active,  this.state.active);
+
+        // active peut prendre la valeur 0 
+        if (active !== null){
+            clearTimeout(this.prez);
+            this.timer(active);
+        }
     }
 
     render() {
         const {children, duree, diapos} = this.props;
         const {active} = this.state;
-        const actions = {aller: this.aller, play: this.play};
+        const actions = {aller: this.aller, pause: this.pause};
         // const active = 1;
+        // console.log('Slider', this.props, active);
+        // console.log('Slider active', active);
+
         const {legende, ...dia} = diapos[active];
         const props = { ...dia, duree, active };
 
-        // console.log('Slider', props, active);
-
-        const diapo =  (<Diapo key={'d'+active} {...props}/>);
-        // const current = active;
         const count = diapos.length;
         const transitionsOptions = {
           transitionName: "cross-fade",
@@ -99,6 +105,8 @@ export default class Slider extends Component {
           transitionLeaveTimeout: 1000
         };
 
+        const diapo =  (<Diapo key={'d'+active} {...props}/>);
+        
         return (
             <div id="panel-carrousel"
                 className={"panel-carrousel"}>
@@ -110,7 +118,7 @@ export default class Slider extends Component {
                     {diapo}
                     <Legende
                         key={'l'+active}
-                        {...{legende}}
+                        {...{legende}} 
                     />
                 </ReactCSSTransitionGroup>
                 <Plots {...{active, count, ...actions}}/>

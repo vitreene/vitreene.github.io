@@ -13,16 +13,16 @@ files:
   action: ''
 - file: av-prem-02.jpg
   legende: annonce display
-  action: vertical
+  action: noscale vertical
 - file: av-prem-03.jpg
   legende: annonce display
-  action: vertical superpose
+  action: noscale vertical superpose
 - file: av-prem-04.jpg
   legende: annonce display
-  action: vertical superpose
+  action: noscale vertical superpose
 - file: av-prem-05.jpg
   legende: annonce display
-  action: vertical superpose
+  action: noscale vertical superpose
 - file: av-prem-11.jpg
   legende: e-mailing
   action: vertical
