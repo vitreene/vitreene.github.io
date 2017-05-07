@@ -7,7 +7,7 @@ layout: Portfolios
 intro: ''
 files:
 - file: logo-creedat.png
-  legende: Association d'ergothérapeutes&nbsp;; le premier «&nbsp;e&nbsp;» s'appuie sur le second, valide
+  legende: Association d'ergothérapeutes&#x2007;; le premier «&nbsp;e&nbsp;» s'appuie sur le second, valide
   action: logo
 - file: logo-ATR.png
   legende: 'Pour un tourisme responsable&nbsp;: le signe&nbsp;= affirme la volonté d’équité de ses membres.'

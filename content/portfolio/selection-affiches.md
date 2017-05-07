@@ -1,7 +1,7 @@
 ---
 id: sujet007
 modele: lightbox
-titre: Sélection d'affiches
+title: Sélection d’affiches
 collection: portfolio
 layout: Portfolios
 intro: ''

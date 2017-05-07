@@ -4,6 +4,8 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import Plots from './plots'
 import {Diapo, Legende} from './diapo'
 
+import styles from './index.css'
+
 const isClient = typeof window !== "undefined";
 
 export default class Slider extends Component {
@@ -47,6 +49,11 @@ export default class Slider extends Component {
         isClient && window.removeEventListener('keydown', this.keypressed);
     }
 
+    componentWillReceiveProps({diapos}){
+        if (diapos.length !== this.props.diapos.length)
+            this.setState({active: 0});
+    }
+    
     timer(aller = null) {
         const current = (aller === null)
             ? this.state.active + ( (this.state.pause) ? 0 : 1 )
@@ -109,11 +116,11 @@ export default class Slider extends Component {
         
         return (
             <div id="panel-carrousel"
-                className={"panel-carrousel"}>
+                className={styles.sliderConteneur}>
                 <ReactCSSTransitionGroup
                     {...transitionsOptions}
                     component="div"
-                    className="panel-carrousel--cadre"
+                    className={styles.sliderCadre}
                 >
                     {diapo}
                     <Legende

@@ -1,5 +1,6 @@
 import React, { PropTypes } from "react"
 import Svg from "react-svg-inline"
+import {Link} from "phenomic"
 
 import styles from "./index.css"
 
@@ -9,9 +10,9 @@ import thermometreIndicateur from '../../icones/thermometre-indicateur.svg'
 
 const Text =  ()=> (
     <div className={ styles.textOffre }>
-        Un site Web est un investissement qui procure plus de visibilité pour votre entreprise, et permet d’améliorer la relation à vos clients.
-        Il doit être rapide à charger, être bien référencé, facile à utiliser et  disponible sur tout type d’appareil.
-        C’est ce que je vous propose de réaliser ensemble.
+        <p>Un site Web est un investissement qui procure plus de visibilité pour votre entreprise, et permet d’améliorer la relation à vos clients.</p>
+        <p>Il doit être rapide à charger, être bien référencé, facile à utiliser et  disponible sur tout type d’appareil.</p>
+        <p>C’est ce que je vous propose de réaliser ensemble.</p>
     </div>
 );
 
@@ -29,11 +30,13 @@ const Cta = ()=> (
                 cleanup/>
         </div>
         <div className={ styles.blocCtaTexte }>
-            Je suis actuellement disponible pour de nouveaux projets.
-            Rencontrons-nous !
-            <button className={ styles.boutonCta }>
-                CTA
-            </button>
+            <p className={ styles.ctaTexte }>Je suis actuellement disponible pour de nouveaux projets.</p>
+            <p className={ styles.ctaTexte }>Rencontrons-nous !</p>
+            
+            <Link to="/contact" 
+            className={ styles.boutonCta }>
+                Prendre rendez&#x2011;vous
+            </Link>
         </div>
     </div>
 );

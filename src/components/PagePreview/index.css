@@ -1,11 +1,16 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  min-height: 100%;
-  /*max-width: 40rem;*/
-  /*margin: 1rem auto;*/
-  padding: 0 0 2rem ;
+  /*min-height: 100%;*/
+  /*padding: 0 0 1rem ;*/
+}
+
+.excerpt{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin: 0 1rem;
 }
 
 .paveImg{
@@ -39,16 +44,11 @@
 }
 
 .readMore {
-  margin-top: auto;
   padding-top: 1rem;
-  display: inline-flex;
-  /*margin-top: 1rem;*/
-  border-radius: 3px;
   font-size: 0.71rem;
   color: var(--colorPrimaryDark);
   text-transform: uppercase;
   letter-spacing: 0.1rem;
-  /*text-align: center;*/
   border-bottom: thin solid ;
   text-decoration: none !important;
 }
@@ -58,17 +58,15 @@
 }
 
 @media (max-width: 600px) {
-  .wrapper  a:first-child{
-    display: flex;
-    flex-direction: row nowrap;
-    justify-content: flex-start;
-    padding: 0;
+  .wrapper {
+    flex-direction: row;
+    padding: 1rem;
   }
+
   .texte{
     flex: 1;
     display: flex;
     flex-direction: column;
-    margin-left: 1rem;
   }
 
   .paveImg{
@@ -77,12 +75,8 @@
     padding-top: 25vw;
     margin-bottom: 0;
   }
-  .wrapper a + a{
-    padding-top: 0;
-    display: inline-block;
-    text-align: right;
-  }
   .readMore {
-      margin-bottom: 2rem;
+        width: 100%;
   }
+  
 }

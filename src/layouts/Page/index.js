@@ -3,7 +3,7 @@ import Helmet from "react-helmet"
 // import warning from "warning"
 import { BodyContainer, joinUri /*, Link */} from "phenomic"
 
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+// import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 // import Button from "../../components/Button"
 import Loading from "../../components/Loading"
@@ -56,21 +56,10 @@ const script = (head.js) &&
     .map( j => require('../../js/' + j+'.js') )
     .map( s => s.default() );
 
-    const transitionsOptions = {
-      transitionName: 'fad2',
-      transitionAppear: true,
-      transitionAppearTimeout: 500,
-      transitionEnterTimeout: 500,
-      transitionLeaveTimeout: 300
-    };
   // console.log('head', head);
   // console.log('script', head.js, script);
   return (
-      <ReactCSSTransitionGroup
-          {...transitionsOptions}
-          component="div"
-      >
-          <div className={ styles.page } key={head.title} >
+  <div className={ styles.page } key={head.title} >
               <Helmet
                   title={ metaTitle }
                   meta={ meta }
@@ -94,7 +83,7 @@ const script = (head.js) &&
                   { script }
               </div>
           </div>
-      </ReactCSSTransitionGroup>
+
   )
 }
 

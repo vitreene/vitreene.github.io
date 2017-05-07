@@ -18,7 +18,7 @@ const PortfolioSujetsPreview = (page, {metadata: {pkg}}) => {
                     alt={vignetteTitre}/>
 
                 <div className={styles.title}>
-                    {vignetteTitre}
+                    <span className={styles.texteTitle}>{vignetteTitre}</span>
                 </div>
             </Link>
             </div>

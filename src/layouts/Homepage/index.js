@@ -1,26 +1,16 @@
 import React, { PropTypes } from "react"
 
+import TransitionPage from "../../components/TransitionPage"
 import CarouselLosange from '../../components/CarouselLosange'
 import LatestPosts from '../../components/LatestPosts'
 import Home from '../../components/Home'
 import Offre from '../../components/Home/Offre'
-// import Page from '../Page'
 
-/*
-const diapos = [
-    'DSC_0111-EARPHONES.jpg',
-    'DSC_0324.jpg',
-    'DSC_0329.jpg',
-    'nuit-react.jpg',
-    'axio-logo-linares.jpg',
-    'cg-la.jpg'
-];
-*/
+import styles from './index.css'
+
 const Homepage = (props) => {
-    // const {diapos, ...reste} = props;
-    // console.log('props', props);
-    // // console.log('diapos', diapos);
   return (
+  <TransitionPage top={false}>
     <Home { ...props }
         header={
             <CarouselLosange diapos={props.head.diapos}>
@@ -28,8 +18,10 @@ const Homepage = (props) => {
             </CarouselLosange>
         }>
         <Offre />
+        <h2 className={ styles.heading2 }>Articles</h2>
         <LatestPosts />
     </Home>
+  </TransitionPage>
   )
 }
 

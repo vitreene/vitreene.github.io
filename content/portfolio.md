@@ -1,4 +1,4 @@
 ---
-title: Mon boulot
+title: Portfolio
 layout: PortfolioPage
 ---

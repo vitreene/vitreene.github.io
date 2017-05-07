@@ -4,6 +4,8 @@ import PagePreview from "../PagePreview"
 
 import styles from "./index.css"
 
+// cards avec flexbox
+// http://www.lottejackson.com/learning/an-equal-height-grid-using-flexbox
 const PagesList = ({ pages }) => {
   return (
     <div>

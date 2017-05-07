@@ -16,7 +16,7 @@ files:
   action: ''
 - file: recherche-18.jpg
   legende: remise à zéro des dates
-  action: ''
+  action: noscale
 vignette: recherch-vgn.jpg
 vignetteTitre: Page de recherche
 categorie: site

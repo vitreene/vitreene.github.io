@@ -5,7 +5,10 @@
     font-size: calc( 1.4rem + (24 - 16) * (100vw - 400px) / (800 - 400) );
     font-family:  Raleway, "Fira Sans", 'Helvetica Neue', Arial, sans-serif;
     text-transform: uppercase;
-    margin-top: 0;
+    padding-bottom: 0.8rem;
+    /*line-height: 0.5;*/
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
 .fondCarousel {

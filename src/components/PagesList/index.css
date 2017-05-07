@@ -1,30 +1,27 @@
 .list {
   display: flex;
-  /*flex-direction: column;*/
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: stretch;
 
    max-width: 40rem;
    margin: 0 auto;
 
   list-style: none;
   padding: 0;
-  /*outline: 1px solid red;*/
 }
 
 .list:after {
+    /*compenser un décalage du dernier item*/
     content: "";
-    flex-basis: 30%;
+    flex-basis:  calc(100%/3 - 0.2rem);
 }
 
 .item{
-    flex-basis: 30%;
-    flex-shrink: 0;
-    flex-grow: 1;
-    max-width: 30%;
-    /*outline: 1px solid cyan;*/
+    display: flex;
+    width: calc(100%/3 - 0.2rem);
+    background-color: #eef3fb;
+    margin-bottom: 0.2rem;
 }
 
 @media (max-width: 600px) {

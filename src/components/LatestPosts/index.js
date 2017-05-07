@@ -16,12 +16,7 @@ const LatestPosts = (props, { collection }) => {
   .slice(0, props.numberOfPosts || defaultNumberOfPosts)
 
   return (
-    <div>
-        <h2 className={ styles.latestPosts }>
-            { "Articles" }
-        </h2>
         <PagesList pages={ latestPosts } />
-    </div>
   )
 }
 

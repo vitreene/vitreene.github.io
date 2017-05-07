@@ -16,7 +16,9 @@ const PagePreview = (page, {metadata: {pkg}}) => {
                 <div className={styles.paveImg}
                     style={bgImg}
                     alt={photoAlt}/>
+            </Link>
 
+            <Link to={__url} className={styles.excerpt}>
                 <div className={styles.texte}>
                     <div className={styles.title}>
                         {title}
@@ -26,9 +28,9 @@ const PagePreview = (page, {metadata: {pkg}}) => {
                         {" "}
                     </div>
                 </div>
-            </Link>
-            <Link to={__url} className={styles.readMore}>
-                Lire l'article →
+                <p className={styles.readMore}>
+                    Lire l'article →
+                </p>
             </Link>
         </div>
     )

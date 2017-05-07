@@ -1,5 +1,5 @@
 import React, {PropTypes} from "react"
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import TransitionPage from "../../components/TransitionPage"
 
 import Page from "../Page"
 import Contact from '../../components/Contact'
@@ -7,23 +7,12 @@ import Contact from '../../components/Contact'
 
 const ContactPage = (props) => {
 
-    const transitionsOptions = {
-        transitionName: 'fad2',
-        transitionAppear: true,
-        transitionAppearTimeout: 500,
-        transitionEnterTimeout: 500,
-        transitionLeaveTimeout: 300
-    };
-
     return (
-        <ReactCSSTransitionGroup
-            {...transitionsOptions}
-            component="div"
-            >
+        <TransitionPage transition="fade">
             <Page { ...props }>
                 <Contact { ...props } key={props.head.title}/>
             </Page>
-        </ReactCSSTransitionGroup>
+        </TransitionPage>
     );
 }
 

@@ -4,8 +4,10 @@ import Page from "../Page"
 import Slider from "../../components/Slider"
 import SliderMenu from "../../components/SliderMenu"
 import Loading from "../../components/Loading"
+import TransitionPage from "../../components/TransitionPage"
 
 import {marques} from "../../../content/portfolio/marques";
+import styles from './index.css'
 
 const Portfolios = (props, {toggle}) => {
  const {
@@ -19,36 +21,40 @@ const Portfolios = (props, {toggle}) => {
     // children,
   } = props;
 
+          // onStart={ () => toggle('isVisible', false) }
+          // onStop={ () => toggle('isVisible', true) }
   return (
-<div>
-  { isLoading 
-    ? <Loading />
-    : (
+
+        <TransitionPage transition="slideInRight" top={false}>
+
         <Slider
           diapos={head.files}
           id={head.id}
           modele={head.modele}
-          onStart={ () => toggle('isVisible', false) }
-          onStop={ () => toggle('isVisible', true) }
           >
           <SliderMenu 
             url={__url} 
             onClick={ () => toggle('isVisible') }
           />
       </Slider>
-      )
-  }
+      
+
     <Page  { ...props} >
       {
         marques[head.marque] && (
-          <div className="portfolioMarque">
-          <h3> La marque&#x2007;: <em>{head.marque}</em> </h3>
-          <p>{marques[head.marque]}</p>
+          <div className={styles.portfolioMarque}>
+              <h3 className={styles.portfolioMarqueTitre}>
+                La marque&#x2008;:&#x2000;<em className={styles.portfolioMarqueNom}>{head.marque}</em> 
+              </h3>
+              <p className={styles.portfolioMarqueTexte}>
+                {marques[head.marque]}
+              </p>
           </div>
         )
       }
     </Page>
-</div>
+        </TransitionPage>
+
 
   )
 }

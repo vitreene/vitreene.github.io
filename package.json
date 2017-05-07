@@ -138,6 +138,7 @@
   "dependencies": {
     "axios": "^0.16.0",
     "react-addons-transition-group": "^15.4.2",
+    "react-transition-group": "^1.1.1",
     "tcomb-form": "^0.9.16"
   }
 }

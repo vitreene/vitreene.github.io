@@ -22,6 +22,8 @@ export default function(Comp) {
         }
 
         state = {
+            isPortfolio: false,
+            pathname: null,
             menu: {
                 isOpen: true,
                 isVisible: true,
@@ -36,30 +38,44 @@ export default function(Comp) {
         constructor(props) {
             super(props);
             this.toggle = this.toggle.bind(this);
+            this.isPortfolio = this.isPortfolio.bind(this);
             this.toggleContactModal = this.toggleContactModal.bind(this);
             this.scrollAtTop = this.scrollAtTop.bind(this);
         }
 
         getChildContext() {
-            const {pathname} = this.props.location;
-            const isPortfolio = (pathname === '/portfolio/');
             return {
-                isPortfolio,
+                isPortfolio: this.state.isPortfolio,
                 menu: { ...this.state.menu },
                 toggle: this.toggle,
                 modal: {
                     toggleContactModal: this.toggleContactModal,
                     contactOpen: this.state.modal.contactOpen,
-                    pathname
+                    pathname: this.state.pathname
                 }
             };
         }
 
         componentWillMount() {
+            this.isPortfolio();
             isClient && window.addEventListener("scroll", this.scrollAtTop);
         }
         componentWillUnmount() {
             isClient && window.removeEventListener("scroll", this.scrollAtTop);
+        }
+        componentWillReceiveProps({location}){
+             this.isPortfolio(location.pathname);
+        }
+
+        isPortfolio(path = this.props.location.pathname){
+            const pathname = path
+                .split('/')
+                .filter( p => p!=='');
+            // isPortfolio = true 
+            // si l'on se trouve dans une sous-page de portfolio.
+            const isPortfolio = (pathname[0] === 'portfolio' && pathname.length>1);
+            this.toggle('isVisible', !isPortfolio);
+            this.setState({isPortfolio, pathname});
         }
 
         scrollAtTop() {

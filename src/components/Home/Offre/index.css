@@ -21,6 +21,8 @@
 .blocCtaJauge{
   position: relative;
   flex:1;
+  /* ipad safari*/
+  min-width: 3rem;
 }
 
 .blocCtaThermometre{
@@ -39,15 +41,40 @@
 .blocCtaTexte{
 }
 
+.ctaTexte{
+  font-weight: 600;
+  color: var(--colorPrimaryDark);
+  text-align: left;
+  margin: 0;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
 .boutonCta{
-    display: block;
+    display: table-cell;
     background-color: var(--colorPrimaryDark);
-    color: white;
     width: 100%;
+    height: 3rem;
+    border: none;
+    border-radius: 3px;
+    font-weight: 400;
+    font-size: 0.81rem;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.2;
+    vertical-align: middle;
+    padding: 0 0.8rem;
+    color: white;
+    letter-spacing: 0.1rem;
 }
 
-@media (max-width: 600px) {
+.boutonCta:hover{
+  transition: background-color 0.73s;
+  background-color: cyan;
+}
+@media (max-width: 650px) {
+
   .offre{
+    padding: 1rem;
     flex-flow: column;
   }
 

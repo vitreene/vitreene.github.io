@@ -1,29 +1,16 @@
 import React , { PropTypes } from "react"
-
-// import Portfolio from '../../components/Portfolio'
+import Page from "../Page"
 import PortfolioSujets from '../../components/PortfolioSujets'
-
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import TransitionPage from "../../components/TransitionPage"
 
 const PortfolioPage = (props) => {
-    // console.log('PROPS portfolio', props);
-
-    const transitionsOptions = {
-      transitionName: 'fad2',
-      transitionAppear: true,
-      transitionAppearTimeout: 500,
-      transitionEnterTimeout: 500,
-      transitionLeaveTimeout: 300
-    };
 
     return (
-        <ReactCSSTransitionGroup
-            {...transitionsOptions}
-            component="div"
-        >
-            {/*<Portfolio { ...props } key={props.head.title} />*/}
-            <PortfolioSujets  { ...props } key={props.head.title} />
-        </ReactCSSTransitionGroup>
+        <TransitionPage transition="fade">
+            <Page { ...props }>
+                <PortfolioSujets  { ...props } key={props.head.title} />
+            </Page>
+        </TransitionPage>
 ) ;}
 
 

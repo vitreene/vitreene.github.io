@@ -1,6 +1,5 @@
 ---
-layout: Articles
+layout: Post
+title: Mes Articles
 
 ---
-
-Quelques réflexions selon l'humeur.
