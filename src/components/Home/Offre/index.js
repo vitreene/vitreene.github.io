@@ -1,12 +1,12 @@
 import React, { PropTypes } from "react"
-import Svg from "react-svg-inline"
+// import Svg from "react-svg-inline"
 import {Link} from "phenomic"
 
 import styles from "./index.css"
 
 // import accolades from '../../icones/accolades.svg'
-import thermometre from '../../icones/thermometre.svg'
-import thermometreIndicateur from '../../icones/thermometre-indicateur.svg'
+// import thermometre from '../../icones/thermometre.svg'
+// import thermometreIndicateur from '../../icones/thermometre-indicateur.svg'
 
 const Text =  ()=> (
     <div className={ styles.textOffre }>
@@ -18,6 +18,33 @@ const Text =  ()=> (
 
 const Cta = ()=> (
     <div className={ styles.blocCta }>
+        <div className={ styles.blocCtaTexte }>
+            <p className={ styles.ctaTexte }>Je suis actuellement disponible pour de nouveaux projets.</p>
+            <p className={ styles.ctaTexte }>Rencontrons-nous !</p>
+            
+            <Link to={"/contact"}
+            className={ styles.boutonCta }>
+                Prendre rendez&#x2011;vous
+            </Link>
+        </div>
+    </div>
+);
+
+const Offre = (props) => (
+    <div className={ styles.offre }>
+        <Text/>
+        <Cta/>
+        { props.children }
+    </div>
+)
+
+Offre.propTypes = {
+  children: PropTypes.node,
+}
+
+export default Offre
+
+/*
 
         <div className={ styles.blocCtaJauge }>
             <Svg svg={thermometre} 
@@ -29,28 +56,4 @@ const Cta = ()=> (
                 component="div" 
                 cleanup/>
         </div>
-        <div className={ styles.blocCtaTexte }>
-            <p className={ styles.ctaTexte }>Je suis actuellement disponible pour de nouveaux projets.</p>
-            <p className={ styles.ctaTexte }>Rencontrons-nous !</p>
-            
-            <Link to="/contact" 
-            className={ styles.boutonCta }>
-                Prendre rendez&#x2011;vous
-            </Link>
-        </div>
-    </div>
-);
-
-        const Offre = (props) => (
-        <div className={ styles.offre }>
-            <Text/>
-            <Cta/>
-            { props.children }
-        </div>
-)
-
-Offre.propTypes = {
-  children: PropTypes.node,
-}
-
-export default Offre
+*/

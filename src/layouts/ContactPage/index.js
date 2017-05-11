@@ -8,7 +8,7 @@ import Contact from '../../components/Contact'
 const ContactPage = (props) => {
 
     return (
-        <TransitionPage transition="fade">
+        <TransitionPage transition="fade" myKey="contact">
             <Page { ...props }>
                 <Contact { ...props } key={props.head.title}/>
             </Page>

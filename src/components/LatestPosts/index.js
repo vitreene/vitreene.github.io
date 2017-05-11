@@ -3,17 +3,19 @@ import enhanceCollection from "phenomic/lib/enhance-collection"
 
 import PagesList from "../../components/PagesList"
 
-import styles from "./index.css"
+// import styles from "./index.css"
 
-const defaultNumberOfPosts = 6
+const defaultNumberOfPosts = 20
 
 const LatestPosts = (props, { collection }) => {
+  const {current__url = ''} = props;
   const latestPosts = enhanceCollection(collection, {
     filter: { collection: 'articles' },
     sort: "date",
     reverse: true,
   })
   .slice(0, props.numberOfPosts || defaultNumberOfPosts)
+  .filter( post => post.__url != current__url );
 
   return (
         <PagesList pages={ latestPosts } />
@@ -22,6 +24,7 @@ const LatestPosts = (props, { collection }) => {
 
 LatestPosts.propTypes = {
   numberOfPosts: PropTypes.number,
+  current__url: PropTypes.string
 }
 
 LatestPosts.contextTypes = {

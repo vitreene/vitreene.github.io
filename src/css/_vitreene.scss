@@ -38,11 +38,17 @@ h2{
   }
 
 }
-h3,
-h4 {
+h3 {
   //font-family: "Fira Sans", sans-serif;
   font-weight: 700;
   margin: 1em 0 0 ;
+}
+h4 {
+  text-align: center;
+  font-size: 4rem;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 300;
+  margin: 0 ;
 }
 h5{
   margin: 0.5em 0 0 ;
@@ -111,7 +117,7 @@ body {
     text-decoration-color: currentColor ;
   }
 
-
+/*
 // BOUTONS
   svg{
     .s0{
@@ -141,7 +147,7 @@ body {
   button:hover  .s1{
     fill:$couleur-fond-logo;
   }
-
+*/
 
 /* EXTENDS
 ///////////////////////////////////////// */

@@ -78,13 +78,13 @@ export default class Menu extends Component {
                                 Articles
                             </Link>
                             <Link  to={"/portfolio"}>
-                                Portfolio
+                                Travaux
                             </Link>
                         </div>
                         <div className={styles.menuGroup2}>
                             <Link to={"/a-propos"}>
                                 {/* <Svg svg={apropos} cleanup/> */}
-                                A propos
+                                Á propos
                             </Link>
                             <Link to={"/contact"}>
                                 {/* <Svg svg={contact} cleanup/> className={styles.icoItem}*/}

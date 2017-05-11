@@ -38,13 +38,46 @@
 }
 
 
+///////////////////////////
+
+.slideInBottom-appear{
+  opacity: 0.1;
+  //  background-color: blue;
+}
+.slideInBottom-appear.slideInBottom-appear-active{
+  opacity: 1;
+  transition: opacity 1000ms;
+}
+
+.slideInBottom-enter {
+  position: absolute;
+  transform: translate3d(0,100%,0);
+}
+.slideInBottom-enter.slideInBottom-enter-active {
+  //  background-color: red;
+  transform: translate3d(0,0,0);
+  transition: transform 1000ms;
+}
+.slideInBottom-leave {
+  position: absolute;
+    // position: relative;
+  transform: translate3d(0,0,0);
+  opacity: 1;
+}
+.slideInBottom-leave.slideInBottom-leave-active {
+  transform: translate3d(0,-100%,0);
+  transition: all 1000ms;
+  opacity: 0.1;
+}
+
+
 
 .fade-enter {
   opacity: 0.01;
 }
 
 .fade-enter.fade-enter-active {
-  background-color: cyan;
+  // background-color: cyan;
   opacity: 1;
   transition: opacity 500ms ease-in;
 }

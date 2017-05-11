@@ -3,7 +3,7 @@ import React, { PropTypes } from "react"
 import Page from "../Page"
 import Slider from "../../components/Slider"
 import SliderMenu from "../../components/SliderMenu"
-import Loading from "../../components/Loading"
+// import Loading from "../../components/Loading"
 import TransitionPage from "../../components/TransitionPage"
 
 import {marques} from "../../../content/portfolio/marques";
@@ -11,7 +11,7 @@ import styles from './index.css'
 
 const Portfolios = (props, {toggle}) => {
  const {
-    isLoading,
+    // isLoading,
     // __filename,
     __url,
     head,
@@ -23,45 +23,53 @@ const Portfolios = (props, {toggle}) => {
 
           // onStart={ () => toggle('isVisible', false) }
           // onStop={ () => toggle('isVisible', true) }
-  return (
+          // slideInRight <- trop haché
+  // console.log('head.title', head.title);
+          
+return (
+  <div className={styles.cadreConteneur}>
+    <TransitionPage transition="slideInBottom" top={false} myKey={head.title}>
+      <div className={styles.cadrePortfolio}>
 
-        <TransitionPage transition="slideInRight" top={false}>
-
-        <Slider
-          diapos={head.files}
-          id={head.id}
-          modele={head.modele}
-          >
+        <Slider 
+          diapos={head.files} 
+          id={head.id} 
+          modele={head.modele}>
           <SliderMenu 
             url={__url} 
-            onClick={ () => toggle('isVisible') }
-          />
-      </Slider>
-      
+            onClick={() => toggle('isVisible')}/>
+        </Slider>
 
-    <Page  { ...props} >
-      {
-        marques[head.marque] && (
-          <div className={styles.portfolioMarque}>
+        <Page { ...props}>
+
+          {marques[head.marque] && (
+            <div className={styles.portfolioMarque}>
+              <hr/>
               <h3 className={styles.portfolioMarqueTitre}>
-                La marque&#x2008;:&#x2000;<em className={styles.portfolioMarqueNom}>{head.marque}</em> 
+                La marque&#x2008;:&#x2000;
+                <em className={styles.portfolioMarqueNom}>
+                  {head.marque}
+                </em>
               </h3>
+
               <p className={styles.portfolioMarqueTexte}>
                 {marques[head.marque]}
               </p>
-          </div>
-        )
-      }
-    </Page>
-        </TransitionPage>
+            </div>
+          )}
 
+        </Page>
 
-  )
+      </div>
+    </TransitionPage>
+  </div>
+
+)
 }
 
 Portfolios.propTypes = {
     // props: PropTypes.any,
-    isLoading: PropTypes.bool,
+    // isLoading: PropTypes.bool,
     // __filename: PropTypes.string,
     __url: PropTypes.string,
     head: PropTypes.object.isRequired,
@@ -73,3 +81,12 @@ Portfolios.contextTypes = {
 };
 
 export default Portfolios
+
+/*
+            {
+                          isLoading
+                              ? <Loading />
+                          :
+  }
+
+  */

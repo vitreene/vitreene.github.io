@@ -7,6 +7,7 @@ import styles from "./index.css"
 import twitter from '../icones/ico-twitter.svg'
 import facebook from '../icones/ico-facebook.svg'
 import linkedin from '../icones/ico-linkedin.svg'
+import instagram from '../icones/ico-instagram.svg'
 // import contact from '../icones/ico-contact.svg'
 // import apropos from '../icones/ico-apropos.svg'
 
@@ -26,6 +27,11 @@ const Footer = () => (
                 <p className={styles.icoItemSmall} >
                     <a href="https://facebook.com/rve.mac">
                         <Svg svg={facebook} cleanup/>
+                    </a>
+                </p>
+                <p className={styles.icoItemSmall} >
+                    <a href="https://www.instagram.com/rve.mac/">
+                        <Svg svg={instagram} cleanup/>
                     </a>
                 </p>
 

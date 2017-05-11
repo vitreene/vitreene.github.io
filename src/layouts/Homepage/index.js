@@ -10,7 +10,7 @@ import styles from './index.css'
 
 const Homepage = (props) => {
   return (
-  <TransitionPage top={false}>
+  <TransitionPage top={false} myKey="homepage">
     <Home { ...props }
         header={
             <CarouselLosange diapos={props.head.diapos}>

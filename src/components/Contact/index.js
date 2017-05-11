@@ -192,6 +192,7 @@ export default class Contact extends Component {
         const {value} = this.state;
         return (
             <div className="contact-form-conteneur">
+                <div>
                 <form id="form-contact" className="form-contact" onSubmit={this.onSubmit}>
                 { this.state.alert.show &&
                 <div className={ 'contact-alert'  + ' alert-' + this.state.alert.type }>
@@ -206,9 +207,10 @@ export default class Contact extends Component {
                         onChange={this.onChange}/>
 
                     <div className="form-actions">
-                        <input className="form-ajouter-validation" type="submit" value="Envoyer"/>
+                        <input className="btn-submit" type="submit" value="Envoyer"/>
                     </div>
                 </form>
+                </div>
             </div>
         );
     }

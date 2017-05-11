@@ -15,8 +15,89 @@
   flex-shrink: 1;
   display: flex;
   flex-flow: row;
-  margin-left: 2rem;
+  margin: 0 0 0 6rem;
 }
+
+.blocCtaTexte{
+    position: relative;
+    /*outline: blueviolet solid thin;*/
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    width: 240px;
+    height: 200px;
+    max-height: 200px;
+}
+
+.blocCtaTexte:before{
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    top: -12%;
+    left: -20%;
+    width: 141%;
+    height: 122%;
+    border-radius: 50%;
+    border: 5px solid #004080;
+}
+
+.ctaTexte{
+    font-weight: 600;
+    color: var(--colorPrimaryDark);
+    text-align: center;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+.boutonCta{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--colorPrimaryDark);
+    width: 90%;
+    height: 3rem;
+    border: none;
+    border-radius: 3px;
+    font-weight: 400;
+    font-size: 0.81rem;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0 0.8rem;
+    color: white;
+    letter-spacing: 0.1rem;
+}
+
+.boutonCta:hover{
+  transition: background-color 0.73s;
+  background-color: cyan;
+}
+@media (max-width: 650px) {
+
+  .offre{
+    padding: 1rem;
+    flex-flow: column;
+  }
+  
+  .blocCta{
+    margin: 2rem auto; 
+  }
+
+}
+
+
+@keyframes osciller {
+  0% {
+    transform: translateY(0%) rotate(0) ;
+  }
+  50% {
+    transform: translateY(18%) rotate(2deg) ;
+  }
+  100% {
+    transform: translateY(0%) rotate(0deg) ;
+  }
+}
+
 
 .blocCtaJauge{
   position: relative;
@@ -36,60 +117,4 @@
   width: 2.5rem;
   transform-origin: top right;
   animation: osciller 1s ease-in-out infinite;
-}
-
-.blocCtaTexte{
-}
-
-.ctaTexte{
-  font-weight: 600;
-  color: var(--colorPrimaryDark);
-  text-align: left;
-  margin: 0;
-    margin-bottom: 0.5rem;
-    line-height: 1.5;
-}
-.boutonCta{
-    display: table-cell;
-    background-color: var(--colorPrimaryDark);
-    width: 100%;
-    height: 3rem;
-    border: none;
-    border-radius: 3px;
-    font-weight: 400;
-    font-size: 0.81rem;
-    text-align: center;
-    text-transform: uppercase;
-    line-height: 1.2;
-    vertical-align: middle;
-    padding: 0 0.8rem;
-    color: white;
-    letter-spacing: 0.1rem;
-}
-
-.boutonCta:hover{
-  transition: background-color 0.73s;
-  background-color: cyan;
-}
-@media (max-width: 650px) {
-
-  .offre{
-    padding: 1rem;
-    flex-flow: column;
-  }
-
-
-}
-
-
-@keyframes osciller {
-  0% {
-    transform: translateY(0%) rotate(0) ;
-  }
-  50% {
-    transform: translateY(18%) rotate(2deg) ;
-  }
-  100% {
-    transform: translateY(0%) rotate(0deg) ;
-  }
 }

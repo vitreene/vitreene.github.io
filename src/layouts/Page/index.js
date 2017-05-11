@@ -71,6 +71,7 @@ const script = (head.js) &&
               )}
               <div className={ styles.wrapper + " " + styles.pageContent }>
                   { header }
+                 { body &&
                   <div className={ styles.body }>
                       {
                           isLoading
@@ -78,6 +79,7 @@ const script = (head.js) &&
                           : <BodyContainer>{ body }</BodyContainer>
                       }
                   </div>
+                  }
                   { children }
                   { footer }
                   { script }

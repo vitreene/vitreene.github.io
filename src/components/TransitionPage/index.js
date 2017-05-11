@@ -1,9 +1,14 @@
-import React, { PropTypes } from "react"
+import React, { /*cloneElement, */ PropTypes } from "react"
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 // import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import styles from "./index.css"
 
-const TransitionPage = ({transition = 'fade', top = true, children }) => {
+const TransitionPage = ({
+    transition = 'fade', // classe de la transition,
+    top = true, // decalage pour faire placeau menu
+    myKey = null, // clé unique, title par défaut
+    children
+ }) => {
 // console.log('TransitionPage', transition);
 
     const transitionsOptions = {
@@ -11,24 +16,31 @@ const TransitionPage = ({transition = 'fade', top = true, children }) => {
       transitionAppear: true,
       transitionEnter: true,
       transitionLeave: true,
-      transitionAppearTimeout: 500,
-      transitionEnterTimeout: 500,
-      transitionLeaveTimeout: 300
+      transitionAppearTimeout: 1000,
+      transitionEnterTimeout: 1000,
+      transitionLeaveTimeout: 1000
     };
+    // console.log('myKey', myKey);
+    
+return (
 
-    return (
-        <ReactCSSTransitionGroup
-            {...transitionsOptions}
-            component="div"
-            className={top && styles.articleConteneur}>
-                {children}
-        </ReactCSSTransitionGroup>
-    );}
+    <ReactCSSTransitionGroup
+        {...transitionsOptions}
+        component="div"
+        className={top && styles.articleConteneur}>
+        {myKey && React.cloneElement(children, {key: myKey})
+}
+    </ReactCSSTransitionGroup>
+
+);
+}
 
 TransitionPage.propTypes = {
   transition: PropTypes.string,
-  children: PropTypes.node,
-  };
+  myKey: PropTypes.string,
+  top: PropTypes.bool,
+  children: PropTypes.element,
+};
 
 export default TransitionPage;
 

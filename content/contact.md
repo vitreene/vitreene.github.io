@@ -3,7 +3,7 @@ layout: ContactPage
 
 ---
 <div class="contact-header">
-<img alt="" src="../assets/vitreene-logo.svg" width="64" height="64" />
-<h2>Contacter Vitreene</h2>
+<img alt="" src="../assets/vitreene-logo.svg" width="32" height="32" />
+<h3>Contacter Vitreene</h3>
 <div>
 

@@ -3,28 +3,30 @@ import React, { PropTypes } from "react"
 import TransitionPage from "../../components/TransitionPage"
 import LatestPosts from "../../components/LatestPosts"
 import Page from "../Page"
-import styles from "./index.css"
+// import styles from "./index.css"
 
 const Post = (props) => {
   const {body, ...reste} = props;
-  const {listPosts = true} = props.head;
+  const {__url} = props;
+  const {listPosts = true, title} = props.head;
   const [intro, texte] = (body) ? props.body.split('<!--intro-->') : '';
   return (
-  <TransitionPage>
+     <TransitionPage myKey={title}>
           <Page
               { ...reste } body={texte}
               header={ <Intro intro={intro}/> }
           >
             <hr />
-            {listPosts && <LatestPosts />}
+            {listPosts && <LatestPosts current__url={__url} />}
           </Page>
-  </TransitionPage>
+     </TransitionPage>
   )
 }
 
 Post.propTypes = {
   head: PropTypes.object.isRequired,
   body: PropTypes.string,
+  __url: PropTypes.string,
 }
 
 export default Post
