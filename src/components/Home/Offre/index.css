@@ -1,13 +1,71 @@
 .offre {
   max-width: 60rem;
-  margin: 0 auto;
-  padding: 4rem;
+  margin: 4rem auto;
+
+}
+.offrePart{
+  padding: 1rem 4rem 0;
   display: flex;
   flex-direction: row;
+
+}
+.accolade{
+  margin: 0 auto;
+  width: 60%;
+}
+.argumentation{
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.argu{
+  flex:1;
+  /*outline: 1px solid red;*/
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+.argu:last-child{
+  margin-left:4rem;
+}
+
+.arguDeuxStars{
+  height: 1.6rem;
+  margin: 0 auto;
+}
+.arguStar{
+  display: inline-block;
+  color: var(--colorTextTernary);
+  font-size: 2.8rem;
+  font-weight: 300;
+  line-height: 0.5;
+  fill: var(--colorTextTernary);
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+.arguTitre{
+  margin: 0 0 1rem;
+  color: var(--colorTextTernary);
+  text-align: center;
+  font-family: var(--raleway);
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  line-height: 1.2;
+  font-size: 1.5rem;
+}
+
+.arguTexte{
+  width: 100%;
 }
 
 .textOffre{
   flex: 1;
+  font-size: 1.2rem;
 }
 
 .blocCta{
@@ -29,7 +87,7 @@
     height: 200px;
     max-height: 200px;
 }
-
+/*
 .blocCtaTexte:before{
     content: '';
     pointer-events: none;
@@ -39,7 +97,21 @@
     width: 141%;
     height: 122%;
     border-radius: 50%;
-    border: 5px solid #004080;
+    border: 5px solid var(--colorLogo);
+}
+*/
+.blocCtaTexte:before{
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid var(--colorLogo);
+    transform: scale(1.41,1.22);
+    box-shadow: 0 6px 0 0 var(--colorLogo);
 }
 
 .ctaTexte{
@@ -50,12 +122,11 @@
     margin-bottom: 0.5rem;
     line-height: 1.5;
 }
+.arguBouton,
 .boutonCta{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: var(--colorPrimaryDark);
-    width: 90%;
     height: 3rem;
     border: none;
     border-radius: 3px;
@@ -64,10 +135,26 @@
     text-align: center;
     text-transform: uppercase;
     padding: 0 0.8rem;
-    color: white;
     letter-spacing: 0.1rem;
+    font-family: var(--raleway);
 }
 
+
+.boutonCta{
+    width: 90%;
+    background-color: var(--colorPrimaryDark);
+    color: white;
+}
+.arguBouton{
+    width: 100%;
+    margin-top: auto;
+    background-color: var(--colorLogo);
+    color: var(--colorPrimaryDark);
+    font-size: 1.3rem;
+    /*font-family: var(--raleway);*/
+
+}
+.arguBouton:hover,
 .boutonCta:hover{
   transition: background-color 0.73s;
   background-color: cyan;

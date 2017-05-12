@@ -15,7 +15,11 @@ module.exports = (config) => [
             colorNeutral: "#8C8D91",
             colorNeutralLight: "#FBFCFC",
             colorText: "#555",
+            colorTextTernary: "#C2482D",
+            colorLogo : "#1AC2E6",
             textMenu: "#80A0C0",
+            raleway: 'Raleway, "Fira Sans", "Helvetica Neue", Arial, sans-serif'
+
           },
         },
       },

@@ -1,10 +1,11 @@
 import React, { PropTypes } from "react"
-// import Svg from "react-svg-inline"
+import Svg from "react-svg-inline"
 import {Link} from "phenomic"
 
 import styles from "./index.css"
 
-// import accolades from '../../icones/accolades.svg'
+import accolade from '../../icones/accolade.svg'
+import etoile from '../../icones/etoile.svg'
 // import thermometre from '../../icones/thermometre.svg'
 // import thermometreIndicateur from '../../icones/thermometre-indicateur.svg'
 
@@ -30,11 +31,74 @@ const Cta = ()=> (
     </div>
 );
 
+const Competences = ()=> (
+    <div className={styles.argu}>
+     
+         <Svg svg={etoile} 
+            component="span"
+            className={ styles.arguStar}
+            cleanup/> 
+
+        <h3 className={styles.arguTitre}>
+            Trouver <br/> des solutions.
+        </h3>
+         <p className={styles.arguTexte}>
+            Je conçois avec vous les éléments d'une image de marque qui vous correspond, que vos supports soient sur internet, imprimés ou signalétique.
+        </p>
+        <Link to={"/a-propos"}
+        className={ styles.arguBouton }>
+            Compétences
+        </Link>
+    </div>
+);
+
+const Realisations = () => (
+    <div className={styles.argu}>
+        
+        <span className={ styles.arguDeuxStars}> 
+          <Svg svg={etoile} 
+            component="span"
+            className={ styles.arguStar}
+            cleanup/> 
+            &emsp;
+          <Svg svg={etoile} 
+            component="span"
+            className={ styles.arguStar}
+            cleanup/> 
+        </span>
+            
+        <h3 className={styles.arguTitre}>
+            Construire <br/> votre web.
+        </h3>
+        <p className={styles.arguTexte}>
+            Je crée des sites beaux et accessibles pour les petites sociétés.
+Je dessine et fabrique des interfaces, des landing-pages, des sites corporate, et plein d'autres choses. Demandez !
+        </p>
+        <Link to={"/portfolio"}
+        className={ styles.arguBouton }>
+            Réalisations
+        </Link>
+       
+    </div>
+);
+
 const Offre = (props) => (
-    <div className={ styles.offre }>
-        <Text/>
-        <Cta/>
-        { props.children }
+        <div className={ styles.offre }>
+        <div className={ styles.offrePart }>
+            <Text/>
+            <Cta/>
+        </div>
+        <div className={ styles.offrePart }>
+            <Svg svg={accolade} 
+            component="div"
+            className={ styles.accolade}
+            cleanup/> 
+        </div>
+        <div className={ [styles.offrePart, styles.argumentation].join(' ') }>
+            <Competences/>
+            <Realisations/>
+        </div>
+            { props.children }
     </div>
 )
 
@@ -57,3 +121,4 @@ export default Offre
                 cleanup/>
         </div>
 */
+            
