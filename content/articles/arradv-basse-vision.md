@@ -1,15 +1,15 @@
 ---
-title: "Arradv, un site consacré à la basse vision"
+title: "Arradv, un site consacré à la basse vision"
 published: 2016-10-15
-collection: articles
+collection: reference
 layout: Post
 draft: false
 soundCloud: 119194573
 siteDescription: "Conception du site de l'Arradv"
 excerpt:
-  text: "Comment adapter un site aux contraintes de la basse vision?"
-  photo: img/DSC_0111-EARPHONES.jpg
-  photoAlt: "homme souriant aux yeux fermés portant des écouteurs"
+  text: "L'Arradv propose un parcours de réadaptation aux personnes atteintes de basse vision. Appelé pour un lifting de leur site, les échanges avec cette association ont conduit à proposer une évolution de leur communication."
+  photo: img/arradv_DSC_0192.jpg
+  photoAlt: "homme portant des lunettes à haut contraste"
 ---
 
 

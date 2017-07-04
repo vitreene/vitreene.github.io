@@ -18,8 +18,9 @@ const Homepage = (props) => {
             </CarouselLosange>
         }>
         <Offre />
-        <h2 className={ styles.heading2 }>Articles</h2>
-        <LatestPosts />
+        {/*<h2 className={ styles.heading2 }>Articles</h2>*/}
+        <LatestPosts cat="reference"/>
+        <LatestPosts cat="articles"/>
     </Home>
   </TransitionPage>
   )

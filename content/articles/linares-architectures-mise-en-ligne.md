@@ -1,19 +1,19 @@
 ---
-title: "Linarès : mise en ligne"
+title: "Linarès Architectures, mise en lignes"
 published: 2016-10-15
-collection: articles
+collection: reference
 layout: Post
 draft: false
 soundCloud: 151622085
 siteDescription: "Création de l’identité graphique et du site d'un architecte"
 excerpt:
-  text: "Création de l’identité graphique et du site d'un architecte"
-  photo: img/cg-la.jpg
+  text: "L'agence Linarès architectures conduit des projets adaptés et sur-mesure, sensible à l'habitat bio-climatique ou la renovation energétique. La création du site a été l’occasion de créer l’identité visuelle de l’agence."
+  photo: img/linares-P1000925.jpg
   photoAlt: "logo pour linares-architectures.com"
 ---
 
 Linarès architectures est une agence de micro-projets, qui apporte  une réflexion contextuelle pour des architectures adaptées et sur-mesure.
-Elle propose aussi, avec Carolina Garcia, du design d’intérieur et une spécialisation sur l’adaptation des locaux au handicap ou la vieillesse.
+Elle propose aussi, avec Carolina Garcia, du design d’intérieur et une spécialisation dans l’adaptation des locaux au handicap ou la vieillesse.
 
 La création du site a été l’occasion de créer l’identité visuelle de l’agence.
 

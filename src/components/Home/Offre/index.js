@@ -40,14 +40,14 @@ const Competences = ()=> (
             cleanup/> 
 
         <h3 className={styles.arguTitre}>
-            Trouver <br/> des solutions.
+            Développer  <br/>votre communication visuelle.
         </h3>
          <p className={styles.arguTexte}>
-            Je conçois avec vous les éléments d'une image de marque qui vous correspond, que vos supports soient sur internet, imprimés ou signalétique.
+            Je conçois  et réalise avec vous les éléments de votre image de marque, adaptés aux supports internet, imprimés ou signalétique.
         </p>
-        <Link to={"/a-propos"}
+        <Link to={"/portfolio"}
         className={ styles.arguBouton }>
-            Compétences
+            Réalisations
         </Link>
     </div>
 );
@@ -74,9 +74,9 @@ const Realisations = () => (
             Je crée des sites beaux et accessibles pour les petites sociétés.
 Je dessine et fabrique des interfaces, des landing-pages, des sites corporate, et plein d'autres choses. Demandez !
         </p>
-        <Link to={"/portfolio"}
+        <Link to={"/services"}
         className={ styles.arguBouton }>
-            Réalisations
+            Services
         </Link>
        
     </div>

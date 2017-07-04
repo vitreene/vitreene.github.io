@@ -4,7 +4,8 @@ import {Link} from "phenomic"
 import styles from "./index.css"
 
 
-const PagePreview = (page, {metadata: {pkg}}) => {
+
+const PageRefPreview = (page, {metadata: {pkg}}) => {
     const {__url, title, /*date, description,*/ excerpt} = page;
     const {photo, photoAlt, text } = excerpt;
 
@@ -14,40 +15,36 @@ const PagePreview = (page, {metadata: {pkg}}) => {
     return (
         <div className={styles.wrapper}>
             <Link to={__url} >
+
                 <div className={styles.paveImg}
                     style={bgImg}
-                    alt={photoAlt}/>
-            </Link>
+                    alt={photoAlt}>
 
-            <Link to={__url} className={styles.excerpt}>
-                <div className={styles.texte}>
-                    <div className={styles.title}>
-                        {title}
-                    </div>
-                    <div className={styles.description}>
-                        {text}
-                        {" "}
-                    </div>
+                        <div className={styles.title}>
+                        <span>{title}</span>
+                        </div>
                 </div>
 
-                <p className={styles.readMore}>
-                    Lire l'article →
-                </p>
-             
+                    <div className={styles.texte}>
+                        <div className={styles.description}>
+                            {text}
+                            {" →"}
+                     </div>
+                </div>
             </Link>
         </div>
     )
 }
 
-PagePreview.propTypes = {
+PageRefPreview.propTypes = {
     __url: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     date: PropTypes.string,
     description: PropTypes.string
 }
 
-PagePreview.contextTypes = {
+PageRefPreview.contextTypes = {
     metadata: PropTypes.object.isRequired,
 }
 
-export default PagePreview
+export default PageRefPreview

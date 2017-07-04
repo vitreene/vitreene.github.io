@@ -8,6 +8,7 @@
   color: $couleur-fond-logo  ;
 }
 
+/*
 h1{
   @extend .font-heading ;
   font-size: 2.6em ;
@@ -19,8 +20,9 @@ h1{
   @media (min-width: 1000px){
     font-size: 3.4em ;
   }
-
 }
+*/
+
 h1 small{
   font-size: 71%;
 }

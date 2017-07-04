@@ -29,7 +29,7 @@ const Page = (
   //   typeof head.title === "string",
   //   `Your page '${ __filename }' needs a title`
   // )
-
+  const {titleStyle = 'heading'} = head;
   const metaTitle = head.metaTitle ? head.metaTitle : head.title
 
   const socialImage = head.hero && head.hero.match("://") ? head.hero
@@ -66,7 +66,7 @@ const script = (head.js) &&
               />
               { head.title && (
                   <div className={ styles.header }>
-                     <h1 className={ styles.heading }>{ head.title }</h1>
+                     <h1 className={ styles[titleStyle] }>{ head.title }</h1>
                   </div>
               )}
               <div className={ styles.wrapper + " " + styles.pageContent }>

@@ -78,7 +78,7 @@ export default class Menu extends Component {
                                 Articles
                             </Link>
                             <Link  to={"/portfolio"}>
-                                Travaux
+                                Réalisations
                             </Link>
                         </div>
                         <div className={styles.menuGroup2}>

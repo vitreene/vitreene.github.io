@@ -2,8 +2,6 @@
 title: 'React, de nuit'
 published: 2016-10-15T00:00:00.000Z
 date: 2016-10-15T00:00:00.000Z
-collection: articles
-layout: Post
 draft: false
 soundCloud: 33200703
 siteDescription: 'mon side-project avec react, redux, meteor et vuejs'
@@ -12,6 +10,9 @@ excerpt:
   photo: img/nuit-react.jpg
   photoAlt: 'la nuit, je code'
 ---
+
+collection: articles
+layout: Post
 
 J’avance, lentement mais surement, sur mon side-project qui est un support pour employer des technos front-end de référence.
 Le projet, en deux mots, est un sytème d’affiche dynamique. composé de deux applis, un éditeur et le projecteur.

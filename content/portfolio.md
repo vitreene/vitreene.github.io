@@ -1,6 +1,5 @@
 ---
-title: Travaux
+title: L’expérience, de l’imprimé au digital.
+titleStyle: AltTitre
 layout: PortfolioPage
 ---
-#### L’expérience, de l’imprimé au digital.
-<!--intro-->

@@ -7,10 +7,14 @@ import PagesList from "../../components/PagesList"
 
 const defaultNumberOfPosts = 20
 
+
 const LatestPosts = (props, { collection }) => {
-  const {current__url = ''} = props;
+  const {
+    current__url = '',
+    cat = 'articles',
+  } = props;
   const latestPosts = enhanceCollection(collection, {
-    filter: { collection: 'articles' },
+    filter: { collection: cat },
     sort: "date",
     reverse: true,
   })
@@ -18,13 +22,14 @@ const LatestPosts = (props, { collection }) => {
   .filter( post => post.__url != current__url );
 
   return (
-        <PagesList pages={ latestPosts } />
+        <PagesList pages={ latestPosts } cat={ cat } />
   )
 }
 
 LatestPosts.propTypes = {
   numberOfPosts: PropTypes.number,
-  current__url: PropTypes.string
+  current__url: PropTypes.string,
+  cat: PropTypes.string
 }
 
 LatestPosts.contextTypes = {

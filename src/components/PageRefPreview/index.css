@@ -1,0 +1,96 @@
+.wrapper {
+
+  /*display: flex;
+  flex-direction: column;*/
+  /*min-height: 100%;*/
+  /*padding: 0 0 1rem ;*/
+}
+
+
+.paveImg{
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 43%;
+
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+    margin-bottom: 1rem;
+    background-color: red;
+}
+
+.title{
+  position: absolute;
+  margin: 0 10%;
+  top: 2rem;
+  left: 0rem;
+  width: 50%;
+  color: var(--colorLogo);
+  font-family: "Abril Fatface", serif;
+  font-weight: 900;
+  font-size: 2.4rem;
+  letter-spacing: 0.05em;
+  line-height: 120%;
+}
+
+.title span{
+  background: rgba(255,255,255,0.85);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  /*padding: 0 1rem;*/
+  /*border-left: 1rem solid rgba(255,255,255,0.85);
+  border-right: 1rem solid rgba(255,255,255,0.85);*/
+}
+
+.meta {
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+.description {
+  font-size: 1rem;
+  font-weight: 300;
+  text-align: center;
+  margin: 0 20% 4rem;
+  padding-bottom: 2rem;
+
+}
+
+.readMore {
+  padding-top: 1rem;
+  font-size: 0.71rem;
+  color: var(--colorPrimaryDark);
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  border-bottom: thin solid ;
+  text-decoration: none !important;
+}
+
+.readMore:hover{
+
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    flex-direction: row;
+    padding: 1rem;
+  }
+
+  .texte{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .paveImg{
+    flex-basis: 25vw;
+    width: 25vw;
+    padding-top: 25vw;
+    margin-bottom: 0;
+  }
+  .readMore {
+        width: 100%;
+  }
+  
+}
