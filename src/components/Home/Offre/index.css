@@ -4,7 +4,7 @@
 
 }
 .offrePart{
-  padding: 1rem 4rem 0;
+  padding: 0 4rem 0;
   display: flex;
   flex-direction: row;
 
@@ -20,7 +20,8 @@
 }
 
 .argu{
-  flex:1;
+  flex: 1;
+  margin-bottom: 3rem;
   /*outline: 1px solid red;*/
   display: flex;
   flex-flow: column;
@@ -34,7 +35,7 @@
 
 .arguDeuxStars{
   height: 1.6rem;
-  margin: 0 auto;
+  margin: 0 auto 0.5rem;
 }
 .arguStar{
   display: inline-block;
@@ -46,6 +47,7 @@
   width: 1.6rem;
   height: 1.6rem;
   margin-bottom: 0.5rem;
+  
 }
 .arguTitre{
   margin: 0 0 1rem;
@@ -162,14 +164,23 @@
 @media (max-width: 650px) {
 
   .offre{
-    padding: 1rem;
+    margin-top: 1rem;
+  }
+
+  .offrePart{
+    padding: 2rem;
     flex-flow: column;
   }
   
   .blocCta{
     margin: 2rem auto; 
   }
-
+  .argu:last-child{
+    margin-left: 0;
+  }
+  .arguBouton{
+    max-width: 80%;
+  }
 }
 
 

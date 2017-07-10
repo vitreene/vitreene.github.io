@@ -1,4 +1,4 @@
 ---
-title: Articles
+title: Notes techniques
 layout: Post
 ---

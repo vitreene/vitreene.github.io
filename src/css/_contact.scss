@@ -1,14 +1,78 @@
+
+.a-propos-card{
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  border: thin solid;
+  padding: 1rem;
+  margin-bottom: 3rem;
+  img{
+    max-width: 50%;
+    margin: 0;
+  }
+  p{
+    padding: 3rem;
+    text-align: center;
+  }
+}
+
+.post-intro a.a-propos-mail-to{
+  display: block;
+  margin: 1rem auto 0;
+  font-size: 0.85rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: none;
+  letter-spacing: 0.1rem;
+    position: relative;
+
+  &:before{
+    content: "\2709";
+    position: relative;
+    top: .10em;
+    margin-right: .5rem;
+    font-size: 1.6rem;
+  }
+}
+
+
+
+@media (max-width: 650px) {
+  .a-propos-card{
+    display: flex;
+    flex-flow: column;
+    border: thin solid;
+    padding: 1rem;
+    margin-bottom: 3rem;
+    img{
+      max-width: 100%;
+      margin-bottom: 1rem;
+    }
+    p{
+      padding: 0 1rem;
+      text-align: center;
+    }
+  }
+
+}
+
+
+
 .contact-header{
   margin-top: -40px;
 }
 
 .contact-form-conteneur{
       margin: 0 auto;
-      width: 40rem;
+      max-width: 40rem;
 
  fieldset {
+    margin: 0;
+    padding: 0;
     display: block;
-      border: none;
+    border: none;
 }
 
 }
@@ -57,7 +121,7 @@
     // color: red;
     display: block;
     margin: 0 auto;
-    width: 25%;
+    padding: 0 2rem;
     height: 3rem;
     background-color: $white;
     border: 2px solid $couleur-logo ;

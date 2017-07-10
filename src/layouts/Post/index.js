@@ -8,7 +8,7 @@ import Page from "../Page"
 const Post = (props) => {
   const {body, ...reste} = props;
   const {__url} = props;
-  const {listPosts = true, title} = props.head;
+  const {listPosts = true, title, collection} = props.head;
   const [intro, texte] = (body) ? props.body.split('<!--intro-->') : '';
   return (
      <TransitionPage myKey={title}>
@@ -17,7 +17,11 @@ const Post = (props) => {
               header={ <Intro intro={intro}/> }
           >
             <hr />
-            {listPosts && <LatestPosts current__url={__url} />}
+            { listPosts && 
+              <LatestPosts 
+              current__url={__url}
+              cat={collection} />
+            }
           </Page>
      </TransitionPage>
   )

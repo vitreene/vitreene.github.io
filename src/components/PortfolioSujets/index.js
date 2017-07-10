@@ -3,6 +3,7 @@ import enhanceCollection from "phenomic/lib/enhance-collection"
 import PortfolioSujetsList from "../../components/PortfolioSujetsList"
 
 // import styles from "./index.css"
+const isClient = typeof window !== "undefined";
 
 const SujetsPortfolio = (props, { collection, metadata: {pkg} }) => {
   const portfolioList = enhanceCollection(collection, {
@@ -36,7 +37,9 @@ function loadFirstIMGs (sujets, homepage) {
 const preloadFirst = (srcs) => srcs.map( newIMG );
 
 function newIMG(src) {
+  if (isClient) {
     const img = new Image();
+    img.onload = () => img ;
     img.src = src;
-    return img;
+  }
 }

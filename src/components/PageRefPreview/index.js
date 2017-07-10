@@ -6,9 +6,10 @@ import styles from "./index.css"
 
 
 const PageRefPreview = (page, {metadata: {pkg}}) => {
+    
     const {__url, title, /*date, description,*/ excerpt} = page;
     const {photo, photoAlt, text } = excerpt;
-
+    
     const url = 'url(' + pkg.homepage + 'assets/' + photo + ')';
     const bgImg = {backgroundImage: url };
 

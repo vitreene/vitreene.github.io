@@ -1,6 +1,6 @@
 ---
-title: "Linarès Architectures, mise en lignes"
-published: 2016-10-15
+title: "Linarès architectures, mise en lignes"
+date: 2016-10-15
 collection: reference
 layout: Post
 draft: false

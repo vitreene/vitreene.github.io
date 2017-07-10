@@ -84,6 +84,11 @@ img + p {
   margin-top: 1em;
 }
 
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
 /* LAYOUT
 ///////////////////////////////////////// */
 

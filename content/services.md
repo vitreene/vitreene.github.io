@@ -25,6 +25,7 @@ Les pages créées sont révisées et validées au fur et à mesure. Après d’
 
 ## Améliorer le site
 Il est avantageux de penser l’optimisation du site dès sa conception Plusieurs types d’améliorations peuvent se combiner ensemble pour de meilleurs résultats&nbsp;:
+
 - optimisation pour le référencement naturel (SEO),
 - optimisation pour l’accessibilité, prise en compte des handicaps… et des robots d’indexation.
 - optimisation du temps de chargement des pages (minification, AMP, cache, cdn…)

@@ -6,14 +6,16 @@ import LatestPosts from '../../components/LatestPosts'
 import Home from '../../components/Home'
 import Offre from '../../components/Home/Offre'
 
-import styles from './index.css'
+// import styles from './index.css'
 
 const Homepage = (props) => {
+  // console.log('Homepage', props);
+  
   return (
   <TransitionPage top={false} myKey="homepage">
     <Home { ...props }
         header={
-            <CarouselLosange diapos={props.head.diapos}>
+            <CarouselLosange {...props.head}>
                 {props.head.title}
             </CarouselLosange>
         }>

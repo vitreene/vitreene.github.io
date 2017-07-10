@@ -1,3 +1,6 @@
+// local pour package.json
+//  192.168.0.11:3333/autosite/
+
 /* Desactiver le lien sur le heading : 40 node_modules/phenomic/lib/loader-plugin-markdown-transform-body-property-to-html/index.js
 */
 

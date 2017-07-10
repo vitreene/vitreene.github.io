@@ -1,8 +1,8 @@
 ---
 title: First Post, no hero.
 date: 2016-01-22
-layout: xPost
 ---
+layout: Post
 
 This is the first post!
 

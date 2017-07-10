@@ -1,21 +1,30 @@
 ---
 title: À propos
 layout: Post
+titleStyle: AltTitre
 listPosts: false
 siteDescription: 'Ce site est imaginé pour présenter au fur et à mesure quelques unes de mes réalisations'
 ---
 
-Bonjour,
-je suis Hervé Saint-Macary et je suis designer front-end sur Marseille et alentours.
-Le site réunit quelques notes et bouts de code HTML, CSS, et Javascript.
+<div class="a-propos-card">
+<img class="a-propos-portrait"  src="../assets/img/portrait_DSC_0153.jpg" alt="Hervé Saint-Macary, webdesign" />
+<p>Hervé Saint-Macary est concepteur graphique et élabore des sites sur-mesure et accessibles.
+<a class="a-propos-mail-to" href="mailto:contact@vitreene.com?&subject=Prendre%20contact%20avec%20Hervé">Contactez-moi</a>
+</p>
+</div>
 
+Les technologies employées sont principalement :
+
+- pour l’intégration HTML/CSS : **Sass**, **Knacss**.
+- pour le développement front-end : javascript, **React / Redux**, Vue.js  
+- CMS, **Wordpress** : création de thèmes et types de contenus personnalisés.
+- générateur de site statique : Phenomic,  MetalSmith.
+
+
+
+Membre actif du [Meetup Wordpress Marseille](https://www.meetup.com/fr-FR/Marseille-WordPress-Meetup/)
 
 ### Making-of
 Ce site est construit grâce à [Phenomic](http://phenomic.io), un générateur de sites statiques basé sur des composants React.
 
-
-### Quelques outils
-[Atom](https://atom.io), [Terminal](https://openclassrooms.com/courses/domptez-votre-mac-avec-mac-os-x-mavericks/le-terminal-dans-os-x), la superbe suite [Affinity Designer et Affinity Photo](https://affinity.serif.com/fr/), et la plupart des browsers dans leur version à deux chiffres.
-
-Je travaille sur Wordpress le jour et explore React et ses amis la nuit.
-
+<!--intro-->

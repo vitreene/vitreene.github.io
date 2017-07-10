@@ -74,11 +74,11 @@ export default class Menu extends Component {
                         <div className={styles.menuSpacer}></div>
 
                         <div className={styles.menuGroup1}>
-                            <Link  to={"/articles"}>
-                                Articles
-                            </Link>
                             <Link  to={"/portfolio"}>
                                 Réalisations
+                            </Link>
+                            <Link  to={"/articles"}>
+                                Notes
                             </Link>
                         </div>
                         <div className={styles.menuGroup2}>

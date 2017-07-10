@@ -4,13 +4,13 @@ published: 2016-01-08
 auteur: Hervé St Macary
 parentDir: articles
 collection: posts
-layout: xPost
 draft: true
 excerpt:
   text: "Connaissez-vous markdown ? un petit mémo bien pratique à avoir sous la main pour rédiger de beaux textes… facilement !"
   photo: img/example.jpg
   photoAlt: exemple
 ---
+layout: Post
 
 
 # My welcome
