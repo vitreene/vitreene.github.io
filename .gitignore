@@ -3,6 +3,6 @@ node_modules
 *.log
 
 # phenomic build
-dist
+# dist
 
 .vscode
