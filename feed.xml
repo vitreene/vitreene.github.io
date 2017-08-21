@@ -1,4 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[autosite]]></title><description><![CDATA[autosite]]></description><link>http://vitreene.com/</link><generator>RSS for Node</generator><lastBuildDate>Mon, 10 Jul 2017 13:31:45 GMT</lastBuildDate><atom:link href="http://vitreene.com/feed.xml" rel="self" type="application/rss+xml"/><item><title><![CDATA[Arradv, un site consacré à la basse vision]]></title><description><![CDATA[<p>L’Arradv est une association qui réunit des professionnels de santé et propose des aides aux personnes victimes de déficience visuelle. </p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[vitreene]]></title><description><![CDATA[vitreene]]></description><link>http://vitreene.com/</link><generator>RSS for Node</generator><lastBuildDate>Mon, 21 Aug 2017 20:50:08 GMT</lastBuildDate><atom:link href="http://vitreene.com/feed.xml" rel="self" type="application/rss+xml"/><item><title><![CDATA[Crop-manager, un composant React]]></title><description><![CDATA[<p>Crop-manager est un composant React dédié au recadrage d’images directement dans le navigateur.
+Complet, il permet de traiter rapidement une image de façon intuitive.</p>
+<p><a href="http://vitreene.com/crop-manager" class="post-boutonCta"> découvrez crop-manager </a></p>
+<p><img src="../../assets/img/motif-logo-crop-manager.jpg" alt="recadrer rapidement des images avec crop-manager"></p>
+<!--intro-->
+<p>Son usage est très simple : l’image se manipule à la souris, la touche shift permet de passer du mode déplacement au mode échelle / rotation. Sur les appareils tactiles, ces memes opérations se font à un ou deux doigts.</p>
+<h2 id="les-fonctionnalités">Les fonctionnalités</h2>
+<ul>
+<li>déplacement, mise à l’échelle et rotation libres,</li>
+<li>symétrie horizontale et verticale, basculement,</li>
+<li>cadrages prédéfinis.</li>
+<li>rendu optimisé par accentuation de la netteté.</li>
+<li>support tactile</li>
+<li>éditeur responsive, l’image éditée utilise toute la surface disponible, indépendamment de ses dimensions propres.</li>
+</ul>
+<p>crop-manager opère entièrement dans le navigateur. Les données de cadrage sont disponibles pour un traitement coté serveur.</p>
+<h2 id="limage-et-le-cadrage-sont-liés">L’image et le cadrage sont liés.</h2>
+<p><strong>Le cadre</strong> est défini par une <strong>dimension</strong> et un <strong>ratio</strong>. Par convention, la dimension est établie comme la diagonale de l’image ; le ratio est une valeur fixée par l’utilisateur. Dimension et ratio donnent les proportions initiales du cadre. Le cadre et l’image sont alignés sur leur <strong>point central</strong>.</p>
+<p><strong>Le cadrage</strong> est le résultat de la  transformation appliquée à l’image sur cette base : échelle, rotation et translation, exprimée en pourcentages. </p>
+<p>Les dimensions relatives permettent d’utiliser des sources de différentes tailles, légères coté utilisateur, et complètes coté serveur. Seules les données de cadrage sont transmises.</p>
+<p>Les valeurs du cadre données en pixels servent au rendu final. Seul le ratio largeur/hauteur est employé par le module. Cela autorise à générer simplement plusieurs rendus d’échelle différentes.</p>
+<p><a href="http://vitreene.com/crop-manager">La demo de crop-manager</a></p>
+<p><a href="https://github.com/vitreene/crop-manager">La source de l'app sur Github</a></p>
+<p><strong>Vous avez des remarques ou des idées pour améliorer ce composant ?
+<a href="../contact">N'hésitez pas à m'en parler.</a></strong></p>
+]]></description><link>http://vitreene.com/articles/crop-manager-presntation/</link><guid isPermaLink="true">http://vitreene.com/articles/crop-manager-presntation/</guid><pubDate>Tue, 01 Aug 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Arradv, un site consacré à la basse vision]]></title><description><![CDATA[<p>L’Arradv est une association qui réunit des professionnels de santé et propose des aides aux personnes victimes de déficience visuelle. </p>
 <p>En faisant le constat d’une risque amplifié de désocialisation, un parcours medico-social a d’abord été mis en place pour rendre de l’autonomie et réinsérer ces personnes handicapées.
 Récemment, un centre d’appel a été créé. De portée nationale, il est entièrement dédié aux questions touchant ce domaine.</p>
 <p>Pour la refonte de leur site, il semblait évident de proposer une solution qui prenne en  compte l’accessibilité.</p>
@@ -312,7 +337,7 @@ Les pages créées sont révisées et validées au fur et à mesure. Après d’
 </ul>
 <h2 id="entretien">Entretien</h2>
 <p>Le suivi de correction des bugs, l’archivage et les mise à jours sont assurés trois mois après la publication du site. Au delà, un plan de maintenance est proposé ; une formation est possible si vous souhaitez vous en charger vous même.</p>
-<p>Vous avez un projet ? <a href="../contact">Parlons-en ensemble !</a></p>
+<p>Vous avez un projet ? <a href="../contact">Parlons-en ensemble !</a></p>
 ]]></description><link>http://vitreene.com/services/</link><guid isPermaLink="true">http://vitreene.com/services/</guid></item><item><title><![CDATA[Et pourtant elle tourne ! (ma roue en SVG)]]></title><description><![CDATA[<p>Au départ, ce simple exercice d’animatique aurait pu être réalisé avec Flash, mais Flash est mort. Les navigateurs qui s'appuyaient dessus ne pourront d'ailleurs pas lire cette version en SVG, une version dégradée est prévue dans ce  cas.</p>
 <p>Quitte à faire tourner la roue, autant poursuivre en donnant la possibilité de la  personnaliser. Voici comment définir les lots anisi que le nombre de portions.</p>
 <div id="cible2" ></div>
